@@ -31,7 +31,7 @@ def _generate_map_snapshot(latitude, longitude):
             return None
         img = mpimg.imread(base_map_path)
 
-        fig, ax = plt.subplots(figsize=(4.8, 2.8))
+        fig, ax = plt.subplots(figsize=(4.8, 2.6))
         ax.imshow(img)
         ax.axis("off")
 
@@ -76,7 +76,8 @@ def generate_certified_report(
     remediation_plan: dict,
     latitude: float = None,
     longitude: float = None,
-    compliance_list: list = None
+    compliance_list: list = None,
+    health_risk: dict = None
 ) -> BytesIO:
     """
     Builds a high-impact certified field inspection PDF report.
@@ -84,17 +85,17 @@ def generate_certified_report(
     buffer = BytesIO()
     doc = SimpleDocTemplate(
         buffer, pagesize=A4,
-        topMargin=12*mm, bottomMargin=12*mm,
-        leftMargin=15*mm, rightMargin=15*mm
+        topMargin=10*mm, bottomMargin=10*mm,
+        leftMargin=14*mm, rightMargin=14*mm
     )
     styles = getSampleStyleSheet()
 
     title_style = ParagraphStyle("TitleStyle", parent=styles["Title"],
                                  fontSize=13, alignment=TA_CENTER, spaceAfter=2, fontName="Helvetica-Bold", textColor=colors.HexColor("#0A1418"))
     subtitle_style = ParagraphStyle("SubTitleStyle", parent=styles["Normal"],
-                                    fontSize=8.5, alignment=TA_CENTER, textColor=colors.HexColor("#4A606E"), spaceAfter=8)
+                                    fontSize=8.5, alignment=TA_CENTER, textColor=colors.HexColor("#4A606E"), spaceAfter=6)
     section_heading = ParagraphStyle("SectionHeading", parent=styles["Heading2"],
-                                     fontSize=10, spaceBefore=6, spaceAfter=4, fontName="Helvetica-Bold", textColor=colors.HexColor("#13242C"))
+                                     fontSize=9.5, spaceBefore=5, spaceAfter=3, fontName="Helvetica-Bold", textColor=colors.HexColor("#13242C"))
     body_style = ParagraphStyle("BodyStyle", parent=styles["Normal"], fontSize=8, leading=10, textColor=colors.HexColor("#222222"))
     small_style = ParagraphStyle("SmallStyle", parent=styles["Normal"], fontSize=7.5, leading=9.5, textColor=colors.HexColor("#444444"))
 
@@ -104,7 +105,7 @@ def generate_certified_report(
     elements.append(Paragraph("MINISTRY OF JAL SHAKTI &middot; GOVT. OF INDIA", subtitle_style))
     elements.append(Paragraph("CERTIFIED GROUNDWATER QUALITY & HEAVY METAL FIELD REPORT", title_style))
     elements.append(Paragraph("Smart India Hackathon SIH25067 | Tamil Nadu Water Supply & Drainage Board (TWAD)", subtitle_style))
-    elements.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor("#2A9D8F"), spaceAfter=8))
+    elements.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor("#2A9D8F"), spaceAfter=6))
 
     # 2. Metadata Grid
     report_time = datetime.now().strftime("%d-%m-%Y %H:%M IST")
@@ -122,11 +123,11 @@ def generate_certified_report(
     meta_table.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#F2F7F8")),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#D1DFE4")),
-        ('TOPPADDING', (0,0), (-1,-1), 3),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
+        ('TOPPADDING', (0,0), (-1,-1), 2.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2.5),
     ]))
     elements.append(meta_table)
-    elements.append(Spacer(1, 6))
+    elements.append(Spacer(1, 4))
 
     # 3. Primary Risk Readout Box
     if safety_category == "Safe":
@@ -134,15 +135,15 @@ def generate_certified_report(
         badge_text = "POTABLE / SAFE QUALITY"
     elif safety_category == "Moderate":
         badge_bg = colors.HexColor("#C99A44")
-        badge_text = "MODERATE CONTAMINATION (FILTRATION ADVISED)"
+        badge_text = "MODERATE CONTAMINATION"
     else:
         badge_bg = colors.HexColor("#C4602F")
         badge_text = "CRITICAL HAZARD - NON-POTABLE"
 
     readout_data = [
         [
-            Paragraph(f"<b>PREDICTED HPI SCORE:</b> <font size='12'><b>{hpi_value:.1f}</b></font>", body_style),
-            Paragraph(f"<b>EVALUATION INDEX (HEI):</b> <font size='10'><b>{hei_value:.2f}</b></font>", body_style),
+            Paragraph(f"<b>HPI SCORE:</b> <font size='12'><b>{hpi_value:.1f}</b></font>", body_style),
+            Paragraph(f"<b>EVALUATION (HEI):</b> <font size='10'><b>{hei_value:.2f}</b></font>", body_style),
             Paragraph(f"<font color='white'><b>{badge_text}</b></font>", ParagraphStyle("BadgeP", parent=small_style, alignment=TA_CENTER))
         ]
     ]
@@ -153,23 +154,22 @@ def generate_certified_report(
         ('ALIGN', (2,0), (2,0), 'CENTER'),
         ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
         ('GRID', (0,0), (-1,-1), 0.8, colors.HexColor("#BDCCD4")),
-        ('TOPPADDING', (0,0), (-1,-1), 5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 5),
+        ('TOPPADDING', (0,0), (-1,-1), 4),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
     ]))
     elements.append(readout_table)
-    elements.append(Spacer(1, 6))
+    elements.append(Spacer(1, 4))
 
     # 4. Parameter Breakdown Table
     elements.append(Paragraph("1. Hydrochemical Parameters & Standard Compliance (BIS IS 10500:2012)", section_heading))
     
     table_rows = [
         [Paragraph("<b>Parameter</b>", small_style),
-         Paragraph("<b>Measured / Est.</b>", small_style),
-         Paragraph("<b>Permissible Limit (Si)</b>", small_style),
+         Paragraph("<b>Concentration</b>", small_style),
+         Paragraph("<b>Permissible (Si)</b>", small_style),
          Paragraph("<b>Status / Excess</b>", small_style)]
     ]
 
-    # Physicochemical
     for p in ["pH", "TDS", "EC"]:
         if p in input_params:
             val = input_params[p]
@@ -177,7 +177,6 @@ def generate_certified_report(
             status_p = "Compliant" if (p == "pH" and 6.5 <= val <= 8.5) or (p == "TDS" and val <= 1000) or (p == "EC" and val <= 1500) else "Elevated"
             table_rows.append([Paragraph(p, small_style), Paragraph(f"{val:.1f}", small_style), Paragraph(limit_str, small_style), Paragraph(status_p, small_style)])
 
-    # Heavy Metals
     if compliance_list:
         for item in compliance_list:
             excess = f"+{item['excess_percentage']:.1f}%" if item['excess_percentage'] > 0 else "Compliant"
@@ -187,15 +186,6 @@ def generate_certified_report(
                 Paragraph(f"{item['Si']:.4f} mg/L", small_style),
                 Paragraph(f"{item['status']} ({excess})", small_style)
             ])
-    elif "Cd" in input_params:
-        for m in ["Cd", "Pb", "Fe", "Mn", "Cu", "Zn", "Ni"]:
-            if m in input_params:
-                table_rows.append([
-                    Paragraph(m, small_style),
-                    Paragraph(f"{input_params[m]:.4f} mg/L", small_style),
-                    Paragraph("Standard", small_style),
-                    Paragraph("Tested", small_style)
-                ])
 
     param_table = Table(table_rows, colWidths=[48*mm, 38*mm, 44*mm, 50*mm])
     param_table.setStyle(TableStyle([
@@ -203,34 +193,45 @@ def generate_certified_report(
         ('TEXTCOLOR', (0,0), (-1,0), colors.white),
         ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#D1DFE4")),
         ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#F9FBFC")]),
-        ('TOPPADDING', (0,0), (-1,-1), 2.5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 2.5),
+        ('TOPPADDING', (0,0), (-1,-1), 2),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 2),
     ]))
     elements.append(param_table)
-    elements.append(Spacer(1, 6))
+    elements.append(Spacer(1, 4))
 
-    # 5. Actionable Remediation Plan
-    elements.append(Paragraph("2. Actionable Engineering Remediation & Community Treatment Plan", section_heading))
-    
+    # 5. USEPA Human Health Risk Assessment Summary
+    if health_risk:
+        elements.append(Paragraph("2. USEPA Human Health Risk & Toxicological Assessment (RAGS Model)", section_heading))
+        health_text = (
+            f"<b>Child Non-Carcinogenic Hazard Index (HI):</b> {health_risk.get('child_hi', 0.0):.2f} "
+            f"[{health_risk.get('child_status', 'SAFE')}] &nbsp;|&nbsp; "
+            f"<b>Adult Hazard Index (HI):</b> {health_risk.get('adult_hi', 0.0):.2f} "
+            f"[{health_risk.get('adult_status', 'SAFE')}]<br/>"
+            f"<b>Primary Toxicological Hazard Driver:</b> {health_risk.get('primary_risk_driver', 'None')} "
+            f"(Targeting renal and neurological pathways)"
+        )
+        elements.append(Paragraph(health_text, small_style))
+        elements.append(Spacer(1, 4))
+
+    # 6. Actionable Remediation Plan
+    elements.append(Paragraph("3. Actionable Engineering Remediation & Community Treatment Plan", section_heading))
     rem_text = f"<b>Primary Verdict:</b> {remediation_plan.get('verdict', '')}<br/>"
     rem_text += f"<b>Estimated Treatment Cost:</b> Rs. {remediation_plan.get('estimated_cost_per_kl', 0.0):.2f} / kL (1000 Liters)<br/>"
     rem_text += "<b>Recommended Engineering Process Flow:</b><br/>"
-    
     for step in remediation_plan.get("treatment_steps", []):
         rem_text += f"&bull; <b>{step['stage']}:</b> {step['technology']} &mdash; <i>{step['purpose']}</i> (Est: Rs. {step['cost_inr_kl']:.2f}/kL)<br/>"
-        
     elements.append(Paragraph(rem_text, small_style))
-    elements.append(Spacer(1, 6))
+    elements.append(Spacer(1, 4))
 
-    # 6. Map Snapshot
+    # 7. Map Snapshot
     map_buf = _generate_map_snapshot(latitude, longitude)
     if map_buf:
-        elements.append(Paragraph("3. Regional Spatial Location Verification", section_heading))
-        elements.append(RLImage(map_buf, width=170*mm, height=50*mm))
-        elements.append(Spacer(1, 6))
+        elements.append(Paragraph("4. Regional Spatial Location Verification", section_heading))
+        elements.append(RLImage(map_buf, width=170*mm, height=42*mm))
+        elements.append(Spacer(1, 4))
 
-    # 7. Official Footer
-    elements.append(HRFlowable(width="100%", thickness=0.8, color=colors.HexColor("#A0B4BC"), spaceAfter=4))
+    # 8. Official Footer
+    elements.append(HRFlowable(width="100%", thickness=0.8, color=colors.HexColor("#A0B4BC"), spaceAfter=3))
     footer_text = "System Output &middot; AI-Driven Assessment of Heavy Metal Pollution Indices &middot; Verified via BIS IS 10500 Guidelines"
     elements.append(Paragraph(footer_text, ParagraphStyle("Footer", parent=small_style, alignment=TA_CENTER, textColor=colors.grey)))
 

@@ -21,6 +21,7 @@ from analytical_engine import (
     calculate_exact_hpi, calculate_exact_hei, calculate_metal_index,
     calculate_contamination_degree, evaluate_metal_compliance, classify_pollution_severity
 )
+from health_risk_engine import calculate_human_health_risk
 from remediation_engine import generate_remediation_plan
 from pdf_report import generate_certified_report
 from alert_system import trigger_alert
@@ -57,7 +58,6 @@ def load_all_models():
 
 models = load_all_models()
 
-# Load Benchmarks if available
 benchmarks_path = os.path.join(MODEL_DIR, "benchmarks.json")
 benchmarks_data = {}
 if os.path.exists(benchmarks_path):
@@ -84,7 +84,7 @@ season = st.sidebar.selectbox(T["season_label"], [T["pre_monsoon"], T["post_mons
 season_code = 1 if season == T["post_monsoon"] else 0
 
 st.sidebar.markdown("---")
-st.sidebar.info("💡 **SIH25067 Notice:** Mode A calculates exact BIS IS 10500 standards. Mode B uses ML proxy inference for low-cost field sensors.")
+st.sidebar.info("💡 **Dual Paradigm:** Mode A computes exact **BIS IS 10500:2012** equations. Mode B runs an **AI surrogate model** for low-cost field sensor triage.")
 
 # ------------------------------------------------------------------------------
 # HERO HEADER BANNER
@@ -98,7 +98,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ------------------------------------------------------------------------------
-# MAIN APPLICATION TABS
+# MAIN TABS
 # ------------------------------------------------------------------------------
 tab_single, tab_batch, tab_whatif, tab_iot, tab_map, tab_benchmarks = st.tabs([
     T["tab_single"],
@@ -113,13 +113,34 @@ tab_single, tab_batch, tab_whatif, tab_iot, tab_map, tab_benchmarks = st.tabs([
 # TAB 1: SINGLE FIELD ASSESSMENT
 # ==============================================================================
 with tab_single:
+    # Scenario Demo Presets
+    st.markdown("**⚡ 1-Click Hackathon Demo Presets:**")
+    p_col1, p_col2, p_col3 = st.columns(3)
+    
+    preset_chosen = None
+    with p_col1:
+        if st.button("🟢 Load Safe Well (Sayalgudi #2)", use_container_width=True):
+            preset_chosen = {"loc": "Sayalgudi Clean Well #2", "pH": 7.82, "TDS": 863.0, "EC": 1210.0, "Cd": 0.0009, "Pb": 0.0010, "Fe": 0.187, "Mn": 0.091, "Cu": 0.023, "Zn": 0.901, "Ni": 0.001}
+    with p_col2:
+        if st.button("🟡 Load Moderate Leaching (Kadaladi #14)", use_container_width=True):
+            preset_chosen = {"loc": "Kadaladi Station #14", "pH": 7.42, "TDS": 1419.0, "EC": 2200.0, "Cd": 0.0011, "Pb": 0.0010, "Fe": 0.282, "Mn": 0.141, "Cu": 0.028, "Zn": 0.269, "Ni": 0.001}
+    with p_col3:
+        if st.button("🔴 Load Toxic Cadmium Spike (Kadaladi #6)", use_container_width=True):
+            preset_chosen = {"loc": "Kadaladi Industrial Zone #6", "pH": 7.31, "TDS": 1954.0, "EC": 2877.0, "Cd": 0.0038, "Pb": 0.0010, "Fe": 0.580, "Mn": 0.300, "Cu": 0.025, "Zn": 1.400, "Ni": 0.001}
+
+    if preset_chosen:
+        st.session_state["preset_data"] = preset_chosen
+
+    p_data = st.session_state.get("preset_data", {})
+
     col_input, col_output = st.columns([1, 1.15])
 
     with col_input:
         st.markdown('<div class="panel">', unsafe_allow_html=True)
         st.markdown(f"### 📍 {T['location_header']}")
         
-        loc_name = st.text_input(T["location_name"], value="Kadaladi Field Station #4", placeholder="Village / Borewell Name")
+        default_loc = p_data.get("loc", "Kadaladi Field Station #4")
+        loc_name = st.text_input(T["location_name"], value=default_loc, placeholder="Village / Borewell Name")
         c_lat, c_lon = st.columns(2)
         with c_lat:
             latitude = st.number_input(T["latitude_label"], min_value=8.0, max_value=14.0, value=9.2220, step=0.001, format="%.5f")
@@ -127,29 +148,29 @@ with tab_single:
             longitude = st.number_input(T["longitude_label"], min_value=76.0, max_value=81.0, value=78.4960, step=0.001, format="%.5f")
 
         st.markdown(f"### 🧪 {T['water_params_header']}")
-        pH = st.slider("pH Level", min_value=5.0, max_value=10.0, value=7.35, step=0.05)
+        pH = st.slider("pH Level", min_value=5.0, max_value=10.0, value=float(p_data.get("pH", 7.35)), step=0.05)
         c_tds, c_ec = st.columns(2)
         with c_tds:
-            TDS = st.number_input("TDS (mg/L / ppm)", min_value=50.0, max_value=5000.0, value=1150.0, step=10.0)
+            TDS = st.number_input("TDS (mg/L / ppm)", min_value=50.0, max_value=5000.0, value=float(p_data.get("TDS", 1150.0)), step=10.0)
         with c_ec:
-            EC = st.number_input("EC (µS/cm)", min_value=50.0, max_value=7500.0, value=1650.0, step=10.0)
+            EC = st.number_input("EC (µS/cm)", min_value=50.0, max_value=7500.0, value=float(p_data.get("EC", 1650.0)), step=10.0)
 
         metals_input = {}
         if is_full_lab_mode:
             st.markdown(f"### 🔬 {T['metal_params_header']}")
-            st.caption("Enter laboratory quantified ICP-MS/AAS concentrations:")
+            st.caption("Laboratory ICP-MS / AAS Analytical Quantifications:")
             m_c1, m_c2 = st.columns(2)
             with m_c1:
-                metals_input["Cd"] = st.number_input("Cadmium (Cd) [BIS: 0.003]", 0.0, 0.05, 0.0018, 0.0001, format="%.5f")
-                metals_input["Pb"] = st.number_input("Lead (Pb) [BIS: 0.010]", 0.0, 0.20, 0.0010, 0.0005, format="%.4f")
-                metals_input["Fe"] = st.number_input("Iron (Fe) [BIS: 0.300]", 0.0, 3.00, 0.3800, 0.0100, format="%.4f")
-                metals_input["Mn"] = st.number_input("Manganese (Mn) [BIS: 0.100]", 0.0, 2.00, 0.1400, 0.0050, format="%.4f")
+                metals_input["Cd"] = st.number_input("Cadmium (Cd) [BIS: 0.003]", 0.0, 0.05, float(p_data.get("Cd", 0.0018)), 0.0001, format="%.5f")
+                metals_input["Pb"] = st.number_input("Lead (Pb) [BIS: 0.010]", 0.0, 0.20, float(p_data.get("Pb", 0.0010)), 0.0005, format="%.4f")
+                metals_input["Fe"] = st.number_input("Iron (Fe) [BIS: 0.300]", 0.0, 3.00, float(p_data.get("Fe", 0.3800)), 0.0100, format="%.4f")
+                metals_input["Mn"] = st.number_input("Manganese (Mn) [BIS: 0.100]", 0.0, 2.00, float(p_data.get("Mn", 0.1400)), 0.0050, format="%.4f")
             with m_c2:
-                metals_input["Cu"] = st.number_input("Copper (Cu) [BIS: 0.050]", 0.0, 2.00, 0.0350, 0.0010, format="%.4f")
-                metals_input["Zn"] = st.number_input("Zinc (Zn) [BIS: 5.000]", 0.0, 10.0, 1.2500, 0.0500, format="%.4f")
-                metals_input["Ni"] = st.number_input("Nickel (Ni) [BIS: 0.020]", 0.0, 0.50, 0.0010, 0.0005, format="%.4f")
+                metals_input["Cu"] = st.number_input("Copper (Cu) [BIS: 0.050]", 0.0, 2.00, float(p_data.get("Cu", 0.0350)), 0.0010, format="%.4f")
+                metals_input["Zn"] = st.number_input("Zinc (Zn) [BIS: 5.000]", 0.0, 10.0, float(p_data.get("Zn", 1.2500)), 0.0500, format="%.4f")
+                metals_input["Ni"] = st.number_input("Nickel (Ni) [BIS: 0.020]", 0.0, 0.50, float(p_data.get("Ni", 0.0010)), 0.0005, format="%.4f")
         else:
-            st.info("💡 **Mode B Active:** Heavy metals are unmeasured. The AI surrogate engine will infer toxic risks and estimated Cadmium exposure from pH, TDS, EC & Season.")
+            st.info("💡 **Mode B Active:** Heavy metals are unmeasured. The AI surrogate engine infers toxic risks and estimated Cadmium exposure from pH, TDS, EC & Season.")
 
         assess_clicked = st.button(T["predict_button"], type="primary", use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
@@ -157,7 +178,7 @@ with tab_single:
     with col_output:
         st.markdown('<div class="panel">', unsafe_allow_html=True)
 
-        if assess_clicked:
+        if assess_clicked or preset_chosen:
             if is_full_lab_mode:
                 # Mode A: 100% Deterministic BIS Analytical Calculation
                 hpi_val, _ = calculate_exact_hpi(metals_input)
@@ -166,11 +187,11 @@ with tab_single:
                 cdeg_val = calculate_contamination_degree(metals_input)
                 cat_name, cat_col, cat_desc = classify_pollution_severity(hpi_val)
                 compliance_report = evaluate_metal_compliance(metals_input)
+                health_risk = calculate_human_health_risk(metals_input)
                 remediation = generate_remediation_plan(metals_input, pH, TDS, EC, cat_name)
                 conf_note = T["full_confidence_note"]
                 inferred_metals = metals_input
 
-                # Anomaly check on full vector
                 anomaly_vec = pd.DataFrame([{
                     "Cu": metals_input["Cu"], "Zn": metals_input["Zn"], "Mn": metals_input["Mn"],
                     "Fe": metals_input["Fe"], "Cd": metals_input["Cd"], "Pb": metals_input["Pb"],
@@ -190,17 +211,16 @@ with tab_single:
                 cat_name = str(models["clf_partial"].predict(X_proxy)[0]) if "clf_partial" in models else "Moderate"
                 _, cat_col, cat_desc = classify_pollution_severity(hpi_val)
 
-                # Inferred metal proxies
                 inferred_cd = float(models["reg_proxy_cd"].predict(X_proxy)[0]) if "reg_proxy_cd" in models else 0.0015
                 inferred_fe = float(models["reg_proxy_fe"].predict(X_proxy)[0]) if "reg_proxy_fe" in models else 0.30
                 inferred_mn = float(models["reg_proxy_mn"].predict(X_proxy)[0]) if "reg_proxy_mn" in models else 0.12
                 
                 inferred_metals = {"Cd": inferred_cd, "Fe": inferred_fe, "Mn": inferred_mn, "Pb": 0.001, "Ni": 0.001, "Cu": 0.02, "Zn": 1.0}
                 compliance_report = evaluate_metal_compliance(inferred_metals)
+                health_risk = calculate_human_health_risk(inferred_metals)
                 remediation = generate_remediation_plan(inferred_metals, pH, TDS, EC, cat_name)
                 conf_note = T["partial_confidence_note"]
                 
-                # Proxy anomaly check
                 is_anomaly = (hpi_val > 70.0 and TDS < 400.0) or (pH < 6.0)
                 anomaly_score = -0.42 if is_anomaly else 0.35
 
@@ -209,7 +229,8 @@ with tab_single:
                 "cat_desc": cat_desc, "compliance": compliance_report, "remediation": remediation,
                 "conf_note": conf_note, "is_full_mode": is_full_lab_mode, "pH": pH, "TDS": TDS, "EC": EC,
                 "metals": inferred_metals, "loc_name": loc_name, "latitude": latitude, "longitude": longitude,
-                "season": season, "is_anomaly": is_anomaly, "anomaly_score": anomaly_score
+                "season": season, "is_anomaly": is_anomaly, "anomaly_score": anomaly_score,
+                "health_risk": health_risk
             }
 
         assess = st.session_state.get("assessment")
@@ -231,6 +252,16 @@ with tab_single:
                 st.warning(T["moderate_msg"])
             else:
                 st.success(T["safe_msg"])
+
+            # USEPA Human Health Risk Card
+            hr = assess.get("health_risk", {})
+            if hr:
+                st.markdown("#### 🩺 USEPA Human Health Toxicological Assessment (RAGS)")
+                c_h1, c_h2, c_h3 = st.columns(3)
+                c_h1.metric("Child Hazard Index (HI)", f"{hr['child_hi']:.2f}", hr["child_status"])
+                c_h2.metric("Adult Hazard Index (HI)", f"{hr['adult_hi']:.2f}", hr["adult_status"])
+                c_h3.metric("Primary Toxic Driver", f"{hr['primary_risk_driver']}", "Target: Kidneys/CNS")
+                st.caption("ℹ️ *USEPA Superfund Guideline: HI > 1.0 indicates non-carcinogenic toxic health danger for drinking consumption.*")
 
             # Metal Compliance Table
             st.markdown("#### 📋 BIS IS 10500 Standard Compliance Breakdown")
@@ -268,7 +299,8 @@ with tab_single:
                 input_params={"pH": assess["pH"], "TDS": assess["TDS"], "EC": assess["EC"], **assess["metals"]},
                 remediation_plan=assess["remediation"],
                 latitude=assess["latitude"], longitude=assess["longitude"],
-                compliance_list=assess["compliance"]
+                compliance_list=assess["compliance"],
+                health_risk=assess.get("health_risk")
             )
             st.download_button(
                 label=T["download_report"],
@@ -282,7 +314,7 @@ with tab_single:
         st.markdown('</div>', unsafe_allow_html=True)
 
 # ==============================================================================
-# TAB 2: BATCH CSV SCREENING (FOR DISTRICT WATER SURVEYORS)
+# TAB 2: BATCH CSV SCREENING
 # ==============================================================================
 with tab_batch:
     st.markdown('<div class="panel">', unsafe_allow_html=True)
@@ -308,7 +340,6 @@ with tab_batch:
             batch_data = pd.read_csv(uploaded_file)
             st.success(f"Loaded {len(batch_data)} survey records successfully.")
             
-            # Run Batch Inference
             reg_model = models.get("reg_partial")
             clf_model = models.get("clf_partial")
 
@@ -318,7 +349,6 @@ with tab_batch:
                 batch_data["Predicted_HPI"] = np.round(reg_model.predict(X_b), 1)
                 batch_data["Safety_Category"] = clf_model.predict(X_b)
                 
-                # Metrics Row
                 m1, m2, m3, m4 = st.columns(4)
                 m1.metric("Total Surveyed Wells", len(batch_data))
                 safe_count = (batch_data["Safety_Category"] == "Safe").sum()
@@ -331,7 +361,6 @@ with tab_batch:
                 st.markdown("#### 📊 Batch Screening Results Table")
                 st.dataframe(batch_data, use_container_width=True)
 
-                # Batch CSV Download
                 csv_out = batch_data.to_csv(index=False).encode('utf-8')
                 st.download_button(
                     "📥 Export Processed Assessment CSV",
@@ -433,6 +462,12 @@ with tab_iot:
         <div class="readout-label">Packet Received: {packet['timestamp']} | Node: {packet['node_id']} | Battery: {t['battery_voltage']}V</div>
     </div>
     """, unsafe_allow_html=True)
+
+    st.markdown("#### ⚡ ECE Analog Front-End (AFE) Signal & Calibration Inspector")
+    afe_c1, afe_c2, afe_c3 = st.columns(3)
+    afe_c1.metric("ADC Reference Voltage", "3.30 V (12-bit, 4095 LSB)")
+    afe_c2.metric("pH Electrode Slope (Nernst)", "-59.16 mV / pH unit")
+    afe_c3.metric("Temperature Compensation", "+2.0% / °C offset")
 
     with st.expander("🔌 ECE Hardware Architecture & ESP32 Circuit Specification"):
         st.markdown("""
