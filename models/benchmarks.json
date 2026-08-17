@@ -1,0 +1,45 @@
+{
+    "regression_models": {
+        "Random Forest Regressor": {
+            "r2_mean": 0.9166,
+            "r2_std": 0.0272,
+            "mae": 4.7084,
+            "rmse": 6.2942
+        },
+        "Gradient Boosting Regressor": {
+            "r2_mean": 0.9305,
+            "r2_std": 0.0312,
+            "mae": 4.3836,
+            "rmse": 5.7513
+        },
+        "Support Vector Regressor (SVR)": {
+            "r2_mean": 0.0612,
+            "r2_std": 0.0888,
+            "mae": 15.7073,
+            "rmse": 21.9975
+        },
+        "Ridge Regressor (L2)": {
+            "r2_mean": 0.846,
+            "r2_std": 0.0354,
+            "mae": 6.9182,
+            "rmse": 8.7507
+        }
+    },
+    "target_estimations": {
+        "Cd": {
+            "r2_mean": 0.9119
+        },
+        "Fe": {
+            "r2_mean": 0.3925
+        },
+        "Mn": {
+            "r2_mean": 0.6016
+        }
+    },
+    "classification": {
+        "Random Forest Classifier": {
+            "accuracy": 0.8275,
+            "f1_weighted": 0.822
+        }
+    }
+}
