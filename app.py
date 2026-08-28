@@ -1,8 +1,7 @@
 # ==============================================================================
-# Groundwater Heavy Metal Quality Analyzer & Estimator
-# Department of Electronics and Communication Engineering
-# Chennai Institute of Technology (CIT), Chennai
-# Team: Manickavel C & D Dhinesh Karthick
+# Groundwater Heavy Metal Intelligence System (GHMIS)
+# Smart India Hackathon SIH25067 | Ministry of Jal Shakti | Govt. of India
+# Team: Manickavel C (ECE), D Dhinesh Karthick
 # ==============================================================================
 
 import streamlit as st
@@ -33,16 +32,16 @@ from iot_stream import generate_telemetry_packet, MONITORING_NODES
 from folium_map import build_interactive_map
 
 st.set_page_config(
-    page_title="Groundwater Heavy Metal Quality Analyzer",
+    page_title="Groundwater Heavy Metal Intelligence System",
     layout="wide",
-    page_icon="💧",
+    page_icon="🌊",
     initial_sidebar_state="expanded"
 )
 
 # ------------------------------------------------------------------------------
 # SIDEBAR CONTROLS (THEME & LANGUAGE)
 # ------------------------------------------------------------------------------
-st.sidebar.markdown("### 🎨 Visual Theme / தோற்றம்")
+st.sidebar.markdown("### 🎨 Visual Settings / அமைப்புகள்")
 theme_choice = st.sidebar.radio("Theme Mode", ["🌙 Dark Mode", "☀️ Light Mode"], index=0, label_visibility="collapsed")
 active_theme = "Dark" if "Dark" in theme_choice else "Light"
 
@@ -53,7 +52,7 @@ lang = st.sidebar.selectbox("🌐 Language / மொழி", ["English", "தம�
 T = TRANSLATIONS[lang]
 
 st.sidebar.markdown("---")
-st.sidebar.markdown(f"### ⚙️ {T['input_mode_header']}")
+st.sidebar.markdown(f"### {T['input_mode_header']}")
 mode_choice = st.sidebar.radio(
     T["input_mode_question"],
     [T["mode_full"], T["mode_partial"]],
@@ -62,20 +61,12 @@ mode_choice = st.sidebar.radio(
 )
 is_full_lab_mode = (mode_choice == T["mode_full"])
 
-st.sidebar.markdown(f"### 🗓️ {T['season_header']}")
+st.sidebar.markdown(f"### {T['season_header']}")
 season = st.sidebar.selectbox(T["season_label"], [T["pre_monsoon"], T["post_monsoon"]], label_visibility="collapsed")
 season_code = 1 if season == T["post_monsoon"] else 0
 
 st.sidebar.markdown("---")
-with st.sidebar.expander("👥 Project & Team Details / விவரம்"):
-    st.markdown("""
-    **College:** Chennai Institute of Technology (CIT)  
-    **Department:** Electronics and Communication Engineering (ECE)  
-    **Project Team:** Manickavel C & D Dhinesh Karthick  
-    **Course:** Intelligent Computing using Machine Learning  
-    **Field Region:** Ramanathapuram District Coastal Aquifers  
-    **Hardware Node:** ESP-WROOM-32 (12-bit ADC)
-    """)
+st.sidebar.info("💡 **Dual Paradigm:** Mode A computes exact **BIS IS 10500:2012** equations. Mode B runs an **AI surrogate model** for low-cost field sensor triage." if lang == "English" else "💡 **இரட்டை முறைமை:** முறை A துல்லியமான **BIS IS 10500:2012** சூத்திரங்களைக் கணக்கிடுகிறது. முறை B குறைந்த விலை IoT சென்சார்களுக்கான **AI கணிப்பு மாதிரியை** இயக்குகிறது.")
 
 # Load Machine Learning Models
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "models")
@@ -111,9 +102,9 @@ if os.path.exists(benchmarks_path):
 # ------------------------------------------------------------------------------
 st.markdown(f"""
 <div class="hero">
-    <div class="hero-eyebrow">DEPARTMENT OF ELECTRONICS AND COMMUNICATION ENGINEERING &middot; CIT</div>
-    <div class="hero-title">{T['title']}</div>
-    <div class="hero-subtitle">{T['project_tag']}</div>
+    <div class="hero-eyebrow">SIH25067 &middot; MINISTRY OF JAL SHAKTI &middot; TAMIL NADU WATER SUPPLY (TWAD)</div>
+    <div class="hero-title">{T['title'].replace('🌊 ', '')}</div>
+    <div class="hero-subtitle">{T['subtitle']}</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -130,7 +121,7 @@ tab_single, tab_batch, tab_whatif, tab_iot, tab_map, tab_benchmarks = st.tabs([
 ])
 
 # ==============================================================================
-# TAB 1: SINGLE SAMPLE ANALYSIS
+# TAB 1: SINGLE FIELD ASSESSMENT
 # ==============================================================================
 with tab_single:
     st.markdown(f"**{T['demo_presets_header']}**")
@@ -142,10 +133,10 @@ with tab_single:
             preset_chosen = {"loc": "Sayalgudi Clean Well #2", "pH": 7.82, "TDS": 863.0, "EC": 1210.0, "Cd": 0.0009, "Pb": 0.0010, "Fe": 0.187, "Mn": 0.091, "Cu": 0.023, "Zn": 0.901, "Ni": 0.001, "lat": 9.36154, "lon": 78.45045}
     with p_col2:
         if st.button(T["btn_preset_mod"], use_container_width=True):
-            preset_chosen = {"loc": "Kadaladi Village Well #14", "pH": 7.42, "TDS": 1419.0, "EC": 2200.0, "Cd": 0.0011, "Pb": 0.0010, "Fe": 0.282, "Mn": 0.141, "Cu": 0.028, "Zn": 0.269, "Ni": 0.001, "lat": 9.24068, "lon": 78.57501}
+            preset_chosen = {"loc": "Kadaladi Station #14", "pH": 7.42, "TDS": 1419.0, "EC": 2200.0, "Cd": 0.0011, "Pb": 0.0010, "Fe": 0.282, "Mn": 0.141, "Cu": 0.028, "Zn": 0.269, "Ni": 0.001, "lat": 9.24068, "lon": 78.57501}
     with p_col3:
         if st.button(T["btn_preset_crit"], use_container_width=True):
-            preset_chosen = {"loc": "Kadaladi Coastal Industrial Zone #6", "pH": 7.31, "TDS": 1954.0, "EC": 2877.0, "Cd": 0.0038, "Pb": 0.0010, "Fe": 0.580, "Mn": 0.300, "Cu": 0.025, "Zn": 1.400, "Ni": 0.001, "lat": 9.21200, "lon": 78.47800}
+            preset_chosen = {"loc": "Kadaladi Industrial Zone #6", "pH": 7.31, "TDS": 1954.0, "EC": 2877.0, "Cd": 0.0038, "Pb": 0.0010, "Fe": 0.580, "Mn": 0.300, "Cu": 0.025, "Zn": 1.400, "Ni": 0.001, "lat": 9.21200, "lon": 78.47800}
 
     if preset_chosen:
         st.session_state["preset_data"] = preset_chosen
@@ -190,9 +181,9 @@ with tab_single:
             else:
                 def_lat = float(p_data.get("lat", 9.2220))
                 def_lon = float(p_data.get("lon", 78.4960))
-                default_loc = p_data.get("loc", "Kadaladi Station Sample #4" if lang == "English" else "கடலாடி ஆய்வு மையம் #4")
+                default_loc = p_data.get("loc", "Kadaladi Field Station #4" if lang == "English" else "கடலாடி ஆய்வு மையம் #4")
 
-            loc_name = st.text_input(T["location_name"], value=default_loc, placeholder="e.g. Kadaladi Borewell #4")
+            loc_name = st.text_input(T["location_name"], value=default_loc, placeholder="Village / Borewell Name")
             c_lat, c_lon = st.columns(2)
             with c_lat:
                 latitude = st.number_input(T["latitude_label"], min_value=8.0, max_value=14.0, value=def_lat, step=0.001, format="%.5f")
@@ -332,7 +323,7 @@ with tab_single:
                 # USEPA Human Health Risk Card
                 hr = assess.get("health_risk", {})
                 if hr:
-                    st.markdown(f"#### 🩺 {T['health_risk_header']}")
+                    st.markdown(f"#### {T['health_risk_header']}")
                     c_h1, c_h2, c_h3 = st.columns(3)
                     c_h1.metric(T["child_hi_label"], f"{hr['child_hi']:.2f}", hr["child_status"])
                     c_h2.metric(T["adult_hi_label"], f"{hr['adult_hi']:.2f}", hr["adult_status"])
@@ -357,7 +348,7 @@ with tab_single:
                     st.dataframe(comp_display, use_container_width=True, hide_index=True)
 
                 # Actionable Remediation Advisor
-                st.markdown(f"#### 💧 {T['treatment_advisor_header']}")
+                st.markdown(f"#### {T['treatment_advisor_header']}")
                 st.markdown(f"**{T['action_verdict']}** {assess['remediation']['verdict']}")
                 st.metric(
                     label=f"{T['treatment_cost_label']} ({T['per_kl']})",
@@ -389,7 +380,7 @@ with tab_single:
                 st.download_button(
                     label=T["download_report"],
                     data=pdf_bytes,
-                    file_name=f"Water_Report_{assess['loc_name'].replace(' ', '_')}.pdf",
+                    file_name=f"Field_Report_{assess['loc_name'].replace(' ', '_')}.pdf",
                     mime="application/pdf",
                     use_container_width=True
                 )
@@ -456,7 +447,7 @@ with tab_batch:
                 st.error(f"Error processing batch CSV: {e}")
 
 # ==============================================================================
-# TAB 3: TREATMENT "WHAT-IF" SIMULATOR
+# TAB 3: TREATMENT "WHAT-IF" COUNTERFACTUAL SIMULATOR
 # ==============================================================================
 with tab_whatif:
     with st.container(border=True):
@@ -465,7 +456,7 @@ with tab_whatif:
 
         w_col1, w_col2 = st.columns(2)
         with w_col1:
-            st.markdown(f"#### 🧪 {T['whatif_raw_header']}")
+            st.markdown(f"#### {T['whatif_raw_header']}")
             raw_ph = st.slider(T["whatif_raw_ph"], 5.0, 9.5, 6.2, 0.1, key="raw_ph")
             raw_tds = st.slider(T["whatif_raw_tds"], 100.0, 3000.0, 1850.0, 50.0, key="raw_tds")
             raw_ec = raw_tds * 1.45
@@ -485,7 +476,7 @@ with tab_whatif:
             """, unsafe_allow_html=True)
 
         with w_col2:
-            st.markdown(f"#### 💧 {T['whatif_treated_header']}")
+            st.markdown(f"#### {T['whatif_treated_header']}")
             treat_ph = st.slider(T["whatif_target_ph"], 6.5, 8.5, 7.4, 0.1, key="treat_ph")
             treat_tds = st.slider(T["whatif_target_tds"], 50.0, 1000.0, 250.0, 25.0, key="treat_tds")
             treat_ec = treat_tds * 1.45
@@ -506,7 +497,7 @@ with tab_whatif:
             st.metric(label=T["whatif_delta_label"], value=f"-{delta_hpi:.1f} pts", delta=f"{delta_hpi/raw_hpi*100:.1f}% {T['whatif_improvement']}")
 
 # ==============================================================================
-# TAB 4: LIVE ESP32 SENSOR TELEMETRY
+# TAB 4: LIVE IOT EDGE TELEMETRY STREAM
 # ==============================================================================
 with tab_iot:
     with st.container(border=True):
@@ -540,13 +531,13 @@ with tab_iot:
         <div class="readout" style="--sev-color: {severity_color(iot_cat, active_theme)}; margin-top:1rem;">
             <div class="readout-label">{T['iot_edge_label']}</div>
             <div class="readout-value">HPI {iot_hpi:.1f} &middot; {iot_cat.upper()}</div>
-            <div class="readout-label">Node: {packet['node_id']} | Battery: {t['battery_voltage']}V | Signal: -68 dBm</div>
+            <div class="readout-label">Packet Received: {packet['timestamp']} | Node: {packet['node_id']} | Battery: {t['battery_voltage']}V</div>
         </div>
         """, unsafe_allow_html=True)
 
         st.markdown(f"#### {T['iot_afe_header']}")
         afe_c1, afe_c2, afe_c3 = st.columns(3)
-        afe_c1.metric(T["iot_adc_ref"], "3.30 V (12-bit ADC)")
+        afe_c1.metric(T["iot_adc_ref"], "3.30 V (12-bit, 4095 LSB)")
         afe_c2.metric(T["iot_nernst_slope"], "-59.16 mV / pH unit")
         afe_c3.metric(T["iot_temp_comp"], "+2.0% / °C offset")
 
