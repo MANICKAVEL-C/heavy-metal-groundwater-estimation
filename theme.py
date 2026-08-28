@@ -42,7 +42,7 @@ def inject_css(theme_mode: str = "Dark"):
         shadow = "0 4px 20px rgba(0,0,0,0.35)"
         input_bg = "#1A2E37"
         input_text = "#E8EEF0"
-        tab_inactive_color = "#A4BAC8"
+        tab_inactive_color = "#E2EDF3"  # Ultra-bright, 100% crisp white-silver in Dark Mode
     else:
         # Clean Scientific Light Theme Tokens
         bg_deep = "#F4F7F9"
@@ -63,7 +63,7 @@ def inject_css(theme_mode: str = "Dark"):
         shadow = "0 4px 18px rgba(16,32,40,0.06)"
         input_bg = "#FFFFFF"
         input_text = "#0E1E26"
-        tab_inactive_color = "#20343F"
+        tab_inactive_color = "#0E1E26"  # Deep, bold high-contrast slate in Light Mode
 
     return f"""
 <style>
@@ -371,36 +371,73 @@ label, .stRadio label, .stSelectbox label, .stTextInput label, .stNumberInput la
     color: var(--text-primary) !important;
 }}
 
-/* ---------- TABS COMPLETE CONTRAST FIX ---------- */
-[data-baseweb="tab-list"] {{
+/* ---------- TABS BULLETPROOF HIGH-CONTRAST & NO-TRUNCATION FIX ---------- */
+[data-baseweb="tab-list"],
+[data-testid="stTabs"] [role="tablist"] {{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    overflow-x: auto !important;
     background-color: transparent !important;
     border-bottom: 2px solid var(--border) !important;
     gap: 6px !important;
+    padding-bottom: 3px !important;
 }}
+
+/* All Tab Buttons */
+button[data-baseweb="tab"],
+[data-testid="stTabs"] button,
 [data-baseweb="tab"] {{
     font-family: 'Space Grotesk', sans-serif !important;
     font-weight: 600 !important;
+    font-size: 0.90rem !important;
     color: var(--tab-inactive) !important;
-    padding: 0.6rem 1.1rem !important;
+    opacity: 1 !important;
+    white-space: nowrap !important;
+    padding: 0.5rem 0.85rem !important;
     border-radius: 8px 8px 0 0 !important;
+    border: none !important;
     transition: color 0.15s ease, background-color 0.15s ease !important;
 }}
-[data-baseweb="tab"] * {{
+
+/* All text inside Tab Buttons */
+button[data-baseweb="tab"] p,
+button[data-baseweb="tab"] span,
+button[data-baseweb="tab"] div,
+[data-testid="stTabs"] button p,
+[data-testid="stTabs"] button span,
+[data-testid="stTabs"] button div {{
     color: var(--tab-inactive) !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
 }}
-[data-baseweb="tab"]:hover {{
+
+/* Hover Tab State */
+button[data-baseweb="tab"]:hover,
+[data-testid="stTabs"] button:hover {{
     color: var(--teal) !important;
     background-color: var(--teal-soft) !important;
 }}
-[data-baseweb="tab"]:hover * {{
+button[data-baseweb="tab"]:hover p,
+button[data-baseweb="tab"]:hover span,
+[data-testid="stTabs"] button:hover p,
+[data-testid="stTabs"] button:hover span {{
     color: var(--teal) !important;
 }}
-[aria-selected="true"][data-baseweb="tab"] {{
+
+/* Active Tab State */
+button[aria-selected="true"][data-baseweb="tab"],
+[data-testid="stTabs"] button[aria-selected="true"] {{
     color: var(--teal) !important;
     border-bottom: 3px solid var(--teal) !important;
+    background-color: var(--teal-soft) !important;
+    opacity: 1 !important;
 }}
-[aria-selected="true"][data-baseweb="tab"] * {{
+button[aria-selected="true"][data-baseweb="tab"] p,
+button[aria-selected="true"][data-baseweb="tab"] span,
+[data-testid="stTabs"] button[aria-selected="true"] p,
+[data-testid="stTabs"] button[aria-selected="true"] span {{
     color: var(--teal) !important;
+    font-weight: 700 !important;
 }}
 
 /* ---------- Metric Cards ---------- */
