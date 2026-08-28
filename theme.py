@@ -1,6 +1,7 @@
 # ==============================================================================
 # theme.py - Dual-Mode Design System (Dark Instrument & Clean Light Lab)
 # Project: AI-Driven Assessment of Heavy Metal Pollution Indices
+# Standardized for Streamlit Cloud & Localhost Deployments
 # ==============================================================================
 
 import base64
@@ -29,36 +30,38 @@ def inject_css(theme_mode: str = "Dark"):
         border = "#234049"
         border_subtle = "#192F38"
         teal = "#2A9D8F"
-        teal_soft = "rgba(42, 157, 143, 0.20)"
+        teal_soft = "rgba(42, 157, 143, 0.22)"
         rust = "#C4602F"
         ochre = "#C99A44"
         moss = "#5FA37A"
         text_primary = "#E8EEF0"
         text_muted = "#8CA2B0"
-        card_text_color = "#E8EEF0"
         hero_gradient = f"linear-gradient(120deg, rgba(10,20,24,0.95) 0%, rgba(19,36,44,0.92) 100%), url('data:image/png;base64,{_HERO_TEXTURE}')"
         readout_gradient = f"linear-gradient(120deg, rgba(19,36,44,0.98) 0%, rgba(19,36,44,0.90) 100%), url('data:image/png;base64,{_CARD_TEXTURE}')"
         badge_text_col = "#0A1418"
         shadow = "0 4px 20px rgba(0,0,0,0.35)"
+        input_bg = "#1A2E37"
+        input_text = "#E8EEF0"
     else:
         # Clean Scientific Light Theme Tokens
-        bg_deep = "#F3F7F9"
+        bg_deep = "#F4F7F9"
         surface = "#FFFFFF"
-        surface_2 = "#EDF4F7"
-        border = "#CFDFE6"
-        border_subtle = "#E4EEF2"
+        surface_2 = "#EBF1F5"
+        border = "#CDDCE3"
+        border_subtle = "#E2ECF1"
         teal = "#147A6E"
-        teal_soft = "rgba(20, 122, 110, 0.12)"
+        teal_soft = "rgba(20, 122, 110, 0.15)"
         rust = "#B83A14"
         ochre = "#B3740E"
         moss = "#287D4E"
-        text_primary = "#0E1E26"
+        text_primary = "#102028"
         text_muted = "#4D6674"
-        card_text_color = "#0E1E26"
         hero_gradient = f"linear-gradient(120deg, rgba(240,246,249,0.96) 0%, rgba(225,238,243,0.93) 100%), url('data:image/png;base64,{_HERO_TEXTURE}')"
         readout_gradient = f"linear-gradient(120deg, rgba(255,255,255,0.98) 0%, rgba(243,248,250,0.94) 100%), url('data:image/png;base64,{_CARD_TEXTURE}')"
         badge_text_col = "#FFFFFF"
-        shadow = "0 4px 18px rgba(15,31,39,0.06)"
+        shadow = "0 4px 18px rgba(16,32,40,0.06)"
+        input_bg = "#FFFFFF"
+        input_text = "#102028"
 
     return f"""
 <style>
@@ -77,19 +80,41 @@ def inject_css(theme_mode: str = "Dark"):
     --moss: {moss};
     --text-primary: {text_primary};
     --text-muted: {text_muted};
-    --card-text: {card_text_color};
     --shadow: {shadow};
+    --input-bg: {input_bg};
+    --input-text: {input_text};
 }}
 
 /* ---------- App Base & Global Background ---------- */
 html, body, .stApp {{
     background-color: var(--bg-deep) !important;
     color: var(--text-primary) !important;
-    font-family: 'IBM Plex Sans', sans-serif !important;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }}
 
-/* ---------- Remove White Top Bar & Header Glitch ---------- */
+/* ---------- CRITICAL FIX: Protect Google Material Icons from Font Override ---------- */
+span[data-testid="stIconMaterial"],
+.material-symbols-rounded,
+.material-icons,
+[class*="material-symbols"],
+[class*="material-icons"],
+button[data-testid="stSidebarCollapseButton"] span,
+[data-testid="stHeader"] span {{
+    font-family: "Material Symbols Rounded", "Material Icons", sans-serif !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+    direction: ltr !important;
+    -webkit-font-feature-settings: 'liga' !important;
+    -webkit-font-smoothing: antialiased !important;
+}}
+
+/* ---------- Remove White Top Bar & Seamless Header ---------- */
 header[data-testid="stHeader"],
 .stAppHeader,
 [data-testid="stHeader"] {{
@@ -103,30 +128,26 @@ header[data-testid="stHeader"],
 [data-testid="stToolbar"] {{
     color: var(--text-muted) !important;
 }}
-[data-testid="stToolbar"] button {{
-    color: var(--text-primary) !important;
-}}
 
-/* ---------- Hide Unwanted Streamlit Instructions/Keyboard Hints ---------- */
+/* ---------- Hide Unwanted Streamlit Instructions & Tooltip Clutter ---------- */
 [data-testid="stWidgetInstructions"],
 .stWidgetInstructions,
 small[data-testid="stWidgetInstructions"] {{
     display: none !important;
     visibility: hidden !important;
     height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }}
 
-/* ---------- Sidebar ---------- */
+/* ---------- Sidebar Styling ---------- */
 [data-testid="stSidebar"],
 [data-testid="stSidebarContent"] {{
     background-color: var(--surface) !important;
     border-right: 1px solid var(--border) !important;
 }}
-[data-testid="stSidebar"] * {{
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label {{
     color: var(--text-primary) !important;
-    font-family: 'IBM Plex Sans', sans-serif !important;
 }}
 [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 {{
     font-family: 'Space Grotesk', sans-serif !important;
@@ -191,20 +212,6 @@ h3 {{
     padding: 1.2rem 1.4rem !important;
     box-shadow: var(--shadow) !important;
     margin-bottom: 1rem !important;
-}}
-[data-testid="stVerticalBlockBorderWrapper"] * {{
-    color: var(--text-primary);
-}}
-
-/* Legacy class fallback */
-.panel {{
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.2rem 1.4rem;
-    margin-bottom: 1rem;
-    box-shadow: var(--shadow);
-    color: var(--card-text) !important;
 }}
 
 /* ---------- Result Readout Card ---------- */
@@ -279,13 +286,36 @@ h3 {{
 }}
 
 /* ---------- Inputs, Sliders & Selectboxes ---------- */
-.stTextInput input, .stNumberInput input, .stSelectbox div[data-baseweb="select"] > div {{
-    background-color: var(--surface-2) !important;
-    color: var(--text-primary) !important;
+.stTextInput input,
+.stNumberInput input,
+div[data-baseweb="input"] input,
+div[data-baseweb="select"] > div,
+div[data-baseweb="select"] div {{
+    background-color: var(--input-bg) !important;
+    color: var(--input-text) !important;
     border: 1px solid var(--border) !important;
     border-radius: 7px !important;
     font-family: 'IBM Plex Mono', monospace !important;
 }}
+
+/* Selectbox Dropdown Menu (BaseWeb Popover) */
+div[data-baseweb="popover"],
+div[data-baseweb="menu"],
+ul[role="listbox"] {{
+    background-color: var(--surface) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border) !important;
+}}
+li[role="option"] {{
+    background-color: var(--surface) !important;
+    color: var(--text-primary) !important;
+}}
+li[role="option"]:hover,
+li[aria-selected="true"] {{
+    background-color: var(--teal-soft) !important;
+    color: var(--teal) !important;
+}}
+
 .stSelectbox svg {{
     fill: var(--text-primary) !important;
 }}
@@ -298,17 +328,25 @@ label, .stRadio label, .stSelectbox label, .stTextInput label, .stNumberInput la
 
 /* ---------- Radio Button Styling ---------- */
 [data-testid="stRadio"] div[role="radiogroup"] {{
-    gap: 8px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
 }}
 [data-testid="stRadio"] label {{
+    display: flex !important;
+    align-items: center !important;
     background-color: var(--surface-2) !important;
-    padding: 0.45rem 0.85rem !important;
+    padding: 0.55rem 0.85rem !important;
     border-radius: 8px !important;
     border: 1px solid var(--border) !important;
     transition: border-color 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
 }}
 [data-testid="stRadio"] label:hover {{
     border-color: var(--teal) !important;
+}}
+[data-testid="stRadio"] label span {{
+    color: var(--text-primary) !important;
 }}
 
 /* ---------- Tabs ---------- */
