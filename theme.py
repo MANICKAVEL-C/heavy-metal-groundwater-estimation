@@ -81,6 +81,7 @@ def inject_css(theme_mode: str = "Dark"):
     --shadow: {shadow};
 }}
 
+/* ---------- App Base & Global Background ---------- */
 html, body, .stApp {{
     background-color: var(--bg-deep) !important;
     color: var(--text-primary) !important;
@@ -88,8 +89,38 @@ html, body, .stApp {{
     transition: background-color 0.25s ease, color 0.25s ease;
 }}
 
+/* ---------- Remove White Top Bar & Header Glitch ---------- */
+header[data-testid="stHeader"],
+.stAppHeader,
+[data-testid="stHeader"] {{
+    background-color: var(--bg-deep) !important;
+    background: transparent !important;
+    color: var(--text-primary) !important;
+}}
+[data-testid="stDecoration"] {{
+    display: none !important;
+}}
+[data-testid="stToolbar"] {{
+    color: var(--text-muted) !important;
+}}
+[data-testid="stToolbar"] button {{
+    color: var(--text-primary) !important;
+}}
+
+/* ---------- Hide Unwanted Streamlit Instructions/Keyboard Hints ---------- */
+[data-testid="stWidgetInstructions"],
+.stWidgetInstructions,
+small[data-testid="stWidgetInstructions"] {{
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}}
+
 /* ---------- Sidebar ---------- */
-[data-testid="stSidebar"] {{
+[data-testid="stSidebar"],
+[data-testid="stSidebarContent"] {{
     background-color: var(--surface) !important;
     border-right: 1px solid var(--border) !important;
 }}
@@ -116,11 +147,11 @@ h3 {{
     letter-spacing: 0.02em;
 }}
 
-/* ---------- Hero banner ---------- */
+/* ---------- Hero Banner ---------- */
 .hero {{
     position: relative;
-    padding: 2.1rem 2.4rem 1.9rem 2.4rem;
-    margin-bottom: 1.4rem;
+    padding: 2.0rem 2.2rem 1.8rem 2.2rem;
+    margin-bottom: 1.3rem;
     border-radius: 14px;
     background: {hero_gradient};
     background-size: cover;
@@ -152,18 +183,28 @@ h3 {{
     color: var(--text-muted);
 }}
 
-/* ---------- Cards & Panels ---------- */
+/* ---------- Native Container / Card Panels ---------- */
+[data-testid="stVerticalBlockBorderWrapper"] {{
+    background-color: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    padding: 1.2rem 1.4rem !important;
+    box-shadow: var(--shadow) !important;
+    margin-bottom: 1rem !important;
+}}
+[data-testid="stVerticalBlockBorderWrapper"] * {{
+    color: var(--text-primary);
+}}
+
+/* Legacy class fallback */
 .panel {{
     background-color: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 1.3rem 1.5rem;
+    padding: 1.2rem 1.4rem;
     margin-bottom: 1rem;
     box-shadow: var(--shadow);
     color: var(--card-text) !important;
-}}
-.panel * {{
-    color: var(--card-text);
 }}
 
 /* ---------- Result Readout Card ---------- */
@@ -171,7 +212,7 @@ h3 {{
     background: {readout_gradient};
     background-size: cover;
     border-radius: 14px;
-    padding: 1.5rem 1.7rem;
+    padding: 1.4rem 1.6rem;
     border-left: 6px solid var(--sev-color, var(--teal));
     border-top: 1px solid var(--border);
     border-right: 1px solid var(--border);
@@ -255,6 +296,21 @@ label, .stRadio label, .stSelectbox label, .stTextInput label, .stNumberInput la
     font-size: 0.88rem !important;
 }}
 
+/* ---------- Radio Button Styling ---------- */
+[data-testid="stRadio"] div[role="radiogroup"] {{
+    gap: 8px;
+}}
+[data-testid="stRadio"] label {{
+    background-color: var(--surface-2) !important;
+    padding: 0.45rem 0.85rem !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--border) !important;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}}
+[data-testid="stRadio"] label:hover {{
+    border-color: var(--teal) !important;
+}}
+
 /* ---------- Tabs ---------- */
 [data-baseweb="tab-list"] {{
     background-color: transparent !important;
@@ -288,6 +344,12 @@ label, .stRadio label, .stSelectbox label, .stTextInput label, .stNumberInput la
 [data-testid="stDataFrame"] {{
     border: 1px solid var(--border) !important;
     border-radius: 8px !important;
+}}
+
+/* ---------- Alerts (info/warning/error/success) ---------- */
+[data-testid="stAlert"] {{
+    border-radius: 10px !important;
+    font-family: 'IBM Plex Sans', sans-serif !important;
 }}
 
 /* ---------- Footer & Dividers ---------- */
