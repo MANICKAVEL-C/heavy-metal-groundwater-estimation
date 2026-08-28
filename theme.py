@@ -42,11 +42,12 @@ def inject_css(theme_mode: str = "Dark"):
         shadow = "0 4px 20px rgba(0,0,0,0.35)"
         input_bg = "#1A2E37"
         input_text = "#E8EEF0"
+        tab_inactive_color = "#A4BAC8"
     else:
         # Clean Scientific Light Theme Tokens
         bg_deep = "#F4F7F9"
         surface = "#FFFFFF"
-        surface_2 = "#EBF1F5"
+        surface_2 = "#EDF3F7"
         border = "#CDDCE3"
         border_subtle = "#E2ECF1"
         teal = "#147A6E"
@@ -54,14 +55,15 @@ def inject_css(theme_mode: str = "Dark"):
         rust = "#B83A14"
         ochre = "#B3740E"
         moss = "#287D4E"
-        text_primary = "#102028"
+        text_primary = "#0E1E26"
         text_muted = "#4D6674"
         hero_gradient = f"linear-gradient(120deg, rgba(240,246,249,0.96) 0%, rgba(225,238,243,0.93) 100%), url('data:image/png;base64,{_HERO_TEXTURE}')"
         readout_gradient = f"linear-gradient(120deg, rgba(255,255,255,0.98) 0%, rgba(243,248,250,0.94) 100%), url('data:image/png;base64,{_CARD_TEXTURE}')"
         badge_text_col = "#FFFFFF"
         shadow = "0 4px 18px rgba(16,32,40,0.06)"
         input_bg = "#FFFFFF"
-        input_text = "#102028"
+        input_text = "#0E1E26"
+        tab_inactive_color = "#20343F"
 
     return f"""
 <style>
@@ -83,6 +85,7 @@ def inject_css(theme_mode: str = "Dark"):
     --shadow: {shadow};
     --input-bg: {input_bg};
     --input-text: {input_text};
+    --tab-inactive: {tab_inactive_color};
 }}
 
 /* ---------- App Base & Global Background ---------- */
@@ -285,12 +288,13 @@ h3 {{
     background-color: var(--teal-soft) !important;
 }}
 
-/* ---------- Inputs, Sliders & Selectboxes ---------- */
+/* ---------- INPUTS & SELECTBOXES COMPLETE FIX ---------- */
 .stTextInput input,
 .stNumberInput input,
 div[data-baseweb="input"] input,
-div[data-baseweb="select"] > div,
-div[data-baseweb="select"] div {{
+div[data-baseweb="base-input"] input,
+div[data-baseweb="input"] > div,
+div[data-baseweb="base-input"] > div {{
     background-color: var(--input-bg) !important;
     color: var(--input-text) !important;
     border: 1px solid var(--border) !important;
@@ -298,13 +302,28 @@ div[data-baseweb="select"] div {{
     font-family: 'IBM Plex Mono', monospace !important;
 }}
 
-/* Selectbox Dropdown Menu (BaseWeb Popover) */
+/* Unconditionally override all BaseWeb Select containers */
+div[data-baseweb="select"],
+div[data-baseweb="select"] *,
+.stSelectbox div[data-baseweb="select"],
+.stSelectbox div[data-baseweb="select"] *,
+[data-testid="stSelectbox"] div[data-baseweb="select"],
+[data-testid="stSelectbox"] div[data-baseweb="select"] * {{
+    background-color: var(--input-bg) !important;
+    color: var(--input-text) !important;
+    border-color: var(--border) !important;
+}}
+
+/* Selectbox Dropdown Menu Popover */
 div[data-baseweb="popover"],
+div[data-baseweb="popover"] *,
 div[data-baseweb="menu"],
-ul[role="listbox"] {{
+div[data-baseweb="menu"] *,
+ul[role="listbox"],
+ul[role="listbox"] * {{
     background-color: var(--surface) !important;
     color: var(--text-primary) !important;
-    border: 1px solid var(--border) !important;
+    border-color: var(--border) !important;
 }}
 li[role="option"] {{
     background-color: var(--surface) !important;
@@ -316,8 +335,10 @@ li[aria-selected="true"] {{
     color: var(--teal) !important;
 }}
 
-.stSelectbox svg {{
-    fill: var(--text-primary) !important;
+.stSelectbox svg,
+div[data-baseweb="select"] svg {{
+    fill: var(--input-text) !important;
+    color: var(--input-text) !important;
 }}
 label, .stRadio label, .stSelectbox label, .stTextInput label, .stNumberInput label, .stSlider label {{
     color: var(--text-primary) !important;
@@ -345,26 +366,41 @@ label, .stRadio label, .stSelectbox label, .stTextInput label, .stNumberInput la
 [data-testid="stRadio"] label:hover {{
     border-color: var(--teal) !important;
 }}
-[data-testid="stRadio"] label span {{
+[data-testid="stRadio"] label span,
+[data-testid="stRadio"] label p {{
     color: var(--text-primary) !important;
 }}
 
-/* ---------- Tabs ---------- */
+/* ---------- TABS COMPLETE CONTRAST FIX ---------- */
 [data-baseweb="tab-list"] {{
     background-color: transparent !important;
     border-bottom: 2px solid var(--border) !important;
-    gap: 8px;
+    gap: 6px !important;
 }}
 [data-baseweb="tab"] {{
     font-family: 'Space Grotesk', sans-serif !important;
     font-weight: 600 !important;
-    color: var(--text-muted) !important;
-    padding: 0.55rem 1rem !important;
+    color: var(--tab-inactive) !important;
+    padding: 0.6rem 1.1rem !important;
     border-radius: 8px 8px 0 0 !important;
+    transition: color 0.15s ease, background-color 0.15s ease !important;
+}}
+[data-baseweb="tab"] * {{
+    color: var(--tab-inactive) !important;
+}}
+[data-baseweb="tab"]:hover {{
+    color: var(--teal) !important;
+    background-color: var(--teal-soft) !important;
+}}
+[data-baseweb="tab"]:hover * {{
+    color: var(--teal) !important;
 }}
 [aria-selected="true"][data-baseweb="tab"] {{
     color: var(--teal) !important;
     border-bottom: 3px solid var(--teal) !important;
+}}
+[aria-selected="true"][data-baseweb="tab"] * {{
+    color: var(--teal) !important;
 }}
 
 /* ---------- Metric Cards ---------- */
