@@ -19,10 +19,12 @@ import matplotlib.pyplot as plt
 from translations import TRANSLATIONS
 from analytical_engine import (
     calculate_exact_hpi, calculate_exact_hei, calculate_metal_index,
-    calculate_contamination_degree, evaluate_metal_compliance, classify_pollution_severity
+    calculate_contamination_degree, evaluate_metal_compliance, classify_pollution_severity,
+    STANDARD_WATER_QUALITY_STANDARDS
 )
 from health_risk_engine import calculate_human_health_risk
 from remediation_engine import generate_remediation_plan
+from visual_charts import render_hpi_gauge, render_metal_radar_chart, get_chart_theme
 from pdf_report import generate_certified_report
 from alert_system import trigger_alert
 from theme import inject_css, severity_color, badge_class
@@ -34,8 +36,37 @@ st.set_page_config(
     layout="wide",
     page_icon="🌊"
 )
-st.markdown(inject_css(), unsafe_allow_html=True)
 
+# ------------------------------------------------------------------------------
+# SIDEBAR CONTROLS (THEME & LANGUAGE)
+# ------------------------------------------------------------------------------
+st.sidebar.markdown("### 🎨 Visual Settings / அமைப்புகள்")
+theme_choice = st.sidebar.radio("Theme Mode", ["🌙 Dark Mode", "☀️ Light Mode"], index=0, label_visibility="collapsed")
+active_theme = "Dark" if "Dark" in theme_choice else "Light"
+
+# Inject Dynamic Dual-Mode CSS
+st.markdown(inject_css(theme_mode=active_theme), unsafe_allow_html=True)
+
+lang = st.sidebar.selectbox("🌐 Language / மொழி", ["English", "தமிழ்"])
+T = TRANSLATIONS[lang]
+
+st.sidebar.markdown("---")
+st.sidebar.markdown(f"### {T['input_mode_header']}")
+mode_choice = st.sidebar.radio(
+    T["input_mode_question"],
+    [T["mode_full"], T["mode_partial"]],
+    index=0
+)
+is_full_lab_mode = (mode_choice == T["mode_full"])
+
+st.sidebar.markdown(f"### {T['season_header']}")
+season = st.sidebar.selectbox(T["season_label"], [T["pre_monsoon"], T["post_monsoon"]])
+season_code = 1 if season == T["post_monsoon"] else 0
+
+st.sidebar.markdown("---")
+st.sidebar.info("💡 **Dual Paradigm:** Mode A computes exact **BIS IS 10500:2012** equations. Mode B runs an **AI surrogate model** for low-cost field sensor triage.")
+
+# Load Machine Learning Models
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "models")
 
 @st.cache_resource
@@ -65,28 +96,6 @@ if os.path.exists(benchmarks_path):
         benchmarks_data = json.load(f)
 
 # ------------------------------------------------------------------------------
-# SIDEBAR CONTROLS
-# ------------------------------------------------------------------------------
-lang = st.sidebar.selectbox("🌐 Language / மொழி", ["English", "தமிழ்"])
-T = TRANSLATIONS[lang]
-
-st.sidebar.markdown("---")
-st.sidebar.markdown(f"### {T['input_mode_header']}")
-mode_choice = st.sidebar.radio(
-    T["input_mode_question"],
-    [T["mode_full"], T["mode_partial"]],
-    index=0
-)
-is_full_lab_mode = (mode_choice == T["mode_full"])
-
-st.sidebar.markdown(f"### {T['season_header']}")
-season = st.sidebar.selectbox(T["season_label"], [T["pre_monsoon"], T["post_monsoon"]])
-season_code = 1 if season == T["post_monsoon"] else 0
-
-st.sidebar.markdown("---")
-st.sidebar.info("💡 **Dual Paradigm:** Mode A computes exact **BIS IS 10500:2012** equations. Mode B runs an **AI surrogate model** for low-cost field sensor triage.")
-
-# ------------------------------------------------------------------------------
 # HERO HEADER BANNER
 # ------------------------------------------------------------------------------
 st.markdown(f"""
@@ -98,7 +107,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ------------------------------------------------------------------------------
-# MAIN TABS
+# MAIN APPLICATION TABS
 # ------------------------------------------------------------------------------
 tab_single, tab_batch, tab_whatif, tab_iot, tab_map, tab_benchmarks = st.tabs([
     T["tab_single"],
@@ -113,20 +122,19 @@ tab_single, tab_batch, tab_whatif, tab_iot, tab_map, tab_benchmarks = st.tabs([
 # TAB 1: SINGLE FIELD ASSESSMENT
 # ==============================================================================
 with tab_single:
-    # Scenario Demo Presets
     st.markdown("**⚡ 1-Click Hackathon Demo Presets:**")
     p_col1, p_col2, p_col3 = st.columns(3)
     
     preset_chosen = None
     with p_col1:
         if st.button("🟢 Load Safe Well (Sayalgudi #2)", use_container_width=True):
-            preset_chosen = {"loc": "Sayalgudi Clean Well #2", "pH": 7.82, "TDS": 863.0, "EC": 1210.0, "Cd": 0.0009, "Pb": 0.0010, "Fe": 0.187, "Mn": 0.091, "Cu": 0.023, "Zn": 0.901, "Ni": 0.001}
+            preset_chosen = {"loc": "Sayalgudi Clean Well #2", "pH": 7.82, "TDS": 863.0, "EC": 1210.0, "Cd": 0.0009, "Pb": 0.0010, "Fe": 0.187, "Mn": 0.091, "Cu": 0.023, "Zn": 0.901, "Ni": 0.001, "lat": 9.36154, "lon": 78.45045}
     with p_col2:
         if st.button("🟡 Load Moderate Leaching (Kadaladi #14)", use_container_width=True):
-            preset_chosen = {"loc": "Kadaladi Station #14", "pH": 7.42, "TDS": 1419.0, "EC": 2200.0, "Cd": 0.0011, "Pb": 0.0010, "Fe": 0.282, "Mn": 0.141, "Cu": 0.028, "Zn": 0.269, "Ni": 0.001}
+            preset_chosen = {"loc": "Kadaladi Station #14", "pH": 7.42, "TDS": 1419.0, "EC": 2200.0, "Cd": 0.0011, "Pb": 0.0010, "Fe": 0.282, "Mn": 0.141, "Cu": 0.028, "Zn": 0.269, "Ni": 0.001, "lat": 9.24068, "lon": 78.57501}
     with p_col3:
         if st.button("🔴 Load Toxic Cadmium Spike (Kadaladi #6)", use_container_width=True):
-            preset_chosen = {"loc": "Kadaladi Industrial Zone #6", "pH": 7.31, "TDS": 1954.0, "EC": 2877.0, "Cd": 0.0038, "Pb": 0.0010, "Fe": 0.580, "Mn": 0.300, "Cu": 0.025, "Zn": 1.400, "Ni": 0.001}
+            preset_chosen = {"loc": "Kadaladi Industrial Zone #6", "pH": 7.31, "TDS": 1954.0, "EC": 2877.0, "Cd": 0.0038, "Pb": 0.0010, "Fe": 0.580, "Mn": 0.300, "Cu": 0.025, "Zn": 1.400, "Ni": 0.001, "lat": 9.21200, "lon": 78.47800}
 
     if preset_chosen:
         st.session_state["preset_data"] = preset_chosen
@@ -139,13 +147,33 @@ with tab_single:
         st.markdown('<div class="panel">', unsafe_allow_html=True)
         st.markdown(f"### 📍 {T['location_header']}")
         
-        default_loc = p_data.get("loc", "Kadaladi Field Station #4")
+        # Tamil Nadu Village Preset Selector
+        tn_villages = {
+            "Custom Coordinates / Manual Input": None,
+            "Kadaladi Town (9.2220°N, 78.4960°E)": (9.2220, 78.4960),
+            "Sayalgudi Coastal Well #1 (9.2106°N, 78.3941°E)": (9.2106, 78.3941),
+            "Mudukulathur Agriculture Well (9.3615°N, 78.4504°E)": (9.3615, 78.4504),
+            "Kamuthi Solar Boundary Well (9.2485°N, 78.4485°E)": (9.2485, 78.4485),
+            "Valinokkam Coastal Aquifer (9.1747°N, 78.5096°E)": (9.1747, 78.5096),
+            "Ramanathapuram Town HQ (9.3640°N, 78.8370°E)": (9.3640, 78.8370),
+            "Thoothukudi Industrial Belt (8.7642°N, 78.1348°E)": (8.7642, 78.1348)
+        }
+        selected_v = st.selectbox("📌 Select Tamil Nadu Survey Location Preset:", list(tn_villages.keys()))
+        
+        if tn_villages[selected_v]:
+            def_lat, def_lon = tn_villages[selected_v]
+            default_loc = selected_v.split(" (")[0]
+        else:
+            def_lat = float(p_data.get("lat", 9.2220))
+            def_lon = float(p_data.get("lon", 78.4960))
+            default_loc = p_data.get("loc", "Kadaladi Field Station #4")
+
         loc_name = st.text_input(T["location_name"], value=default_loc, placeholder="Village / Borewell Name")
         c_lat, c_lon = st.columns(2)
         with c_lat:
-            latitude = st.number_input(T["latitude_label"], min_value=8.0, max_value=14.0, value=9.2220, step=0.001, format="%.5f")
+            latitude = st.number_input(T["latitude_label"], min_value=8.0, max_value=14.0, value=def_lat, step=0.001, format="%.5f")
         with c_lon:
-            longitude = st.number_input(T["longitude_label"], min_value=76.0, max_value=81.0, value=78.4960, step=0.001, format="%.5f")
+            longitude = st.number_input(T["longitude_label"], min_value=76.0, max_value=81.0, value=def_lon, step=0.001, format="%.5f")
 
         st.markdown(f"### 🧪 {T['water_params_header']}")
         pH = st.slider("pH Level", min_value=5.0, max_value=10.0, value=float(p_data.get("pH", 7.35)), step=0.05)
@@ -154,6 +182,17 @@ with tab_single:
             TDS = st.number_input("TDS (mg/L / ppm)", min_value=50.0, max_value=5000.0, value=float(p_data.get("TDS", 1150.0)), step=10.0)
         with c_ec:
             EC = st.number_input("EC (µS/cm)", min_value=50.0, max_value=7500.0, value=float(p_data.get("EC", 1650.0)), step=10.0)
+
+        # Agricultural Irrigation Assessment
+        if EC < 250:
+            agri_status = "🌱 Low Salinity (Excellent for all crops)"
+        elif EC <= 750:
+            agri_status = "🌾 Medium Salinity (Good for moderate salt-tolerant crops)"
+        elif EC <= 2000:
+            agri_status = "⚠️ High Salinity (Requires special soil drainage / Salt-tolerant paddy)"
+        else:
+            agri_status = "🚫 Very High Salinity (Unsuitable for irrigation without desalination)"
+        st.caption(f"**Agricultural Irrigation Rating:** {agri_status}")
 
         metals_input = {}
         if is_full_lab_mode:
@@ -235,15 +274,22 @@ with tab_single:
 
         assess = st.session_state.get("assessment")
         if assess:
-            sev_col = assess["cat_col"]
+            sev_col = severity_color(assess["cat_name"], active_theme)
+            
+            # Metric Readout Box
             st.markdown(f"""
             <div class="readout" style="--sev-color: {sev_col};">
                 <div class="readout-label">{T['predicted_hpi']}</div>
                 <div class="readout-value">{assess['hpi']:.1f}</div>
                 <div class="readout-label" style="margin-top:0.4rem;">{T['predicted_hei']}: <span style="color:var(--text-primary); font-family:'IBM Plex Mono',monospace;">{assess['hei']:.2f}</span></div>
-                <span class="badge" style="background:{sev_col}; color:white;">{assess['cat_name'].upper()}</span>
+                <span class="badge {badge_class(assess['cat_name'])}">{assess['cat_name'].upper()}</span>
             </div>
             """, unsafe_allow_html=True)
+
+            # Interactive Speedometer Gauge Chart
+            gauge_fig = render_hpi_gauge(assess["hpi"], theme_mode=active_theme)
+            st.pyplot(gauge_fig, use_container_width=True)
+            plt.close(gauge_fig)
 
             st.caption(assess["conf_note"])
             if assess["cat_name"] == "Highly Polluted":
@@ -261,7 +307,14 @@ with tab_single:
                 c_h1.metric("Child Hazard Index (HI)", f"{hr['child_hi']:.2f}", hr["child_status"])
                 c_h2.metric("Adult Hazard Index (HI)", f"{hr['adult_hi']:.2f}", hr["adult_status"])
                 c_h3.metric("Primary Toxic Driver", f"{hr['primary_risk_driver']}", "Target: Kidneys/CNS")
-                st.caption("ℹ️ *USEPA Superfund Guideline: HI > 1.0 indicates non-carcinogenic toxic health danger for drinking consumption.*")
+
+            # Heavy Metal Radar / Spider Chart (in Mode A)
+            if assess["is_full_mode"]:
+                st.markdown("#### 🕸️ Heavy Metal Standard Boundary (Radar Analysis)")
+                radar_fig = render_metal_radar_chart(assess["metals"], STANDARD_WATER_QUALITY_STANDARDS, theme_mode=active_theme)
+                if radar_fig:
+                    st.pyplot(radar_fig, use_container_width=True)
+                    plt.close(radar_fig)
 
             # Metal Compliance Table
             st.markdown("#### 📋 BIS IS 10500 Standard Compliance Breakdown")
@@ -395,7 +448,7 @@ with tab_whatif:
         raw_cat = str(models["clf_partial"].predict(X_raw)[0]) if "clf_partial" in models else "Highly Polluted"
 
         st.markdown(f"""
-        <div class="readout" style="--sev-color: {severity_color(raw_cat)}; margin-top:1rem;">
+        <div class="readout" style="--sev-color: {severity_color(raw_cat, active_theme)}; margin-top:1rem;">
             <div class="readout-label">RAW WATER HPI</div>
             <div class="readout-value">{raw_hpi:.1f}</div>
             <span class="badge {badge_class(raw_cat)}">{raw_cat.upper()}</span>
@@ -413,7 +466,7 @@ with tab_whatif:
         treat_cat = str(models["clf_partial"].predict(X_treat)[0]) if "clf_partial" in models else "Safe"
 
         st.markdown(f"""
-        <div class="readout" style="--sev-color: {severity_color(treat_cat)}; margin-top:1rem;">
+        <div class="readout" style="--sev-color: {severity_color(treat_cat, active_theme)}; margin-top:1rem;">
             <div class="readout-label">SIMULATED TREATED HPI</div>
             <div class="readout-value">{treat_hpi:.1f}</div>
             <span class="badge {badge_class(treat_cat)}">{treat_cat.upper()}</span>
@@ -456,7 +509,7 @@ with tab_iot:
     iot_cat = str(models["clf_partial"].predict(X_iot)[0]) if "clf_partial" in models else "Safe"
 
     st.markdown(f"""
-    <div class="readout" style="--sev-color: {severity_color(iot_cat)}; margin-top:1rem;">
+    <div class="readout" style="--sev-color: {severity_color(iot_cat, active_theme)}; margin-top:1rem;">
         <div class="readout-label">EDGE AI PREDICTED RISK</div>
         <div class="readout-value">HPI {iot_hpi:.1f} &middot; {iot_cat.upper()}</div>
         <div class="readout-label">Packet Received: {packet['timestamp']} | Node: {packet['node_id']} | Battery: {t['battery_voltage']}V</div>
@@ -517,14 +570,16 @@ with tab_benchmarks:
             feat_names = ["pH", "TDS", "EC", "Season"]
             importances = models["reg_partial"].feature_importances_
             order = np.argsort(importances)[::-1]
+            chart_thm = get_chart_theme(active_theme)
+            
             fig, ax = plt.subplots(figsize=(7.5, 3.2))
-            fig.patch.set_facecolor("#13242C")
-            ax.set_facecolor("#13242C")
-            ax.barh([feat_names[i] for i in order][::-1], importances[order][::-1], color="#2A9D8F")
-            ax.set_xlabel("Relative Importance", color="#E8EEF0")
-            ax.tick_params(colors="#E8EEF0")
+            fig.patch.set_facecolor(chart_thm["bg"])
+            ax.set_facecolor(chart_thm["bg"])
+            ax.barh([feat_names[i] for i in order][::-1], importances[order][::-1], color=chart_thm["accent"])
+            ax.set_xlabel("Relative Importance", color=chart_thm["text"])
+            ax.tick_params(colors=chart_thm["text_muted"])
             for spine in ax.spines.values():
-                spine.set_color("#234049")
+                spine.set_color(chart_thm["border"])
             st.pyplot(fig, use_container_width=True)
             plt.close(fig)
         except Exception as e:
