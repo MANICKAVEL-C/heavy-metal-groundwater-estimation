@@ -96,6 +96,9 @@ TRANSLATIONS = {
         "col_excess": "Excess (%)",
         "col_status": "Status",
 
+        "explain_header": "🔍 Explainable AI (SHAP Local Feature Attribution)",
+        "explain_caption": "SHAP Waterfall Plot explains how individual field parameters pushed the predicted HPI from the regional base value.",
+
         "treatment_advisor_header": "💧 Actionable Remediation & Water Treatment Plan",
         "action_verdict": "Action Verdict:",
         "treatment_cost_label": "Estimated Community Treatment Cost",
@@ -150,6 +153,10 @@ TRANSLATIONS = {
         "benchmarks_caption": "Cross-validation comparison of surrogate machine learning regressors for field proxy sensing:",
         "benchmarks_success": "✅ Research Grade Validation: Gradient Boosting and Random Forest achieve R² > 0.91 on independent 5-fold cross-validation without circular arithmetic.",
         "xai_header": "🔬 Explainable AI (SHAP Global Feature Importance)",
+        "dataset_info_title": "📋 Study Aquifer & Sample Size (N = 88)",
+        "dataset_info_text": "Field training set comprises 88 hydrochemical samples from 44 borewell stations across Ramanathapuram coastal aquifers (Kadaladi block) monitored during Pre-Monsoon and Post-Monsoon seasons. Mode A is 100% deterministic (zero dataset dependency), while Mode B serves as an empirical screening proxy.",
+        "model_selection_title": "🔬 Model Selection: Ensemble Trees vs SVR",
+        "model_selection_text": "Four model families were evaluated: Random Forest (R² = 0.917), Gradient Boosting (R² = 0.931), Support Vector Regressor (SVR, R² = 0.061), and Ridge (R² = 0.846). SVR struggled with unscaled ionic ranges and non-linear chemical thresholds, while ensemble tree models captured hydrochemical dynamics with high generalization.",
         "research_paper_expander": "📑 View Research Paper Manuscript & IEEE Outline",
         "footer": "Groundwater Heavy Metal Intelligence System | ECE Dept. | SIH25067 Ministry of Jal Shakti"
     },
@@ -244,6 +251,9 @@ TRANSLATIONS = {
         "col_excess": "அதிகப்படியான அளவு (%)",
         "col_status": "நிலை",
 
+        "explain_header": "🔍 விளக்கக்கூடிய AI (SHAP உள்ளூர் காரணி விளக்கம்)",
+        "explain_caption": "ஒவ்வொரு சென்சார் அளவுருவும் (pH, TDS, EC, பருவம்) கணிக்கப்பட்ட HPI மதிப்பை எவ்வாறு மாற்றியது என்பதை SHAP வரைபடம் காட்டுகிறது.",
+
         "treatment_advisor_header": "💧 நீர் சுத்திகரிப்பு மற்றும் மறுசீரமைப்பு திட்டம்",
         "action_verdict": "செயல்பாட்டு முடிவு:",
         "treatment_cost_label": "மதிப்பிடப்பட்ட சுத்திகரிப்பு செலவு",
@@ -294,10 +304,14 @@ TRANSLATIONS = {
         "map_header": "🗺️ பிராந்திய மாசு வரைபடம் (க்ரிஜிங் முறை)",
         "map_caption": "கடலாடி நிலத்தடி நீரின் இடஞ்சார்ந்த க்ரிஜிங் வரைபடம் மற்றும் நிச்சயமற்ற தன்மை அடுக்கு.",
 
-        "benchmarks_header": "📊 பல்வகை மாதிரி ஒப்பீடுகள் & அறிவியல் அளவீடுகள்",
-        "benchmarks_caption": "கள சென்சார் பணிக்கான ML மாதிரிகளின் ஒப்பீட்டு செயல்திறன்:",
+        "benchmarks_header": "📊 மாதிரி ஒப்பீடுகள் & அறிவியல் அளவீடுகள்",
+        "benchmarks_caption": "கள சென்சார் பணிக்கான ML மாதிரிகளின் 5-Fold Cross Validation செயல்திறன்:",
         "benchmarks_success": "✅ உயர் ஆராய்ச்சி தரம்: கிரேடியன்ட் பூஸ்டிங் மற்றும் ரேண்டம் ஃபாரஸ்ட் மாதிரிகள் 5-Fold சரிபார்ப்பில் R² > 0.91 துல்லியம் பெறுகின்றன.",
         "xai_header": "🔬 விளக்கக்கூடிய AI (SHAP முக்கியத்துவ வரைபடம்)",
+        "dataset_info_title": "📋 ஆய்வுப் பகுதி மற்றும் மாதிரி அளவு (N = 88)",
+        "dataset_info_text": "பயிற்சி தரவுத்தொகுப்பானது ராமநாதபுரம் கடலோர ஆழ்துளை கிணறுகளிலிருந்து (கடலாடி பகுதி) பருவமழைக்கு முன் மற்றும் பின் எடுக்கப்பட்ட N = 88 இயற்பியல் மாதிரிகளைக் கொண்டுள்ளது. முறை A முற்றிலும் நேரடி சூத்திர அடிப்படையிலானது (தரவு சார்பற்றது), முறை B கள ஆய்வுக்கான AI மாதிரியாகும்.",
+        "model_selection_title": "🔬 மாதிரி தேர்வு: என்காம்பில் மரங்கள் vs SVR",
+        "model_selection_text": "நான்கு வகையான மாதிரிகள் சோதிக்கப்பட்டன: ரேண்டம் ஃபாரஸ்ட் (R² = 0.917), கிரேடியன்ட் பூஸ்டிங் (R² = 0.931), SVR (R² = 0.061) மற்றும் ரிட்ஜ் (R² = 0.846). SVR குறைந்த துல்லியத்தையே தந்தது, ஆனால் என்காம்பில் மாதிரிகள் வேதியியல் மாற்றங்களை மிகச் சரியாகக் கணித்தன.",
         "research_paper_expander": "📑 ஆய்வுக் கட்டுரை மற்றும் IEEE வரைவு பார்க்க",
         "footer": "நிலத்தடி நீர் கன உலோக நுண்ணறிவு அமைப்பு | ECE துறை | SIH25067"
     }

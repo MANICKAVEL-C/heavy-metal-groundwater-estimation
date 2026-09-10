@@ -55,13 +55,26 @@ In rural groundwater management across India (specifically coastal Tamil Nadu aq
 
 Surrogate models trained and evaluated on 5-Fold Cross-Validation:
 
-| Model | Target Variable | 5-Fold $R^2$ (Mean $\pm$ Std) | MAE | RMSE |
-| :--- | :---: | :---: | :---: | :---: |
-| **Gradient Boosting Regressor** | Inferred HPI | **$0.931 \pm 0.031$** | **$4.384$** | **$5.751$** |
-| **Random Forest Regressor** | Inferred HPI | **$0.917 \pm 0.027$** | **$4.708$** | **$6.294$** |
-| **Ridge Regression (L2)** | Inferred HPI | $0.846 \pm 0.035$ | $6.918$ | $8.751$ |
-| **Random Forest Proxy Cd** | Cadmium ($\text{Cd}$) | **$0.912 \pm 0.034$** | $0.0003$ | $0.0004$ |
-| **Safety Classifier (RF)** | Safety Category | **$82.7\%$ Accuracy** | - | $82.2\%$ F1 |
+| Model | Target Variable | 5-Fold $R^2$ (Mean $\pm$ Std) | MAE | RMSE | Status |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Gradient Boosting Regressor** | Inferred HPI | **$0.931 \pm 0.031$** | **$4.384$** | **$5.751$** | **Selected (Surrogate)** |
+| **Random Forest Regressor** | Inferred HPI | **$0.917 \pm 0.027$** | **$4.708$** | **$6.294$** | **Selected (Proxy)** |
+| **Ridge Regression (L2)** | Inferred HPI | $0.846 \pm 0.035$ | $6.918$ | $8.751$ | Baseline Evaluated |
+| **Support Vector Regressor (SVR)** | Inferred HPI | $0.061 \pm 0.089$ | $15.707$ | $21.998$ | Discarded (Non-linear divergence) |
+| **Random Forest Proxy Cd** | Cadmium ($\text{Cd}$) | **$0.912 \pm 0.034$** | $0.0003$ | $0.0004$ | Deployed (Targeted Risk) |
+| **Safety Classifier (RF)** | Safety Category | **$82.7\%$ Accuracy** | - | $82.2\%$ F1 | Deployed (Triage) |
+
+### 📋 Dataset Transparency & Scope
+- **Study Area:** Kadaladi Block, Ramanathapuram District, Coastal Tamil Nadu.
+- **Sample Count:** $N = 88$ ground-truth laboratory samples (44 borewells monitored across Pre-Monsoon and Post-Monsoon seasons).
+- **Core Architecture:**
+  - **Mode A (Deterministic Core):** 100% closed-form mathematical computation of BIS IS 10500:2012 / WHO standards directly from laboratory measurements — **dataset-independent and zero ML error**.
+  - **Mode B (Field Triage Proxy):** Low-cost IoT surrogate model calibrated on regional aquifer data ($N = 88$) for rapid screening before laboratory ICP-MS testing.
+
+### 🔬 Explainable AI (SHAP XAI)
+- **Local Attribution:** Live **SHAP Waterfall Plots** (`shap.TreeExplainer`) in Tab 1 illustrate exactly how sensor inputs ($\text{pH}, \text{TDS}, \text{EC}, \text{Season}$) drive the predicted HPI away from the regional baseline.
+- **Global Feature Impact:** Mean absolute SHAP analysis in Tab 6 provides transparent interpretability across all hydrochemical parameters.
+
 
 ---
 

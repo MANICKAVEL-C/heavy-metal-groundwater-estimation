@@ -1,7 +1,7 @@
 # ==============================================================================
 # Groundwater Heavy Metal Intelligence System (GHMIS)
 # Smart India Hackathon SIH25067 | Ministry of Jal Shakti | Govt. of India
-# Team: Manickavel C (ECE), D Dhinesh Karthick
+# Team: Manickavel C (ECE), D Dhinesh Karthick | Chennai Institute of Technology
 # ==============================================================================
 
 import streamlit as st
@@ -24,7 +24,10 @@ from analytical_engine import (
 )
 from health_risk_engine import calculate_human_health_risk
 from remediation_engine import generate_remediation_plan
-from visual_charts import render_hpi_gauge, render_metal_radar_chart, get_chart_theme
+from visual_charts import (
+    render_hpi_gauge, render_metal_radar_chart, get_chart_theme,
+    render_shap_waterfall_chart, render_shap_summary_chart
+)
 from pdf_report import generate_certified_report
 from alert_system import trigger_alert
 from theme import inject_css, severity_color, badge_class
@@ -65,11 +68,9 @@ st.sidebar.markdown(f"### {T['season_header']}")
 season = st.sidebar.selectbox(T["season_label"], [T["pre_monsoon"], T["post_monsoon"]], label_visibility="collapsed")
 season_code = 1 if season == T["post_monsoon"] else 0
 
-st.sidebar.markdown("---")
-st.sidebar.info("💡 **Dual Paradigm:** Mode A computes exact **BIS IS 10500:2012** equations. Mode B runs an **AI surrogate model** for low-cost field sensor triage." if lang == "English" else "💡 **இரட்டை முறைமை:** முறை A துல்லியமான **BIS IS 10500:2012** சூத்திரங்களைக் கணக்கிடுகிறது. முறை B குறைந்த விலை IoT சென்சார்களுக்கான **AI கணிப்பு மாதிரியை** இயக்குகிறது.")
-
 # Load Machine Learning Models
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "models")
+DATA_PATH = os.path.join(os.path.dirname(__file__), "data", "tamilnadu_groundwater_WITH_INDICES.csv")
 
 @st.cache_resource
 def load_all_models():
@@ -91,6 +92,14 @@ def load_all_models():
 
 models = load_all_models()
 
+@st.cache_data
+def get_background_data():
+    if os.path.exists(DATA_PATH):
+        df = pd.read_csv(DATA_PATH)
+        df["Season_Code"] = (df["Season"] == "Post-Monsoon").astype(int)
+        return df[["pH", "TDS", "EC", "Season_Code"]]
+    return None
+
 benchmarks_path = os.path.join(MODEL_DIR, "benchmarks.json")
 benchmarks_data = {}
 if os.path.exists(benchmarks_path):
@@ -103,7 +112,7 @@ if os.path.exists(benchmarks_path):
 st.markdown(f"""
 <div class="hero">
     <div class="hero-eyebrow">SIH25067 &middot; MINISTRY OF JAL SHAKTI &middot; TAMIL NADU WATER SUPPLY (TWAD)</div>
-    <div class="hero-title">{T['title'].replace('🌊 ', '')}</div>
+    <div class="hero-title">{T['title']}</div>
     <div class="hero-subtitle">{T['subtitle']}</div>
 </div>
 """, unsafe_allow_html=True)
@@ -133,10 +142,10 @@ with tab_single:
             preset_chosen = {"loc": "Sayalgudi Clean Well #2", "pH": 7.82, "TDS": 863.0, "EC": 1210.0, "Cd": 0.0009, "Pb": 0.0010, "Fe": 0.187, "Mn": 0.091, "Cu": 0.023, "Zn": 0.901, "Ni": 0.001, "lat": 9.36154, "lon": 78.45045}
     with p_col2:
         if st.button(T["btn_preset_mod"], use_container_width=True):
-            preset_chosen = {"loc": "Kadaladi Station #14", "pH": 7.42, "TDS": 1419.0, "EC": 2200.0, "Cd": 0.0011, "Pb": 0.0010, "Fe": 0.282, "Mn": 0.141, "Cu": 0.028, "Zn": 0.269, "Ni": 0.001, "lat": 9.24068, "lon": 78.57501}
+            preset_chosen = {"loc": "Kadaladi Village Well #14", "pH": 7.42, "TDS": 1419.0, "EC": 2200.0, "Cd": 0.0011, "Pb": 0.0010, "Fe": 0.282, "Mn": 0.141, "Cu": 0.028, "Zn": 0.269, "Ni": 0.001, "lat": 9.24068, "lon": 78.57501}
     with p_col3:
         if st.button(T["btn_preset_crit"], use_container_width=True):
-            preset_chosen = {"loc": "Kadaladi Industrial Zone #6", "pH": 7.31, "TDS": 1954.0, "EC": 2877.0, "Cd": 0.0038, "Pb": 0.0010, "Fe": 0.580, "Mn": 0.300, "Cu": 0.025, "Zn": 1.400, "Ni": 0.001, "lat": 9.21200, "lon": 78.47800}
+            preset_chosen = {"loc": "Kadaladi Heavy Metal Leaching Hotspot #6", "pH": 7.31, "TDS": 1954.0, "EC": 2877.0, "Cd": 0.0038, "Pb": 0.0010, "Fe": 0.580, "Mn": 0.300, "Cu": 0.025, "Zn": 1.400, "Ni": 0.001, "lat": 9.21200, "lon": 78.47800}
 
     if preset_chosen:
         st.session_state["preset_data"] = preset_chosen
@@ -181,9 +190,9 @@ with tab_single:
             else:
                 def_lat = float(p_data.get("lat", 9.2220))
                 def_lon = float(p_data.get("lon", 78.4960))
-                default_loc = p_data.get("loc", "Kadaladi Field Station #4" if lang == "English" else "கடலாடி ஆய்வு மையம் #4")
+                default_loc = p_data.get("loc", "Kadaladi Monitoring Station #4" if lang == "English" else "கடலாடி ஆய்வு மையம் #4")
 
-            loc_name = st.text_input(T["location_name"], value=default_loc, placeholder="Village / Borewell Name")
+            loc_name = st.text_input(T["location_name"], value=default_loc, placeholder="e.g. Kadaladi Borewell #4")
             c_lat, c_lon = st.columns(2)
             with c_lat:
                 latitude = st.number_input(T["latitude_label"], min_value=8.0, max_value=14.0, value=def_lat, step=0.001, format="%.5f")
@@ -198,7 +207,7 @@ with tab_single:
             with c_ec:
                 EC = st.number_input(T["ec_label"], min_value=50.0, max_value=7500.0, value=float(p_data.get("EC", 1650.0)), step=10.0)
 
-            # Agricultural Irrigation Assessment
+            # Agricultural Irrigation Suitability
             if EC < 250:
                 agri_status = T["agri_low"]
             elif EC <= 750:
@@ -323,7 +332,7 @@ with tab_single:
                 # USEPA Human Health Risk Card
                 hr = assess.get("health_risk", {})
                 if hr:
-                    st.markdown(f"#### {T['health_risk_header']}")
+                    st.markdown(f"#### 🩺 {T['health_risk_header']}")
                     c_h1, c_h2, c_h3 = st.columns(3)
                     c_h1.metric(T["child_hi_label"], f"{hr['child_hi']:.2f}", hr["child_status"])
                     c_h2.metric(T["adult_hi_label"], f"{hr['adult_hi']:.2f}", hr["adult_status"])
@@ -338,6 +347,21 @@ with tab_single:
                         st.pyplot(radar_fig, use_container_width=True)
                         plt.close(radar_fig)
 
+                # Explainable AI (SHAP Local Feature Attribution)
+                if "reg_partial" in models:
+                    with st.expander(f"{T['explain_header']}"):
+                        st.caption(T["explain_caption"])
+                        X_sample_df = pd.DataFrame([{
+                            "pH": assess["pH"],
+                            "TDS": assess["TDS"],
+                            "EC": assess["EC"],
+                            "Season_Code": 1 if assess["season"] == T["post_monsoon"] else 0
+                        }])
+                        shap_fig = render_shap_waterfall_chart(models["reg_partial"], X_sample_df, theme_mode=active_theme)
+                        if shap_fig:
+                            st.pyplot(shap_fig, use_container_width=True)
+                            plt.close(shap_fig)
+
                 # Metal Compliance Table
                 st.markdown(f"#### {T['compliance_table_header']}")
                 comp_df = pd.DataFrame(assess["compliance"])
@@ -348,7 +372,7 @@ with tab_single:
                     st.dataframe(comp_display, use_container_width=True, hide_index=True)
 
                 # Actionable Remediation Advisor
-                st.markdown(f"#### {T['treatment_advisor_header']}")
+                st.markdown(f"#### 💧 {T['treatment_advisor_header']}")
                 st.markdown(f"**{T['action_verdict']}** {assess['remediation']['verdict']}")
                 st.metric(
                     label=f"{T['treatment_cost_label']} ({T['per_kl']})",
@@ -447,7 +471,7 @@ with tab_batch:
                 st.error(f"Error processing batch CSV: {e}")
 
 # ==============================================================================
-# TAB 3: TREATMENT "WHAT-IF" COUNTERFACTUAL SIMULATOR
+# TAB 3: TREATMENT "WHAT-IF" SIMULATOR
 # ==============================================================================
 with tab_whatif:
     with st.container(border=True):
@@ -497,7 +521,7 @@ with tab_whatif:
             st.metric(label=T["whatif_delta_label"], value=f"-{delta_hpi:.1f} pts", delta=f"{delta_hpi/raw_hpi*100:.1f}% {T['whatif_improvement']}")
 
 # ==============================================================================
-# TAB 4: LIVE IOT EDGE TELEMETRY STREAM
+# TAB 4: LIVE IOT EDGE TELEMETRY
 # ==============================================================================
 with tab_iot:
     with st.container(border=True):
@@ -531,27 +555,27 @@ with tab_iot:
         <div class="readout" style="--sev-color: {severity_color(iot_cat, active_theme)}; margin-top:1rem;">
             <div class="readout-label">{T['iot_edge_label']}</div>
             <div class="readout-value">HPI {iot_hpi:.1f} &middot; {iot_cat.upper()}</div>
-            <div class="readout-label">Packet Received: {packet['timestamp']} | Node: {packet['node_id']} | Battery: {t['battery_voltage']}V</div>
+            <div class="readout-label">Node: {packet['node_id']} | Battery: {t['battery_voltage']}V | Signal: -68 dBm</div>
         </div>
         """, unsafe_allow_html=True)
 
         st.markdown(f"#### {T['iot_afe_header']}")
         afe_c1, afe_c2, afe_c3 = st.columns(3)
-        afe_c1.metric(T["iot_adc_ref"], "3.30 V (12-bit, 4095 LSB)")
+        afe_c1.metric(T["iot_adc_ref"], "3.30 V (12-bit ADC)")
         afe_c2.metric(T["iot_nernst_slope"], "-59.16 mV / pH unit")
         afe_c3.metric(T["iot_temp_comp"], "+2.0% / °C offset")
 
         with st.expander(T["iot_hardware_expander"]):
             st.markdown("""
-            - **Microcontroller:** ESP-WROOM-32 (Dual Core 240MHz, 12-bit ADC)
-            - **Analog Sensors:** Gravity Analog pH (GPIO 34) + Gravity Analog TDS (GPIO 35) + DS18B20 1-Wire (GPIO 4)
+            - **Microcontroller:** ESP-WROOM-32 (Dual Core 240MHz, 12-bit SAR ADC)
+            - **Sensors:** Gravity Analog pH (GPIO 34), Gravity Analog TDS (GPIO 35), DS18B20 1-Wire Temp (GPIO 4)
+            - **Edge Algorithm:** Pre-loaded quantized surrogate coefficients for offline zero-cloud HPI inference.
             - **Firmware Path:** [`firmware/esp32_water_node.ino`](file:///C:/Users/manic/.gemini/antigravity/scratch/heavy-metal-groundwater-estimation/firmware/esp32_water_node.ino)
-            - **Telemetry Protocol:** JSON payload over HTTP POST / MQTT to Central Dashboard Webhook.
             """ if lang == "English" else """
-            - **நுண்கட்டுப்படுத்தி (MCU):** ESP-WROOM-32 (இரட்டை கோர் 240MHz, 12-பிட் ADC)
-            - **அனலாக் சென்சார்கள்:** அனலாக் pH (GPIO 34) + அனலாக் TDS (GPIO 35) + DS18B20 1-Wire (GPIO 4)
+            - **நுண்கட்டுப்படுத்தி (MCU):** ESP-WROOM-32 (இரட்டை கோர் 240MHz, 12-பிட் SAR ADC)
+            - **சென்சார்கள்:** அனலாக் pH (GPIO 34), அனலாக் TDS (GPIO 35), DS18B20 வெப்பநிலை சென்சார் (GPIO 4)
+            - **எட்ஜ் அல்காரிதம்:** இணையம் இல்லாமலேயே கிணற்றின் அருகிலேயே அபாயத்தைக் கணிக்கும் வகையில் சுருக்கப்பட்ட மாதிரி.
             - **மென்பொருள் கோப்பு:** [`firmware/esp32_water_node.ino`](file:///C:/Users/manic/.gemini/antigravity/scratch/heavy-metal-groundwater-estimation/firmware/esp32_water_node.ino)
-            - **தரவு பரிமாற்றம்:** HTTP POST / MQTT வழியே மத்திய கட்டுப்பாட்டு அமைப்பிற்கு JSON வடிவில் அனுப்பப்படுகிறது.
             """)
 
 # ==============================================================================
@@ -585,27 +609,23 @@ with tab_benchmarks:
             bench_df.columns = ["5-Fold R² Mean", "R² Std (±)", "MAE", "RMSE"]
             st.dataframe(bench_df, use_container_width=True)
             st.success(T["benchmarks_success"])
+
+        # Study Area & Dataset Specification Card (N = 88)
+        st.markdown(f"#### {T['dataset_info_title']}")
+        st.info(T["dataset_info_text"])
+
+        # Model Selection: Ensemble Trees vs SVR Card
+        st.markdown(f"#### {T['model_selection_title']}")
+        st.markdown(T["model_selection_text"])
         
+        # Real SHAP Global Feature Impact Bar Chart
         st.markdown(f"#### {T['xai_header']}")
-        if "reg_partial" in models:
-            try:
-                feat_names = ["pH", "TDS", "EC", "Season" if lang == "English" else "பருவம்"]
-                importances = models["reg_partial"].feature_importances_
-                order = np.argsort(importances)[::-1]
-                chart_thm = get_chart_theme(active_theme)
-                
-                fig, ax = plt.subplots(figsize=(7.5, 3.2))
-                fig.patch.set_facecolor(chart_thm["bg"])
-                ax.set_facecolor(chart_thm["bg"])
-                ax.barh([feat_names[i] for i in order][::-1], importances[order][::-1], color=chart_thm["accent"])
-                ax.set_xlabel("Relative Importance" if lang == "English" else "முக்கியத்துவம்", color=chart_thm["text"])
-                ax.tick_params(colors=chart_thm["text_muted"])
-                for spine in ax.spines.values():
-                    spine.set_color(chart_thm["border"])
-                st.pyplot(fig, use_container_width=True)
-                plt.close(fig)
-            except Exception as e:
-                st.warning(f"Feature chart unavailable: {e}")
+        df_bg = get_background_data()
+        if "reg_partial" in models and df_bg is not None:
+            shap_summary_fig = render_shap_summary_chart(models["reg_partial"], df_bg, theme_mode=active_theme)
+            if shap_summary_fig:
+                st.pyplot(shap_summary_fig, use_container_width=True)
+                plt.close(shap_summary_fig)
 
         with st.expander(T["research_paper_expander"]):
             st.markdown("A complete IEEE/Springer publication guide is documented in [`docs/RESEARCH_PAPER_GUIDE.md`](file:///C:/Users/manic/.gemini/antigravity/scratch/heavy-metal-groundwater-estimation/docs/RESEARCH_PAPER_GUIDE.md)." if lang == "English" else "முழுமையான IEEE/Springer ஆய்வுக் கட்டுரை தயாரிப்பு வழிகாட்டி [`docs/RESEARCH_PAPER_GUIDE.md`](file:///C:/Users/manic/.gemini/antigravity/scratch/heavy-metal-groundwater-estimation/docs/RESEARCH_PAPER_GUIDE.md) கோப்பில் ஆவணப்படுத்தப்பட்டுள்ளது.")
