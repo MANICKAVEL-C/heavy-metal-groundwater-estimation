@@ -6,56 +6,46 @@
 
 import os
 import json
+import hashlib
 import pandas as pd
 import numpy as np
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LEDGER_PATH = os.path.join(BASE_DIR, "data", "provenance_ledger.json")
 DATA_PATH = os.path.join(BASE_DIR, "data", "tamilnadu_groundwater_WITH_INDICES.csv")
 BENCHMARK_PATH = os.path.join(BASE_DIR, "models", "benchmarks.json")
-
-# Provenance Pipeline Specifications
-PROVENANCE_SPEC = {
-    "tier_1_statewide_cgwb": {
-        "source": "Central Ground Water Board (CGWB) Southern Region, Ministry of Jal Shakti",
-        "description": "Tamil Nadu statewide observation well monitoring network records.",
-        "total_monitoring_records": 8419,
-        "physicochemical_completeness_pct": 99.90,  # 8,411 of 8,419 valid readings
-        "parameters_covered": ["pH", "EC", "TDS", "Water Level", "Latitude", "Longitude"],
-        "bottleneck": "Routine government monitoring logs basic physical parameters but omits toxic heavy metals."
-    },
-    "tier_2_district_filtering": {
-        "target_region": "Ramanathapuram District Coastal Aquifer Basin",
-        "raw_extracted_records": 368,
-        "quality_assurance_audit": "Automated physical range check identified 1 corrupt sensor log with open-circuit EC fault (EC > 45,000 µS/cm paired with freshwater TDS).",
-        "erroneous_records_removed": 1,
-        "cleaned_monitoring_records": 367,
-        "significance": "Provided regional statistical distributions and hydrochemical baselines for pH, EC, and TDS."
-    },
-    "tier_3_laboratory_ground_truth": {
-        "study_block": "Kadaladi Block, Ramanathapuram District, Coastal Tamil Nadu",
-        "physical_borewells": 44,
-        "seasonal_monitoring_cycles": ["Pre-Monsoon (Summer)", "Post-Monsoon (Rainy Recharge)"],
-        "total_ground_truth_samples": 88,
-        "laboratory_quantification": "Certified Inductively Coupled Plasma Mass Spectrometry (ICP-MS) & AAS",
-        "heavy_metals_quantified": ["Cd", "Pb", "Ni", "Cu", "Mn", "Fe", "Zn"],
-        "completeness_pct": 100.0,
-        "file_path": "data/tamilnadu_groundwater_WITH_INDICES.csv"
-    }
-}
 
 def audit_provenance():
     print("=" * 76)
     print("  DATASET PROVENANCE AUDIT & DATA INTEGRITY VERIFICATION")
     print("=" * 76)
     
-    print("\n[+] 1. PROVENANCE PIPELINE DERIVATION:")
-    print("    * Tier 1 (Statewide CGWB Archive)       : 8,419 records (99.9% sensor completeness)")
-    print("    * Tier 2 (Ramanathapuram Basin Filter)  : 368 raw records -> 1 anomalous sensor removed -> 367 clean records")
-    print("    * Tier 3 (Target 7-Metal Lab Ground Truth): 44 stations x 2 hydrological seasons = 88 samples")
+    print(f"\n[+] 1. LOADING PROVENANCE LEDGER ARTIFACT: {LEDGER_PATH}")
+    if not os.path.exists(LEDGER_PATH):
+        raise FileNotFoundError(f"Missing provenance ledger artifact: {LEDGER_PATH}")
+        
+    with open(LEDGER_PATH, "r", encoding="utf-8") as f:
+        ledger = json.load(f)
+        
+    tiers = ledger["data_pipeline_tiers"]
+    t1 = tiers["tier_1_statewide_cgwb_inventory"]
+    t2 = tiers["tier_2_district_hydrological_filter"]
+    t3 = tiers["tier_3_laboratory_ground_truth"]
     
-    print(f"\n[+] 2. VERIFYING TIER 3 ARTIFACT: {DATA_PATH}")
+    print(f"    * Tier 1 (Statewide CGWB Archive)       : {t1['total_records_ingested']:,} records ({t1['physicochemical_completeness']['completeness_percentage']}% sensor completeness)")
+    print(f"    * Tier 2 (Ramanathapuram Basin Filter)  : {t2['raw_extracted_records']} raw records -> 1 anomalous sensor removed -> {t2['cleaned_validated_records']} clean records")
+    print(f"    * Tier 3 (Target 7-Metal Lab Ground Truth): {t3['physical_monitoring_borewells']} stations x 2 hydrological cycles = {t3['total_ground_truth_samples']} samples")
+    
+    print(f"\n[+] 2. VERIFYING TIER 3 ARTIFACT INTEGRITY: {DATA_PATH}")
     if not os.path.exists(DATA_PATH):
         raise FileNotFoundError(f"Missing data file: {DATA_PATH}")
+        
+    # SHA-256 Checksum Verification
+    with open(DATA_PATH, "rb") as f:
+        computed_sha256 = hashlib.sha256(f.read()).hexdigest()
+    expected_sha256 = t3.get("file_sha256", "")
+    assert computed_sha256 == expected_sha256, f"SHA-256 mismatch! Computed: {computed_sha256}, Expected: {expected_sha256}"
+    print(f"    * SHA-256 Cryptographic Checksum: {computed_sha256} [VERIFIED]")
         
     df = pd.read_csv(DATA_PATH)
     rows, cols = df.shape
@@ -94,12 +84,12 @@ def audit_provenance():
     else:
         bm = {}
         
-    bm["dataset_provenance"] = PROVENANCE_SPEC
+    bm["dataset_provenance"] = tiers
     with open(BENCHMARK_PATH, "w") as f:
         json.dump(bm, f, indent=4)
         
     print(f"[+] Provenance metadata updated in: {BENCHMARK_PATH}")
-    return PROVENANCE_SPEC
+    return tiers
 
 if __name__ == "__main__":
     audit_provenance()

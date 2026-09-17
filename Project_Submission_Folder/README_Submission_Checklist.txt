@@ -12,8 +12,9 @@ This single unified folder contains all project deliverables required by the fac
      --> Tab 3: 'Figures' (High-Resolution Charts embedded directly inside the sheet)
      --> Tab 4: 'Outputs' (Screening predictions, Hazard Index HI, and Treatment Plans)
 
-2. RAW DATA SET (.csv):
+2. RAW DATA SET & PROVENANCE LEDGER:
    * 2_Data_Set_Groundwater_88_Samples.csv (Certified 7-metal ICP-MS laboratory dataset)
+   * 2_Data_Provenance_Ledger.json (3-tier CGWB-to-ground-truth provenance ledger with SHA-256)
 
 3. TABLES (.csv):
    * 3_Table1_Model_Benchmarks.csv (5-Fold cross-validation R², MAE, RMSE)

@@ -81,11 +81,7 @@ def run_spatial_loocv():
         "post_monsoon_loocv": post,
         "pre_monsoon_loocv": pre,
         "cross_seasonal_mean_r2": combined_mean_r2,
-        "cross_seasonal_mean_rmse": combined_mean_rmse,
-        "literature_reported_range": {
-            "r2_range": "0.41 - 0.49",
-            "rmse_range": "17.85 - 18.33"
-        }
+        "cross_seasonal_mean_rmse": combined_mean_rmse
     }
     
     print("\n" + "-" * 72)

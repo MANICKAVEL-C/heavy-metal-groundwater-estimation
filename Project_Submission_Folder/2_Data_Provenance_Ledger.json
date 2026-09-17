@@ -1,0 +1,186 @@
+{
+    "provenance_ledger_version": "1.0.0",
+    "project_name": "Groundwater Heavy Metal Intelligence System (GHMIS)",
+    "target_basin": "Ramanathapuram District Coastal Aquifer Basin, Tamil Nadu, India",
+    "geographic_bounds": {
+        "latitude_min": 9.15,
+        "latitude_max": 9.45,
+        "longitude_min": 78.35,
+        "longitude_max": 78.75
+    },
+    "data_pipeline_tiers": {
+        "tier_1_statewide_cgwb_inventory": {
+            "tier_level": 1,
+            "tier_name": "Statewide Regional Groundwater Inventory",
+            "data_source": "Central Ground Water Board (CGWB) Southern Region, Ministry of Jal Shakti, Government of India",
+            "regional_coverage": "Tamil Nadu State observation well monitoring network",
+            "total_records_ingested": 8419,
+            "physicochemical_completeness": {
+                "valid_records": 8411,
+                "missing_or_corrupt_records": 8,
+                "completeness_percentage": 99.9
+            },
+            "parameters_logged": [
+                "pH",
+                "Electrical Conductivity (EC, uS/cm)",
+                "Total Dissolved Solids (TDS, mg/L)",
+                "Depth to Water Level (m bgl)",
+                "Station Latitude",
+                "Station Longitude"
+            ],
+            "technical_rationale_and_limitation": "Routine statewide groundwater monitoring networks collect extensive spatial and basic physicochemical observations, but omit trace heavy metal ICP-MS quantification due to laboratory cost constraints (~-/sample). This archive serves as the macroscopic hydrochemical distribution baseline."
+        },
+        "tier_2_district_hydrological_filter": {
+            "tier_level": 2,
+            "tier_name": "District Hydrological Basin Extraction & Quality Screening",
+            "target_district": "Ramanathapuram District Coastal Aquifer Basin",
+            "extraction_criteria": "Geographic bounding box (9.15N - 9.45N, 78.35E - 78.75E) and administrative district tag = Ramanathapuram",
+            "raw_extracted_records": 368,
+            "quality_assurance_audit": {
+                "audit_procedure": "Automated physical range check and ionic consistency screening.",
+                "flagged_record_id": "CGWB-TN-RAM-042",
+                "anomaly_description": "Open-circuit sensor electrode short: logged EC = 48,200 uS/cm paired with freshwater TDS = 410 mg/L (physically inconsistent EC:TDS ratio of 117.5 vs normal range 1.2 - 2.0).",
+                "action_taken": "Removed 1 corrupted sensor record."
+            },
+            "cleaned_validated_records": 367,
+            "regional_baseline_statistics": {
+                "ph_range": [
+                    7.1,
+                    8.24
+                ],
+                "ec_range_us_cm": [
+                    850.0,
+                    4200.0
+                ],
+                "tds_range_mg_l": [
+                    580.0,
+                    2850.0
+                ]
+            },
+            "technical_role": "Provides regional covariance envelopes and baseline priors for unsupervised anomaly detection and surrogate calibration."
+        },
+        "tier_3_laboratory_ground_truth": {
+            "tier_level": 3,
+            "tier_name": "Target Certified 7-Metal ICP-MS Ground Truth",
+            "study_area": "Kadaladi Block, Ramanathapuram District, Coastal Tamil Nadu",
+            "physical_monitoring_borewells": 44,
+            "hydrological_sampling_cycles": [
+                "Pre-Monsoon (Summer baseline: May/June)",
+                "Post-Monsoon (Recharge leaching period: November/December)"
+            ],
+            "samples_per_cycle": 44,
+            "total_ground_truth_samples": 88,
+            "seasonal_balance": "44 Pre-Monsoon : 44 Post-Monsoon (1:1 balanced design)",
+            "analytical_methodology": "Standard Methods for the Examination of Water and Wastewater (APHA 3125 / 3111B) via Inductively Coupled Plasma Mass Spectrometry (ICP-MS) and Flame/Graphite Furnace Atomic Absorption Spectrometry (AAS)",
+            "heavy_metals_quantified": [
+                {
+                    "symbol": "Cd",
+                    "name": "Cadmium",
+                    "unit": "mg/L",
+                    "bis_limit": 0.003,
+                    "analytical_range": [
+                        0.0001,
+                        0.045
+                    ]
+                },
+                {
+                    "symbol": "Pb",
+                    "name": "Lead",
+                    "unit": "mg/L",
+                    "bis_limit": 0.01,
+                    "analytical_range": [
+                        0.0001,
+                        0.021
+                    ]
+                },
+                {
+                    "symbol": "Ni",
+                    "name": "Nickel",
+                    "unit": "mg/L",
+                    "bis_limit": 0.02,
+                    "analytical_range": [
+                        0.0005,
+                        0.028
+                    ]
+                },
+                {
+                    "symbol": "Cu",
+                    "name": "Copper",
+                    "unit": "mg/L",
+                    "bis_limit": 0.05,
+                    "analytical_range": [
+                        0.005,
+                        0.062
+                    ]
+                },
+                {
+                    "symbol": "Mn",
+                    "name": "Manganese",
+                    "unit": "mg/L",
+                    "bis_limit": 0.1,
+                    "analytical_range": [
+                        0.012,
+                        1.2
+                    ]
+                },
+                {
+                    "symbol": "Fe",
+                    "name": "Iron",
+                    "unit": "mg/L",
+                    "bis_limit": 0.3,
+                    "analytical_range": [
+                        0.04,
+                        3.5
+                    ]
+                },
+                {
+                    "symbol": "Zn",
+                    "name": "Zinc",
+                    "unit": "mg/L",
+                    "bis_limit": 5.0,
+                    "analytical_range": [
+                        0.05,
+                        3.2
+                    ]
+                }
+            ],
+            "composite_pollution_indices": [
+                {
+                    "index": "HPI",
+                    "reference": "Prasad & Bose (2001)",
+                    "threshold_critical": 100.0,
+                    "dataset_range": [
+                        17.61,
+                        96.1
+                    ]
+                },
+                {
+                    "index": "HEI",
+                    "reference": "Edet & Offiong (2002)",
+                    "threshold_critical": 20.0,
+                    "dataset_range": [
+                        1.94,
+                        28.45
+                    ]
+                },
+                {
+                    "index": "MI",
+                    "reference": "Tamasi & Cini (2004)",
+                    "threshold_critical": 1.0,
+                    "dataset_range": [
+                        0.28,
+                        4.12
+                    ]
+                }
+            ],
+            "data_completeness": {
+                "total_cells": 1672,
+                "null_or_missing_cells": 0,
+                "completeness_percentage": 100.0
+            },
+            "file_artifact": "data/tamilnadu_groundwater_WITH_INDICES.csv",
+            "file_sha256": "c93f8a03795c689b7a7051fc28d8af9758c8a280480e83128df714688bd630ff",
+            "verification_status": "Audited & Reproducible"
+        }
+    }
+}

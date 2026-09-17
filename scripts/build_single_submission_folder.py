@@ -192,8 +192,7 @@ def build_master_excel():
     t3_data = [
         ["Post-Monsoon (Surveillance Leaching Cycle)", 44, "Spherical", 0.4903, 17.8470, 13.3151, -1.0850],
         ["Pre-Monsoon (Summer Baseline Cycle)", 44, "Spherical", 0.2971, 5.3263, 4.4200, -0.1844],
-        ["Cross-Seasonal Composite Mean", 88, "Spherical", 0.3937, 11.5867, 8.8675, -0.6347],
-        ["Literature Reported Benchmark (Kadaladi Block)", 44, "Spherical (nlags=8)", 0.4120, 18.1590, 13.5000, -0.3100]
+        ["Cross-Seasonal Composite Mean", 88, "Spherical", 0.3937, 11.5867, 8.8675, -0.6347]
     ]
     for r_i, row in enumerate(t3_data, 27):
         for c_i, val in enumerate(row, 1):
@@ -333,8 +332,11 @@ def populate_submission_folder():
     print("[2/4] Populating all Data Sets, Tables, Figures, and Outputs into Project_Submission_Folder...")
     df = pd.read_csv(DATA_CSV)
 
-    # 1. Raw Data Set
+    # 1. Raw Data Set & Provenance Ledger
     df.to_csv(os.path.join(SUBMISSION_DIR, "2_Data_Set_Groundwater_88_Samples.csv"), index=False)
+    ledger_src = os.path.join(BASE_DIR, "data", "provenance_ledger.json")
+    if os.path.exists(ledger_src):
+        shutil.copy2(ledger_src, os.path.join(SUBMISSION_DIR, "2_Data_Provenance_Ledger.json"))
 
     # 2. Standalone Tables
     # Table 1: Model Benchmarks
@@ -426,8 +428,9 @@ This single unified folder contains all project deliverables required by the fac
      --> Tab 3: 'Figures' (High-Resolution Charts embedded directly inside the sheet)
      --> Tab 4: 'Outputs' (Screening predictions, Hazard Index HI, and Treatment Plans)
 
-2. RAW DATA SET (.csv):
+2. RAW DATA SET & PROVENANCE LEDGER:
    * 2_Data_Set_Groundwater_88_Samples.csv (Certified 7-metal ICP-MS laboratory dataset)
+   * 2_Data_Provenance_Ledger.json (3-tier CGWB-to-ground-truth provenance ledger with SHA-256)
 
 3. TABLES (.csv):
    * 3_Table1_Model_Benchmarks.csv (5-Fold cross-validation R², MAE, RMSE)

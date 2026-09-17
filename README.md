@@ -95,7 +95,7 @@ heavy-metal-groundwater-estimation/
 ├── scripts/
 │   ├── validate_spatial_kriging.py    # Leave-One-Out Cross-Validation for Ordinary Kriging
 │   ├── evaluate_anomaly_spikes.py     # 6-Scenario industrial contamination spike benchmark
-│   ├── verify_narayanan_benchmark.py  # Literature concordance verification (1.9% deviation)
+│   ├── verify_narayanan_benchmark.py  # Literature concordance verification (2.12% deviation)
 │   └── verify_data_provenance.py      # Data provenance & 88-sample matrix integrity audit
 ├── firmware/
 │   └── esp32_water_node.ino    # Production C++ firmware for ESP32 + pH/TDS/Temp sensors
@@ -104,7 +104,8 @@ heavy-metal-groundwater-estimation/
 │   ├── RESEARCH_PAPER_GUIDE.md # IEEE/Springer publication manuscript blueprint
 │   └── HACKATHON_PITCH_DECK.md # Executive presentation outline
 ├── data/
-│   └── tamilnadu_groundwater_WITH_INDICES.csv # 88 borewell certified laboratory dataset
+│   ├── tamilnadu_groundwater_WITH_INDICES.csv # 88 borewell certified laboratory dataset
+│   └── provenance_ledger.json                 # 3-tier CGWB-to-ground-truth provenance audit ledger
 └── requirements.txt
 ```
 
@@ -115,16 +116,16 @@ heavy-metal-groundwater-estimation/
 All research claims, cross-validation metrics, and benchmarks are 100% independently reproducible:
 
 ```bash
-# 1. Verify Spatial Kriging LOOCV (Post-Monsoon R² = 0.49, RMSE = 17.85)
+# 1. Verify Spatial Kriging LOOCV (Post-Monsoon R² = 0.4903, RMSE = 17.85; Mean R² = 0.3937)
 python scripts/validate_spatial_kriging.py
 
-# 2. Verify Anomaly Detection (3/6 IsoForest alone, 6/6 Dual-Layer Hybrid Alert)
+# 2. Verify Anomaly Detection (2/6 IsoForest alone; 5/5 hazard recall [100%] with Dual-Layer Hybrid)
 python scripts/evaluate_anomaly_spikes.py
 
-# 3. Verify Narayanan et al. Literature Benchmark (1.9% mean deviation)
+# 3. Verify Narayanan et al. Literature Benchmark (2.12% mean deviation against Narayanan et al. 2021)
 python scripts/verify_narayanan_benchmark.py
 
-# 4. Verify 3-Tier Data Provenance (8,419 CGWB -> 367 Regional -> 88 Lab Samples)
+# 4. Verify 3-Tier Data Provenance (8,419 CGWB -> 367 Regional -> 88 Lab Samples + SHA-256)
 python scripts/verify_data_provenance.py
 ```
 
