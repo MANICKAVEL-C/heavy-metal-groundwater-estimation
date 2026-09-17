@@ -9,3 +9,4 @@ reportlab
 folium
 streamlit-folium
 pykrige
+openpyxl
