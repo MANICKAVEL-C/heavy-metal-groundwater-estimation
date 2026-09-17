@@ -1,0 +1,8 @@
+Symbol,Element Name,Permissible Si (mg/L),Ideal Ii (mg/L),MAC (mg/L),Weight Wi,Category
+Cd,Cadmium,0.003,0.0,0.01,333.3333,Group 1 Carcinogen
+Pb,Lead,0.01,0.0,0.05,100.0,Cumulative Toxicant
+Ni,Nickel,0.02,0.0,0.07,50.0,Trace Toxicant
+Cu,Copper,0.05,0.0,1.5,20.0,Essential Micronutrient
+Mn,Manganese,0.1,0.0,0.3,10.0,Neurotoxicant
+Fe,Iron,0.3,0.0,1.0,3.3333,Aesthetic & Organ Load
+Zn,Zinc,5.0,0.0,15.0,0.2,Essential Mineral

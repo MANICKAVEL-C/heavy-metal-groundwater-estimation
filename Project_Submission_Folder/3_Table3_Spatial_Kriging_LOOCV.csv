@@ -1,0 +1,4 @@
+Hydrological Cycle,Stations (N),Variogram Model,Spatial R2 Score,RMSE,MAE,Mean Error
+Post-Monsoon (Surveillance Leaching Cycle),44,Spherical,0.4903,17.847,13.3151,-1.085
+Pre-Monsoon (Summer Baseline Cycle),44,Spherical,0.2971,5.3263,4.42,-0.1844
+Cross-Seasonal Composite Mean,88,Spherical,0.3937,11.5867,8.8675,-0.6347

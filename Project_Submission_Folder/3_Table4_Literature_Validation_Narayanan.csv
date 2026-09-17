@@ -1,0 +1,6 @@
+Station ID,Reference Location Name,Coordinates,Published Literature HPI,GHMIS Calculated HPI,Deviation (%)
+REF_LOC_01,Sayalgudi Coastal Borewell (Station 3),"9.2106°N, 78.3941°E",34.5,33.58,2.68
+REF_LOC_02,Mudukulathur Agriculture Well (Station 2),"9.3615°N, 78.4504°E",25.35,25.74,1.54
+REF_LOC_03,Kadaladi Town Monitoring Well (Station 14),"9.2406°N, 78.5750°E",31.1,31.6,1.61
+REF_LOC_04,Valinokkam Marine Boundary (Station 25),"9.1747°N, 78.5096°E",40.28,41.35,2.65
+COMPOSITE,OVERALL BENCHMARK AVERAGE,Kadaladi Coastal Aquifer Tract,32.81,33.07,2.12

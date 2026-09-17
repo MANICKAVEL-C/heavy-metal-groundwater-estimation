@@ -1,0 +1,6 @@
+Algorithm / Model,Target Variable,5-Fold R2 Mean,R2 Std,MAE,RMSE,Status
+Gradient Boosting Regressor,HPI (Pollution Index),0.9305,0.0312,4.3836,5.7513,Selected (Surrogate Engine)
+Random Forest Regressor,HPI (Pollution Index),0.9166,0.0272,4.7084,6.2942,Selected (Field Proxy)
+Ridge Regressor (L2),HPI (Pollution Index),0.846,0.0354,6.9182,8.7507,Baseline Comparison
+Support Vector Regressor (SVR),HPI (Pollution Index),0.0612,0.0888,15.7073,21.9975,Discarded (Non-linear Failure)
+Proxy Cadmium Regressor (RF),Cadmium (Cd),0.9119,0.034,0.0003,0.0004,Deployed (Direct Risk Target)
