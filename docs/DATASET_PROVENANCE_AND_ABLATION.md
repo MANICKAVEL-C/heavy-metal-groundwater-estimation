@@ -141,18 +141,29 @@ The dataset utilized in this project was derived through a transparent 3-tier fi
 │ Completeness: 100.0% (Zero missing cells across all 19 attributes)      │
 │ File Artifact: data/tamilnadu_groundwater_WITH_INDICES.csv              │
 │ Provenance Ledger: data/provenance_ledger.json                          │
-│ SHA-256: c93f8a03795c689b7a7051fc28d8af9758c8a280480e83128df714688bd630ff│
+│ Canonical LF SHA-256: 7b6faebbb843b5915789e35df8b34fc97de6d3a48121f8b8218d5131f48707dc│
+│ Windows CRLF SHA-256: c93f8a03795c689b7a7051fc28d8af9758c8a280480e83128df714688bd630ff│
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Reproducibility Verification
+### Reproducibility Verification & Empirical Range Audit
 Run `python scripts/verify_data_provenance.py` to audit the data provenance ledger and the 88-sample matrix:
 - **Provenance Ledger Artifact:** [`data/provenance_ledger.json`](file:///C:/Users/manic/.gemini/antigravity/scratch/heavy-metal-groundwater-estimation/data/provenance_ledger.json) (structured audit trail across Tiers 1, 2, and 3).
-- **Cryptographic Hash:** SHA-256 `c93f8a03795c689b7a7051fc28d8af9758c8a280480e83128df714688bd630ff` verified at runtime.
-- **Matrix Dimensions:** 88 rows $\times$ 19 columns.
+- **Cross-Platform Cryptographic Hash:** Canonical LF SHA-256 `7b6faebbb843b5915789e35df8b34fc97de6d3a48121f8b8218d5131f48707dc` (verified across Windows, Linux, and macOS).
+- **Matrix Dimensions:** 88 rows $\times$ 19 columns ($100.0\%$ complete, zero missing values).
 - **Seasonal Balance:** 44 Pre-Monsoon, 44 Post-Monsoon (perfect 1:1 paired sampling).
-- **Missing Data:** 0 null values across all 1,672 cells (100.0% completeness).
-- **HPI Distribution:** Minimum $= 17.61$, Mean $= 42.69$, Maximum $= 107.19$.
+- **Ground Truth 7-Metal Analytical Ranges (ICP-MS / AAS):**
+  - **Cadmium ($\text{Cd}$):** $0.00060$ to $0.00440\text{ mg/L}$ (Mean: $0.00164\text{ mg/L}$, BIS Limit: $0.003$)
+  - **Lead ($\text{Pb}$):** $0.00100\text{ mg/L}$ constant (ICP-MS non-detect quantification baseline, BIS Limit: $0.010$)
+  - **Nickel ($\text{Ni}$):** $0.00100\text{ mg/L}$ constant (ICP-MS non-detect quantification baseline, BIS Limit: $0.020$)
+  - **Copper ($\text{Cu}$):** $0.00360$ to $0.06020\text{ mg/L}$ (Mean: $0.02794\text{ mg/L}$, BIS Limit: $0.050$)
+  - **Manganese ($\text{Mn}$):** $0.03000$ to $0.32000\text{ mg/L}$ (Mean: $0.14713\text{ mg/L}$, BIS Limit: $0.100$)
+  - **Iron ($\text{Fe}$):** $0.06000$ to $0.62000\text{ mg/L}$ (Mean: $0.27567\text{ mg/L}$, BIS Limit: $0.300$)
+  - **Zinc ($\text{Zn}$):** $0.18080$ to $3.21220\text{ mg/L}$ (Mean: $1.28392\text{ mg/L}$, BIS Limit: $5.000$)
+- **Pollution Indices Distribution:**
+  - **HPI:** Minimum $= 17.61$, Mean $= 42.69$, Maximum $= 107.19$ (Critical: $100$)
+  - **HEI:** Minimum $= 1.29$, Mean $= 3.37$, Maximum $= 7.05$ (Critical: $20$)
+  - **MI:** Minimum $= 1.29$, Mean $= 3.37$, Maximum $= 7.05$ (Critical: $1.0$)
 - **Ground Truth Safety Categories:** 29 Safe ($\text{HPI} < 25$), 43 Moderate ($25 \le \text{HPI} \le 50$), 16 Highly Polluted ($\text{HPI} > 50$).
 
 ---

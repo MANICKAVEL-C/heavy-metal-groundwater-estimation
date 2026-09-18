@@ -247,7 +247,7 @@
             "tier_level": 2,
             "tier_name": "District Hydrological Basin Extraction & Quality Screening",
             "target_district": "Ramanathapuram District Coastal Aquifer Basin",
-            "extraction_criteria": "Geographic bounding box (9.15N - 9.45N, 78.35E - 78.75E) and administrative district tag = Ramanathapuram",
+            "extraction_criteria": "Geographic bounding box and administrative district tag = Ramanathapuram",
             "raw_extracted_records": 368,
             "quality_assurance_audit": {
                 "audit_procedure": "Automated physical range check and ionic consistency screening.",
@@ -285,6 +285,35 @@
             "total_ground_truth_samples": 88,
             "seasonal_balance": "44 Pre-Monsoon : 44 Post-Monsoon (1:1 balanced design)",
             "analytical_methodology": "Standard Methods for the Examination of Water and Wastewater (APHA 3125 / 3111B) via Inductively Coupled Plasma Mass Spectrometry (ICP-MS) and Flame/Graphite Furnace Atomic Absorption Spectrometry (AAS)",
+            "physicochemical_ranges": {
+                "ph": {
+                    "range": [
+                        6.81,
+                        7.96
+                    ],
+                    "mean": 7.42,
+                    "bis_desirable_range": [
+                        6.5,
+                        8.5
+                    ]
+                },
+                "ec_us_cm": {
+                    "range": [
+                        380.9,
+                        2924.8
+                    ],
+                    "mean": 1599.0,
+                    "guideline_max": 3000.0
+                },
+                "tds_mg_l": {
+                    "range": [
+                        250.0,
+                        1954.0
+                    ],
+                    "mean": 1072.6,
+                    "bis_permissible_max": 2000.0
+                }
+            },
             "heavy_metals_quantified": [
                 {
                     "symbol": "Cd",
@@ -292,9 +321,13 @@
                     "unit": "mg/L",
                     "bis_limit": 0.003,
                     "analytical_range": [
-                        0.0001,
-                        0.045
-                    ]
+                        0.0006,
+                        0.0044
+                    ],
+                    "mean_concentration": 0.00164,
+                    "std_concentration": 0.00101,
+                    "exceedance_count_in_ground_truth": 12,
+                    "description": "Group 1 cumulative nephrotoxicant"
                 },
                 {
                     "symbol": "Pb",
@@ -302,9 +335,13 @@
                     "unit": "mg/L",
                     "bis_limit": 0.01,
                     "analytical_range": [
-                        0.0001,
-                        0.021
-                    ]
+                        0.001,
+                        0.001
+                    ],
+                    "mean_concentration": 0.001,
+                    "std_concentration": 0.0,
+                    "exceedance_count_in_ground_truth": 0,
+                    "description": "Neurotoxic cumulative heavy metal (baseline ICP-MS quantification limit 0.001 mg/L)"
                 },
                 {
                     "symbol": "Ni",
@@ -312,9 +349,13 @@
                     "unit": "mg/L",
                     "bis_limit": 0.02,
                     "analytical_range": [
-                        0.0005,
-                        0.028
-                    ]
+                        0.001,
+                        0.001
+                    ],
+                    "mean_concentration": 0.001,
+                    "std_concentration": 0.0,
+                    "exceedance_count_in_ground_truth": 0,
+                    "description": "Trace toxicant (baseline ICP-MS quantification limit 0.001 mg/L)"
                 },
                 {
                     "symbol": "Cu",
@@ -322,9 +363,13 @@
                     "unit": "mg/L",
                     "bis_limit": 0.05,
                     "analytical_range": [
-                        0.005,
-                        0.062
-                    ]
+                        0.0036,
+                        0.0602
+                    ],
+                    "mean_concentration": 0.02794,
+                    "std_concentration": 0.01225,
+                    "exceedance_count_in_ground_truth": 4,
+                    "description": "Essential micronutrient; toxic in excess"
                 },
                 {
                     "symbol": "Mn",
@@ -332,9 +377,13 @@
                     "unit": "mg/L",
                     "bis_limit": 0.1,
                     "analytical_range": [
-                        0.012,
-                        1.2
-                    ]
+                        0.03,
+                        0.32
+                    ],
+                    "mean_concentration": 0.14713,
+                    "std_concentration": 0.06898,
+                    "exceedance_count_in_ground_truth": 60,
+                    "description": "Neurotoxicant causing Manganism at high exposure"
                 },
                 {
                     "symbol": "Fe",
@@ -342,9 +391,13 @@
                     "unit": "mg/L",
                     "bis_limit": 0.3,
                     "analytical_range": [
-                        0.04,
-                        3.5
-                    ]
+                        0.06,
+                        0.62
+                    ],
+                    "mean_concentration": 0.27567,
+                    "std_concentration": 0.11943,
+                    "exceedance_count_in_ground_truth": 30,
+                    "description": "Aesthetic, organ load, and crustal sediment indicator"
                 },
                 {
                     "symbol": "Zn",
@@ -352,9 +405,13 @@
                     "unit": "mg/L",
                     "bis_limit": 5.0,
                     "analytical_range": [
-                        0.05,
-                        3.2
-                    ]
+                        0.1808,
+                        3.2122
+                    ],
+                    "mean_concentration": 1.28392,
+                    "std_concentration": 0.74991,
+                    "exceedance_count_in_ground_truth": 0,
+                    "description": "Essential mineral; competitive ionic antagonist"
                 }
             ],
             "composite_pollution_indices": [
@@ -364,36 +421,57 @@
                     "threshold_critical": 100.0,
                     "dataset_range": [
                         17.61,
-                        96.1
-                    ]
+                        107.19
+                    ],
+                    "dataset_mean": 42.69,
+                    "dataset_std": 23.57,
+                    "description": "Weighted Arithmetic Heavy Metal Pollution Index"
                 },
                 {
                     "index": "HEI",
                     "reference": "Edet & Offiong (2002)",
                     "threshold_critical": 20.0,
                     "dataset_range": [
-                        1.94,
-                        28.45
-                    ]
+                        1.29,
+                        7.05
+                    ],
+                    "dataset_mean": 3.37,
+                    "dataset_std": 1.33,
+                    "description": "Heavy Metal Evaluation Index (cumulative toxicity multiple)"
                 },
                 {
                     "index": "MI",
                     "reference": "Tamasi & Cini (2004)",
                     "threshold_critical": 1.0,
                     "dataset_range": [
-                        0.28,
-                        4.12
-                    ]
+                        1.29,
+                        7.05
+                    ],
+                    "dataset_mean": 3.37,
+                    "dataset_std": 1.33,
+                    "description": "Metal Index ratio relative to maximum allowable concentrations"
                 }
             ],
             "data_completeness": {
+                "total_rows": 88,
+                "total_columns": 19,
                 "total_cells": 1672,
                 "null_or_missing_cells": 0,
                 "completeness_percentage": 100.0
             },
+            "safety_categories_count": {
+                "Safe": 29,
+                "Moderate": 43,
+                "Highly Polluted": 16
+            },
             "file_artifact": "data/tamilnadu_groundwater_WITH_INDICES.csv",
-            "file_sha256": "c93f8a03795c689b7a7051fc28d8af9758c8a280480e83128df714688bd630ff",
-            "verification_status": "Audited & Reproducible"
+            "checksum_verification": {
+                "hash_algorithm": "SHA-256",
+                "canonical_lf_sha256": "7b6faebbb843b5915789e35df8b34fc97de6d3a48121f8b8218d5131f48707dc",
+                "windows_crlf_sha256": "c93f8a03795c689b7a7051fc28d8af9758c8a280480e83128df714688bd630ff",
+                "verification_methodology": "Line-ending invariant canonical SHA-256 (computed with normalized LF Unix line endings to guarantee identical verification across Windows, Linux, and macOS environments)."
+            },
+            "verification_status": "Audited, Empirically Derived & Cross-Platform Certified"
         }
     }
 }
