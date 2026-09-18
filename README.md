@@ -95,7 +95,7 @@ heavy-metal-groundwater-estimation/
 ├── scripts/
 │   ├── validate_spatial_kriging.py    # Leave-One-Out Cross-Validation for Ordinary Kriging
 │   ├── evaluate_anomaly_spikes.py     # 6-Scenario industrial contamination spike benchmark
-│   ├── verify_narayanan_benchmark.py  # Literature concordance verification (2.12% deviation)
+│   ├── verify_narayanan_benchmark.py  # Literature concordance verification (3.17% deviation, Nature 2025)
 │   └── verify_data_provenance.py      # Data provenance & 88-sample matrix integrity audit
 ├── firmware/
 │   └── esp32_water_node.ino    # Production C++ firmware for ESP32 + pH/TDS/Temp sensors
@@ -122,7 +122,7 @@ python scripts/validate_spatial_kriging.py
 # 2. Verify Anomaly Detection (2/6 IsoForest alone; 5/5 hazard recall [100%] with Dual-Layer Hybrid)
 python scripts/evaluate_anomaly_spikes.py
 
-# 3. Verify Narayanan et al. Literature Benchmark (2.12% mean deviation against Narayanan et al. 2021)
+# 3. Verify Narayanan et al. Literature Benchmark (3.17% mean deviation against Narayanan et al. 2025 Nature Sci Rep)
 python scripts/verify_narayanan_benchmark.py
 
 # 4. Verify 3-Tier Data Provenance (8,419 CGWB -> 367 Regional -> 88 Lab Samples + SHA-256)

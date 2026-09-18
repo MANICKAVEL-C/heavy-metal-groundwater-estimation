@@ -1,0 +1,622 @@
+Title: Live Content
+Description: Fetched live
+Source: https://www.nature.com/articles/s41598-025-12120-5
+Spatial assessment of heavy metal contamination in groundwater in the Kadaladi region, Tamil Nadu, India | Scientific Reports
+<meta name="citation_reference" content="Loganathan, K. &amp; Vignesh Rajkumar, L. Health risk assessment of heavy metal toxicity in groundwater&#8212;A comparative study on the industrial corridors of integrated Vellore District, Tamil Nadu. 1, 297&#8211;322 (2025).
+https://doi.org/10.1007/978-3-031-76532-2_13
+."/>
+<meta name="citation_reference" content="Singh Patel, K. et al. Contamination and sources of surface water in Korba Coal Basin, Chhattisgarh, India. (2024).
+https://doi.org/10.21203/RS.3.RS-4478468/V1
+<meta name="citation_reference" content="Gowtham, B., Sekar, S., Marcus, C., Vinodh, K. &amp; Senapathi, V. Geochemical assessment of high salinity in groundwater along Ramanathapuram Coast, Southern Tamil Nadu. Groundwater Contamination in Coastal Aquifers: Assessment and Management 213&#8211;231 (2022)
+https://doi.org/10.1016/B978-0-12-824387-9.00014-1
+."/>
+<meta name="citation_reference" content="Brindha, K. &amp; Schneider, M. Impact of urbanization on groundwater quality. GIS and Geostatistical Techniques for Groundwater Science 179&#8211;196 (2019).
+https://doi.org/10.1016/B978-0-12-815413-7.00013-4
+."/>
+<meta name="citation_reference" content="BIS Home - Bureau of Indian Standards.
+https://www.bis.gov.in/
+."/>
+<meta name="citation_reference" content="Ground Water and Drinking Water | US EPA.
+https://www.epa.gov/ground-water-and-drinking-water
+(2020)."/>
+Skip to main content
+Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain
+the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in
+Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles
+and JavaScript.
+Advertisement
+<div id="div-gpt-ad-top-1"
+class="div-gpt-ad advert leaderboard js-ad text-center hide-print grade-c-hide"
+data-ad-type="top"
+data-test="top-ad"
+data-pa11y-ignore
+data-gpt
+data-gpt-unitpath="/285/scientific_reports/article"
+data-gpt-sizes="728x90"
+data-gpt-targeting="type=article;pos=top;artid=s41598-025-12120-5;doi=10.1038/s41598-025-12120-5;kwrd=Science%2C+Humanities+and+Social+Sciences%2C+multidisciplinary,Science%2C+multidisciplinary">
+<img data-test="gpt-advert-fallback-img"
+src="//pubads.g.doubleclick.net/gampad/ad?iu=/285/scientific_reports/article&amp;sz=728x90&amp;c=1975565997&amp;t=pos%3Dtop%26type%3Darticle%26artid%3Ds41598-025-12120-5%26doi%3D10.1038/s41598-025-12120-5%26kwrd%3DScience%2C+Humanities+and+Social+Sciences%2C+multidisciplinary,Science%2C+multidisciplinary"
+alt="Advertisement"
+width="728"
+height="90">
+<a href="/srep"
+data-track="click" data-track-action="home" data-track-label="image">
+<a class="c-header__link" href="https://www.nature.com/siteindex" data-test="siteindex-link"
+data-track="click" data-track-action="open nature research index" data-track-label="link">
+View all journals
+<a class="c-header__link"
+href="/saved-research"
+data-test="saved-research-link" data-track="click_saved_research" data-track-context="header">
+Saved research
+<a class="c-header__link c-header__link--search"
+href="#search-menu"
+data-header-expander
+data-test="search-link" data-track="click" data-track-action="open search tray" data-track-label="button">
+Search
+<a href="https://my-profile.springernature.com"
+id="my-account"
+class="c-header__link placeholder"
+data-test="login-link" data-track="click" data-track-action="my account" data-track-category="nature-150-split-header" data-track-label="link">
+Account
+<a href="https://idp.nature.com/authorize/natureuser?client_id&#x3D;grover&amp;redirect_uri&#x3D;https%3A%2F%2Fwww.nature.com%2Farticles%2Fs41598-025-12120-5"
+id="login-button"
+style="display: none;"
+class="c-header__link placeholder"
+data-test="login-link" data-track="click" data-track-action="login" data-track-category="nature-150-split-header" data-track-label="link">
+Log in
+<a href="#explore"
+class="c-header__link"
+data-header-expander
+data-test="menu-button--explore"
+data-track="click" data-track-action="open explore expander" data-track-label="button">
+Content
+Explore content
+<a href="#about-the-journal"
+class="c-header__link"
+data-header-expander
+data-test="menu-button--about-the-journal"
+data-track="click" data-track-action="open about the journal expander" data-track-label="button">
+About the journal
+<a href="#publish-with-us"
+class="c-header__link c-header__link--dropdown-menu"
+data-header-expander
+data-test="menu-button--publish"
+data-track="click" data-track-action="open publish with us expander" data-track-label="button">
+Publish with us
+<a class="c-header__link"
+href="https://journal-alerts.springernature.com/subscribe?journal_id&#x3D;41598"
+rel="nofollow"
+data-track="nav_sign_up_for_alerts"
+data-track-action="Sign up for alerts"
+data-track-label="link (desktop site header)"
+data-track-external>
+Sign up for alerts
+<a class="c-header__link"
+href="https://www.nature.com/srep.rss"
+data-track="click"
+data-track-action="rss feed"
+data-track-label="link">
+RSS feed
+<a class="c-breadcrumbs__link"
+href="/" itemprop="item"
+data-track="click" data-track-action="breadcrumb" data-track-category="header" data-track-label="link:nature"> nature
+<svg class="c-breadcrumbs__chevron" role="img" aria-hidden="true" focusable="false" height="10" viewBox="0 0 10 10" width="10"
+xmlns="http://www.w3.org/2000/svg">
+<path d="m5.96738168 4.70639573 2.39518594-2.41447274c.37913917-.38219212.98637524-.38972225 1.35419292-.01894278.37750606.38054586.37784436.99719163-.00013556 1.37821513l-4.03074001 4.06319683c-.37758093.38062133-.98937525.38100976-1.367372-.00003075l-4.03091981-4.06337806c-.37759778-.38063832-.38381821-.99150444-.01600053-1.3622839.37750607-.38054587.98772445-.38240057 1.37006824.00302197l2.39538588 2.4146743.96295325.98624457z"
+fill="#666" fill-rule="evenodd" transform="matrix(0 -1 1 0 0 10)"/>
+<a class="c-breadcrumbs__link"
+href="/srep" itemprop="item"
+data-track="click" data-track-action="breadcrumb" data-track-category="header" data-track-label="link:scientific reports"> scientific reports
+<svg class="c-breadcrumbs__chevron" role="img" aria-hidden="true" focusable="false" height="10" viewBox="0 0 10 10" width="10"
+xmlns="http://www.w3.org/2000/svg">
+<path d="m5.96738168 4.70639573 2.39518594-2.41447274c.37913917-.38219212.98637524-.38972225 1.35419292-.01894278.37750606.38054586.37784436.99719163-.00013556 1.37821513l-4.03074001 4.06319683c-.37758093.38062133-.98937525.38100976-1.367372-.00003075l-4.03091981-4.06337806c-.37759778-.38063832-.38381821-.99150444-.01600053-1.3622839.37750607-.38054587.98772445-.38240057 1.37006824.00302197l2.39538588 2.4146743.96295325.98624457z"
+fill="#666" fill-rule="evenodd" transform="matrix(0 -1 1 0 0 10)"/>
+<a class="c-breadcrumbs__link"
+href="/srep/articles?type&#x3D;article" itemprop="item"
+data-track="click" data-track-action="breadcrumb" data-track-category="header" data-track-label="link:articles"> articles
+<svg class="c-breadcrumbs__chevron" role="img" aria-hidden="true" focusable="false" height="10" viewBox="0 0 10 10" width="10"
+xmlns="http://www.w3.org/2000/svg">
+<path d="m5.96738168 4.70639573 2.39518594-2.41447274c.37913917-.38219212.98637524-.38972225 1.35419292-.01894278.37750606.38054586.37784436.99719163-.00013556 1.37821513l-4.03074001 4.06319683c-.37758093.38062133-.98937525.38100976-1.367372-.00003075l-4.03091981-4.06337806c-.37759778-.38063832-.38381821-.99150444-.01600053-1.3622839.37750607-.38054587.98772445-.38240057 1.37006824.00302197l2.39538588 2.4146743.96295325.98624457z"
+fill="#666" fill-rule="evenodd" transform="matrix(0 -1 1 0 0 10)"/>
+article
+<div class="c-context-bar u-hide"
+id="js-enable-context-bar"
+data-test="context-bar"
+data-context-bar
+aria-hidden="true">
+Spatial assessment of heavy metal contamination in groundwater in the Kadaladi region, Tamil Nadu, India
+Download PDF
+Download PDF
+Article
+Open access
+Published: 29 July 2025
+Spatial assessment of heavy metal contamination in groundwater in the Kadaladi region, Tamil Nadu, India
+M. Seeththa Sankar Narayanan 1 , V. Stephen Pitchaimani 2 , M. Sivakumar 3 , T. Dinesh Kumar 3 , S. Richard Abishek 2 &amp; … Shankar Karuppannan
+ORCID: orcid.org/0000-0001-5014-7885 4 , 5 Show authors
+Scientific Reports
+volume 15 , Article number: 27704 ( 2025 ) Cite this article
+Save article
+View saved research
+6630 Accesses
+31 Citations
+Metrics details
+Abstract Groundwater quality in Kadaladi is a critical concern due to contamination from natural and human activities. This study assesses heavy metal concentrations across pre-monsoon and post-monsoon seasons at 44 sampling sites, using the Heavy Metal Pollution Index (HPI), Metal Index (MI), and non-carcinogenic risk (HQ) assessments. Key heavy metals analysed include Cu, Pb, Zn, Ni, Cd, Mn, and Fe, in Pre-monsoon and Post-monsoon with comparisons to WHO (2017) standards using atomic absorption spectrometry. The Heavy Metal Pollution Index (HPI) and Metal Index (MI) were computed to assess contamination levels, and health risks were evaluated through non-carcinogenic hazard quotient (HQ) models for adults and children. Results revealed that Mn and Fe concentrations exceeded WHO permissible limits in 20% of the samples, with Site 33 showing the highest pollution in HPI (99.1) and MI (17.89). Post-monsoon samples showed notably higher contamination, attributed to monsoonal leaching and runoff from agricultural and saltpan activities. GIS-based spatial analysis identified persistent hotspots at Sites 6, 24, and 33. Children were particularly vulnerable, with HQ values exceeding 2.0 in affected zones, especially due to Mn exposure. HQ values indicated that children face higher health risks, particularly from Mn, exceeding permissible limits in 4.55% of samples. Pearson correlation revealed strong Mn–Fe geogenic associations, while Cd–Mn correlations post-monsoon pointed to anthropogenic sources. The integration of spatial mapping using GIS and statistical methods provides insight into contamination hotspots, emphasizing the critical role of monsoonal hydrology in mobilizing pollutants. These findings underscore the need for region-specific mitigation strategies and regular water quality monitoring. The study fills a regional knowledge gap and contributes globally relevant insights on managing groundwater quality in vulnerable coastal systems.
+Similar content being viewed by others
+<a class="c-article-recommendations-card__link"
+itemprop="url"
+href="https://www.nature.com/articles/s41598-026-39794-9?fromPaywallRec=false"
+data-track="select_recommendations_1"
+data-track-context="inline recommendations"
+data-track-action="click recommendations inline - 1"
+data-track-label="10.1038/s41598-026-39794-9">Heavy metal pollution and health risk assessment in surface waters impacted by pharmaceutical effluents in Gazipur and Narayanganj, Bangladesh
+Article
+Open access
+04 March 2026
+<a class="c-article-recommendations-card__link"
+itemprop="url"
+href="https://www.nature.com/articles/s41598-023-43161-3?fromPaywallRec=false"
+data-track="select_recommendations_2"
+data-track-context="inline recommendations"
+data-track-action="click recommendations inline - 2"
+data-track-label="10.1038/s41598-023-43161-3">Comprehensive health risk analysis of heavy metal pollution using water quality indices and Monte Carlo simulation in R software
+Article
+Open access
+22 September 2023
+<a class="c-article-recommendations-card__link"
+itemprop="url"
+href="https://www.nature.com/articles/s41598-024-76147-w?fromPaywallRec=false"
+data-track="select_recommendations_3"
+data-track-context="inline recommendations"
+data-track-action="click recommendations inline - 3"
+data-track-label="10.1038/s41598-024-76147-w">Spatial analysis and soft computational modeling for hazard assessment of potential toxic elements in potable groundwater
+Article
+Open access
+26 October 2024
+Introduction Groundwater constitutes approximately 30% of the world’s freshwater resources and is indispensable for drinking, irrigation, and industrial purposes, especially in Kadaladi regions with limited surface water availability. In arid and semi-arid areas, groundwater serves as the sole dependable source of water, ensuring the survival of communities and ecosystems. However, this critical resource is increasingly threatened by contamination, with heavy metal pollution emerging as a significant global concern 1 . Heavy metals such as lead (Pb), cadmium (Cd), chromium (Cr), nickel (Ni), arsenic (As), and mercury (Hg) are particularly concerning due to their persistence, non-biodegradability and toxicity even at trace levels 2 , 3 . These contaminants enter groundwater systems through both natural and anthropogenic pathways. Mineral weathering and leaching account for the background levels of these metals, while industrial effluents, agricultural runoff, mining activities, and improper waste disposal significantly elevate their concentrations 4 , 5 . This duality of sources has led to a compounded impact on groundwater quality, posing risks to public health, agriculture, and ecosystems 6 , 7 , 8 , 9 . The toxicological implications of heavy metal exposure are profound. Long-term consumption of contaminated groundwater can lead to severe health effects, including neurotoxicity, nephrotoxicity, and carcinogenicity 10 , 11 , 12 , 13 , 14 . Lead and cadmium impair neurological and renal functions, while arsenic, recognized as a potent carcinogen, has been linked to various cancers 15 . The bioaccumulation of heavy metals in food chains exacerbates these risks, with children, pregnant women, and other vulnerable groups facing heightened susceptibility 16 , 17 . Chronic exposure to these contaminants has been associated with developmental issues, cardiovascular diseases, and premature mortality, making the issue not only an environmental but also a significant public health concern 18 . Heavy metal contamination in groundwater in India’s particularly acute in industrialized regions such as Tamil Nadu, Uttar Pradesh, and Gujarat 19 , 20 . Discharges from leather tanning, textile manufacturing, and chemical industries contribute to high levels of chromium, lead, and cadmium in aquifers 21 , 22 . Central India faces a similar crisis, with coal mining and thermal power plants contributing to the leaching of toxic trace elements into groundwater 23 , 24 . Tamil Nadu, for instance, has reported severe groundwater contamination in industrial belts due to untreated effluents infiltrating local aquifers 25 , 26 . Health risk assessment models evaluate the non-carcinogenic risks of heavy metal exposure through multiple pathways, such as ingestion and dermal contact. By integrating multipath risk modelling with sensitivity analysis, the research offers a comprehensive approach to understanding heavy metal-related health risks in urban-industrial environments, aiding in the development of targeted groundwater management strategies for rapidly urbanizing areas in South India 27 . These contaminants compromise the safety of drinking water for millions, particularly in rural areas where dependence on groundwater is disproportionately high. Given that over 60% of India’s population relies on groundwater, the dual challenges of contamination and resource depletion demand urgent attention 28 . The Kadaladi region in Tamil Nadu offers a unique setting for understanding the interplay of natural and anthropogenic factors influencing groundwater contamination. Situated in a coastal zone, the region’s hydrogeological framework is characterized by complex interactions between saline intrusion, clay-rich soil formations, and aquifer properties. Additionally, the prevalence of agriculture and aquaculture in this region introduces the potential for heavy metal contamination through the use of fertilizers, pesticides, and organic waste (fertilizer). Monsoonal variations further intensify contamination risks, as heavy rainfall facilitates the leaching and mobilization of metals, particularly in the post-monsoon period. Despite these factors, limited research exists on the dynamics of groundwater quality in this coastal setting, creating a gap in understanding the specific challenges posed by heavy metal contamination in such environments 29 , 30 , 31 , 32 , 33 . This study assesses the spatial distribution and sources of heavy metal contamination in groundwater within the Kadaladi region. The study aims to determine the primary causes of contamination and assess related health concerns by utilizing statistical modelling, water quality indexes, and GIS tools. The study’s understanding will contribute to the formulation of sustainable groundwater management practices, offering strategies for remediation and policy development. The findings of this study have broader implications beyond the Kadaladi region. Groundwater contamination by heavy metals is a global issue with well-documented cases such as arsenic pollution in Bangladesh, cadmium contamination in Japan, and mercury leaching from mining activities in Latin America 34 , 35 , 36 , 37 , 38 . These instances highlight the universality of heavy metal pollution and its potential to disrupt ecosystems, public health, and agricultural systems. The problem of heavy metal contamination in groundwater is mostly a result of Kadaladi’s hydrogeological and environmental features. The region is vulnerable to contamination from both natural and man-made causes because of its significant reliance on groundwater for residential and agricultural uses. Iron (Fe) and Manganese (Mn) were selected for analysis due to their geogenic origin, as they are commonly released into groundwater through the natural weathering of rocks and soil minerals, a process notably characteristic of the lithological formations in the Kadaladi region. In contrast, Lead (Pb) and Cadmium (Cd) were chosen because of their high toxicity, environmental persistence, and strong links to anthropogenic activities such as industrial discharges, improper waste disposal, and agricultural runoff. Furthermore, previous environmental studies and monitoring reports have identified the potential risk of heavy metal contamination in the groundwater of coastal and semi-arid zones. One major issue is seawater intrusion, which worsens by over-extraction and results in saline and potentially dangerous metals entering groundwater. Geogenic sources, such as mineral dissolution and rock weathering, also have an impact on the presence of heavy metals. Infiltration into the aquifer system increases the mobilization of these pollutants, posing a serious threat to the water’s quality. The temporal and spatial distribution of heavy metals in Kadaladi’s groundwater is poorly understood, and the possible negative effects of this contamination on human health and the ecosystem are also not fully understood. Due to this incomplete knowledge, developing effective mitigation strategies for groundwater management in the region is challenging. Groundwater contamination by heavy metals has obtained increasing attention across various regions of India, particularly in areas with significant industrial activity. However, a review of the current literature reveals a critical gap in studies addressing rural coastal aquifers, especially with regard to seasonal variability and the combined influence of anthropogenic and geogenic sources. For instance, heavy metal contamination has been reported in Tamil Nadu’s industrial belts and coastal regions, but the focus remained limited to urban-industrial zones 17 , 39 . Other studies emphasized anthropogenic sources without assessing geogenic contributions 2 , 40 , while some presented strong methodological frameworks that nonetheless failed to address monsoonal influences, especially in coastal Indian contexts 1 , 41 . The Kadaladi Taluk, despite being located in a coastal and ecologically sensitive region of Tamil Nadu, remains significantly underexplored, particularly regarding its rural aquifer systems where industrial activities are minimal but stressors like saline intrusion, agricultural return flows and geogenic leaching are substantial. There remains a critical gap in understanding the spatiotemporal dynamics of contamination and associated health risks in such regions, particularly in semi-arid zones like Kadaladi Taluk. Most previous studies have applied either the Heavy Metal Pollution Index (HPI), Metal Index (MI), or Health Risk Assessment (HQ) in isolation, often without accounting for seasonal shifts or age-specific vulnerabilities. This study addresses these shortcomings by integrating seasonal HPI-MI evaluation, age-specific non-carcinogenic risk analysis for both adults and children, and GIS-based spatial hotspot detection across 44 sampling sites—representing a level of detail and integration previously unreported for this area. The use of Inverse Distance Weighting (IDW) for spatial interpolation enables high-resolution mapping of contamination trends. Notably, the study identifies Manganese (Mn) and Iron (Fe) as dominant contaminants, with Mn posing severe health risks to children (HQ &gt; 2.0), and uncovers a strong post-monsoon correlation between Cadmium (Cd) and Mn, pointing to anthropogenic inputs from agriculture and saltpans. By offering a comprehensive, seasonally nuanced, and health-focused analysis, this study fills a vital regional and thematic gap and contributes to broader scientific and policy discussions on groundwater conservation and public health in vulnerable rural coastal systems. Materials and methods Study area Geology Kadaladi Taluk is located in the southern part of Ramanathapuram District, Tamil Nadu, extending between 9°05’ to 9°50’ North latitude and 78°15’ to 79°10’ East longitude, covering approximately 612 square kilometers. The study region is characterized by a flat, low-lying coastal terrain with distinctive geomorphological features such as salt marshes, sandy plains, and coastal dunes. The lithology is characterized by gneissic rock formations dispersed with sandstone, laterites, kankar, and gneisses, as well as calcareous and alluvial deposits found along the coastal stretches. These formations significantly influence groundwater chemistry by contributing to the dissolution and mobilization of heavy metals, particularly Iron (Fe) and Manganese (Mn). The geochemical background of the region’s soils is dominated by alluvial deposits interspersed with calcareous and sandy layers. These soils are rich in calcium carbonate but often exhibit elevated iron (Fe) and manganese (Mn) concentration sue to natural weathering processes and anthropogenic activities 30 , 42 . The mobilization of Fe and Mn in groundwater is facilitated by the reducing conditions prevalent in the aquifers, which are influenced by the decomposition of organic matter and limited oxygen availability. These processes contribute to natural contamination and exacerbate the impacts of external pollutants. Agriculture and salt production form the backbone of the Kadaladi economy. Hydrogeology The study area lies within a semi-arid tropical zone and experiences high temperatures throughout the year, with a mean annual temperature ranging from 28 °C to 32° C and has a dual aquifer system composed of shallow aquifers whereas, at depths ranging from 5 to 20 m and deeper aquifers at depths ranging from 30 to 50 m. Because of the lack of perennial rivers, the region relies heavily on groundwater, making quality assessment critical for long-term control of water. Monsoonal precipitation ranges from 800 to 1,000 mm per year and is the primary source of groundwater recharge. However, high evaporation rates and the presence of low permeability clay layers limit infiltration, causing serious water scarcity concerns. A major hydrogeological challenge in the region is saltwater intrusion caused by excessive groundwater extraction, particularly in coastal villages where increased salinity reduces water portability 43 . Land use and contamination sources Various anthropogenic and geogenic factors influence groundwater contamination in Kadaladi Taluk. Agricultural practices, including the widespread use of fertilizers, pesticides, and organic manures, contribute to heavy metal accumulation in both soil and groundwater, with cadmium (Cd), zinc (Zn), and manganese (Mn) being commonly detected contaminants. Industrial activities, particularly salt manufacturing industries and aquaculture, further exacerbate the issue by discharging metal-laden effluents infiltrating shallow aquifers. Geogenic contributions, primarily from the weathering of lateritic and gneissic rocks, also release iron (Fe) and manganese (Mn) into groundwater. Seasonal variations are important in contamination patterns, as monsoonal rainfall intensifies leaching processes, leading to elevated concentrations of heavy metals in the post-monsoon period. Groundwater is the primary source of drinking water for the residents of Kadaladi Taluk 44 . The lack of reliable surface water bodies in the region heightens its importance. The taluk’s need for sustainable water management techniques is highlighted by the rising demand for groundwater and the dangers of contamination. The goal of this research is to offer a thorough understanding of the groundwater quality in the area by examining the spatial distribution of pollutants like Fe and Mn as well as their mobilization processes. Specifically, manganese (Mn) and iron (Fe) contamination are predominantly geogenic in origin, resulting from the natural weathering of gneissic rock formations that characterize the regional geology. These metals are mobilised under reducing aquifer conditions, particularly intensified during the post-monsoon season. In contrast, cadmium (Cd) and zinc (Zn) exhibit strong anthropogenic signatures linked to the application of phosphate-rich fertilizers, micronutrient supplements, and effluent discharge from saltpan operations. The presence of copper (Cu) and lead (Pb) in certain locations is likely influenced by plumbing corrosion and post-monsoon surface runoff, while nickel (Ni) may arise from a combination of geogenic weathering of ultramafic rocks and anthropogenic sewage or agrochemical residues. Sampling and analysis A total of 44 groundwater samples were collected for both Pre-monsoon and Post-monsoon during the year 2024 from strategically chosen locations across Kadaladi Taluk, Ramanathapuram District, and Tamil Nadu, to represent residential, agricultural, and industrial zones. The selection of groundwater sampling points in Kadaladi Taluk was based on a systematic grid-based approach to ensure comprehensive spatial coverage. The distribution of sampling locations is depicted in Fig. 1 . This approach ensures comprehensive spatial coverage and reflects varying land-use patterns impacting groundwater quality. Samples were collected in high-density polyethylene (HDPE) containers to prevent contamination. Prior to sampling, wells were purged to remove stagnant water by pumping at least three well volumes. Containers were rinsed three times with the groundwater sample to maintain sample integrity. The groundwater samples were preserved and analysed following the standard protocols outlined by the American Public Health Association 45 . To preserve heavy metals and prevent adsorption onto container walls, concentrated nitric acid (HNO₃) was added immediately after collection, reducing the pH below 2. Samples were stored at 4 °C in a cool box for transportation to the laboratory. The maximum holding time before analysis was 14 days, as recommended by the Bureau of Indian Standards 46 . Fig. 1 Full size image Location map of the Study Area. This figure was prepared using ArcGIS Desktop 10.1 ( https://www.esri.com/en -us/arcgis/products/arcgis-desktop/overview). The shapefile used in the figure were obtained from the Survey of India ( https://surveyofindia.gov.in/ ). The samples were filtered in the laboratory using 0.45 μm membrane filters to remove suspended particulates. For samples with high organic content or potential interferences, nitric acid digestion was performed by adding 5 mL of HNO₃ to a 100 mL aliquot of the sample, followed by gentle heating until the volume reduced to approximately 50 mL recommended by the American Public Health Association 45 . The study focused on the heavy metals Copper (Cu), Lead (Pb), Zinc (Zn), Nickel (Ni), Cadmium (Cd), Manganese (Mn), and Iron (Fe). These metals were selected based on their known health risks (both carcinogenic and non-carcinogenic effects), potential prevalence in agricultural and industrial activities, and regulatory importance as per WHO 47 guidelines. Analytical results from all the groundwater samples in the study area consistently showed that As concentration is below the detection limit (BDL), indicating its absence or negligible presence in the study area, whereas the geology of Kadaladi taluk is dominated by marine and sedimentary rock formation rather than arsenic prone alluvial sediments and this becomes the reason for As exclusion. All the metal concentrations were analysed using Atomic Absorption Spectrophotometer. The Atomic Absorption Spectrophotometer was selected for heavy metal analysis due to its high precision and ability to detect trace metal concentrations. Calibration was performed with certified standard solutions, and matrix modifiers were applied where necessary to ensure precision. Quality control measures included field blanks, laboratory blanks, duplicate samples, and Standard Reference Materials (SRMs). Spiked samples were analysed to confirm the accuracy of the information for matrix effects and to ensure data accuracy. Field Quality Assurance (QA) and Quality Control (QC) included the use of field duplicates, blanks, and trip blanks to check for contamination and reproducibility. Laboratory QA/QC involved calibration of the AAS instrument using certified standards, analysis of instrument blanks, matrix spikes, laboratory duplicates, and Certified Reference Materials to monitor analytical performance. Data validation was conducted through recovery rate analysis, Relative Percent Difference (RPD &lt; 20%), and blank corrections where necessary. All results were cross-checked with APHA 2013 standards to ensure data quality and international drinking water guidelines. However, AAS has certain limitations, including its single-element analysis capability, which makes detecting multiple metals time-consuming. It is susceptible to chemical and spectral interferences if matrix-optimized digestion is not used. AAS uses an air–acetylene flame, which is suitable for a limited number of metals. Non-carcinogenic risk assessment To evaluate the potential health risks posed by heavy metals, the Chronic Daily Intake (CDI) and Hazard Quotient (HQ) were calculated for two different population groups: children and adults. The risk was assessed following the guidelines of the U.S. Environmental Protection Agency 48 . The formula for Chronic Daily Intake (CDI) is shown in Eq. ( 1 ) $$CDI= \frac{C \times IR\times ED\times EF}{BW \times AT}$$
+where C = Concentration of the metal (mg/L); IR = Ingestion rate (L/day) (1 L/day for children, 2 for adults); ED = Exposure duration (years) (6 years for children’s, 30 years for adults); EF = Exposure frequency (365 days/year); BW = Body weight (kg) (15 kg for children, 70 kg for adults); AT = Averaging time (ED × 365 days/year). The Hazard Quotient (HQ) was then calculated to determine the non-carcinogenic risk. The formula for Hazard Quotient (HQ) is shown in Eq. ( 2 ) $$HQ= \frac{CDI}{RfD}$$
+where RfD = Reference dose for each metal (mg/kg/day), sourced from USEPA 48 guidelines. If HQ &gt; 1, there is a potential health risk for the specific population group. Heavy metal pollution index (HPI) The Heavy Metal Pollution Index (HPI) was calculated to assess the overall pollution level. This index aggregates the concentration of each metal in groundwater relative to its standard permissible limit, with each metal assigned a weight based on its potential hazard. The formula for HPI is shown in Eq. ( 3 ) $$\text{HPI }= \frac{\sum {W}_{i}\times {Q}_{i}}{\sum {W}_{i}}$$
+where W i is equal to the Unit weight for each metal, calculated as \(\frac{1}{{S}_{i}}\) (with S i being the standard permissible limit of the metal in mg/L); \({Q}_{i}\) is equal to the quality rating for each metal, calculated as \(\frac{{C}_{i}}{{S}_{i}}\) where \({C}_{i}\) is the concentration of the metal (mg/L). Metals were assigned weights proportional to their health hazard potential. The critical HPI threshold is 100; values exceeding this threshold indicate significant pollution 9 . Metal index (MI) Metal Index is used to evaluate the cumulative impact of heavy metal contamination in water. It is based on the concentration of heavy metals in a water sample compared to their respective permissible limits. The Metal Index provides a single value that represents the overall water quality concerning metal contamination, making it possible to quickly determine whether the water is suitable for use or consumption. The sum of the ratios of the measured concentration of each heavy metal to tis respective permissible limit measures it. The formula is shown in Eq. ( 4 ) as $$MI= \sum \left(\frac{{C}_{i}}{{S}_{i}}\right)$$
+\(\text{where} {C}_{i}\) is the measured concentration of the i th metal in the water sample (mg/L), \({S}_{i}\) the permissible limit of the i th metal (mg/L), as defined by WHO 47 standard, USEPA 48 standards, or local authorities. If MI &lt; 1 water quality is acceptable &amp; MI &gt; 1, water quality is unacceptable. Statistical methods Pearson correlation analysis Pearson correlation was used to identify relationships between the concentrations of different heavy metals in the groundwater. This statistical method measures the strength and direction of the linear relationship between two variables, helping to identify metals with common sources or environmental behaviours. The Pearson Correlation (r) formulas are shown in Eq. ( 5 ) 49 , 50 . $$r= \frac{\sum \left({X}_{i}- \overline{X }\right)\left({Y}_{i}- \overline{Y }\right)}{\sqrt{\sum {\left({X}_{i}- \overline{X }\right)}^{2}\sum {\left({Y}_{i}- \overline{Y }\right)}^{2}}}$$
+\({X}_{i} and {Y}_{i}\) are the concentrations of two metals; \(\overline{X } and \overline{Y }\) are the mean concentrations of those metals; values of ‘r’ range from -1 to + 1, where: r = + 1, indicates a perfect positive correlation; r = -1 indicates a perfect negative correlation; r = 0 indicates no correlations. This was employed to assess the relationships between metal concentrations, identifying potential common sources or environmental behaviours. A strong positive or negative correlation (r close to + 1 or -1) suggests shared sources or contrasting behaviours, respectively. This aids in tracing contamination origins. Paired sample t-test The Paired sample t-test is a statistical method that is used to assess differences in heavy metal concentrations between two monsoon seasons. This method evaluates whether the mean change between paired observations is statistically significant, considering the correlation between the two sets of data. Prior to utilizing the t-test, Pearson’s correlation coefficient (r) was used to assess the strength of the association between the matched samples and measure the normalcy of the differences. The paired t-test statistic was calculated using the formula which is shown in Eq. ( 6 ) $$t= \frac{d}{{S}_{d} /\sqrt{n}}$$
+where d measures the mean difference between paired observations, \({S}_{d}\) measures the standard deviation of differences, n is the Number of paired samples. The significance level was set at α = 0.05. If p &lt; α, the null hypothesis was rejected. Spatial distribution The spatial distribution of heavy metal concentrations in groundwater across the Kadaladi Taluk was analysed using Geographic Information System (GIS) techniques in ArcGIS 10.1. A total of 44 groundwater sampling locations were recorded using handheld GPS devices and imported as point shape files with associated metal concentration attributes for both pre-monsoon and post-monsoon seasons. The Inverse Distance Weighting (IDW) interpolation method was employed to estimate the spatial variability of each metal, with a power setting of 2 and a neighbourhood size of 12 points, to ensure realistic interpolation based on spatial autocorrelation. IDW was selected for its simplicity and effectiveness in reflecting localized variations by giving more weight to nearby points. The interpolated data were used to generate thematic maps for each metal and season, using graduated colour ramps to visualize areas of low to high contamination, thereby identifying seasonal hotspots. These maps enabled the assessment of contamination trends, source pathways, and risk zones. Final map layers were validated through visual cross-checks with land-use classifications and geological overlays to correlate metal accumulation with potential natural and anthropogenic influences. Software used The spatial distribution of heavy metal contamination in groundwater was analysed using GIS tools. The heavy metal analysis results were connected to the corresponding locations, and the well locations were incorporated into the interface by using https://www.esri.com/en-us/arcgis/products/arcgis-desktop/overview ArcGIS 10.1 (Esri Inc., Redlands, CA, USA). Spatial distribution analysis was performed to assess the variability of heavy metal concentrations throughout the study area. Groundwater sampling points were imported using GPS coordinates to ensure precise spatial representation. The concentration data were processed and interpolated using Geographic Information System (GIS) techniques to visualize spatial trends. Spatial distribution maps that clearly and practically visualized the contamination levels throughout the study area were produced using the Inverse Distance Weighting (IDW) interpolation technique. Thematic concentration maps were created to highlight areas with high contamination levels, allowing for the identification of pollution hotspots and supporting targeted groundwater management strategies. In order to conduct thorough statistical analyses of heavy metal data, OriginPro 2018 https://www.originlab.com/2018 (Origin Lab Corporation, Northampton, MA, USA) software was used. With the help of the software, it was easier to analyse the dataset’s trends, correlations, and variability, producing useful graphs and statistical results. The PG Instruments-UK AA8000 Atomic Absorption Spectrophotometer was used for the analysis of heavy metals in groundwater samples. The analytical accuracy of AAS is influenced by factors such as calibration standards, sample preparation, and instrumental conditions. For the AA8000 model, the detection limits for key heavy metals are approximately 0.01 mg/L for Lead (Pb), 0.002 mg/L for Cadmium (Cd), 0.005 mg/L for Arsenic (As), 0.005 mg/L for Copper (Cu), and 0.02 mg/L for Iron (Fe). The accuracy of the measurements is typically within ± 2%, provided that proper calibration and quality control procedures are followed. To ensure precision and reliability, the instrument was regularly calibrated using certified standard solutions, and quality assurance protocols such as reagent blanks and duplicate analyses were implemented throughout the study. Results and discussion The heavy metal concentration in groundwater from the Kadaladi region highlights the extent of contamination and potential sources. Trace amounts of heavy metals in groundwater can seriously impact the environment and human health. The analysis of heavy metal concentrations, including Copper (Cu), Lead (Pb), Zinc (Zn), Nickel (Ni), Cadmium (Cd), Manganese (Mn), and Iron (Fe), was conducted for both the pre-monsoon and post-monsoon seasons. The results revealed distinct patterns in the presence of these metals across different locations, with varying degrees of compliance with the permissible limits set by the WHO 47 standard. Table 1 presents the descriptive statistics of these metal concentrations, showing the minimum, maximum, average, and standard deviation values for each metal across both seasons. Copper (Cu) concentrations increased slightly during the monsoon, from 0.001 mg/L to 0.061 mg/L, compared to the pre-monsoon range of 0.001 mg/L to 0.054 mg/L, which is depicted in Fig. 2 a,b. Despite the increase, Cu levels remained significantly below the WHO 47 standardallowed limit of 1 mg/L, which is shown in Table 1 , indicating no substantial health hazards. This indicated that none of the locations exhibited copper contamination risks during both seasons. Table 1 Analytical results of trace metals in the study region for pre- and post-monsoon of 2023. Full size table Fig. 2 Full size image Spatial distribution map of Copper (mg/L) in ( a ) Pre-monsoon and ( b ) post-monsoon of 2023. This figure was prepared using ArcGIS Desktop 10.1 ( https://www.esri.com/en -us/arcgis/products/arcgis-desktop/overview). The shapefile used in the figure were obtained from the Survey of India ( https://surveyofindia.gov.in/ ). Lead (Pb) concentrations remained continuously low at 0.001 mg/L throughout both seasons, with no observed fluctuation. These readings were far lower than the WHO 47 standard of 0.01 mg/L, indicating the lack of lead contamination. Similarly, Nickel (Ni) concentrations remained stable at 0.001 mg/L, the detection limit, during both seasons and were much lower than the allowed level of 0.02 mg/L, indicating no seasonal influence or health hazard. Zinc (Zn) concentrations varied, ranging from 0.001 mg/L to 3.611 mg/L before the monsoon and 0.025 mg/L to 3.627 mg/L after the monsoon. While average Zn levels increased slightly from 0.541 mg/L to 0.570 mg/L, all results remained within the WHO 47 standard of 5 mg/L, indicating acceptable water quality shown in Fig. 3 . Concentrations close to the WHO 47 standard allowed limit of 3 mg/L were observed at location 29 and location 31 throughout both seasons. These locations should be monitored for potential zinc contamination, which could be caused by agricultural runoff or natural weathering of soil minerals. On the other hand, cadmium (Cd) concentrations increased locally following the monsoon, going from a uniform 0.001 mg/L pre-monsoon to an average of 0.002 mg/L and a maximum of 0.006 mg/L. While most results were less than the WHO 47 standard limit of 0.003 mg/L, the close proximity of some samples, such as location 31, to this threshold value emphasizes the need for ongoing monitoring. Fig. 3 Full size image Spatial distribution map of Zinc (mg/L) in ( a ) Pre-monsoon and ( b ) post-monsoon of 2023. This figure was prepared using ArcGIS Desktop 10.1 ( https://www.esri.com/en-us/arcgis/products/arcgis-desktop/overview ). The shapefile used in the figure were obtained from the Survey of India ( https://surveyofindia.gov.in/ ). Manganese (Mn) concentrations varied seasonally, with average levels rising slightly from 0.193 mg/L during the pre monsoon to 0.199 mg/L during the post monsoon as illustrated in Fig. 4 a,b. A significant proportion of samples crossed the WHO 47 standard of 0.1 mg/L, indicating possible health hazards and the impact of seasonal runoff and hydrogeochemical changes. Approximately 20% of the samples, notably those around location 31 and location 32, exceeded the WHO 47 standard limit of 0.1 mg/L for both seasons. Manganese poisoning at these levels is problematic, especially given the accompanying health hazards, such as neurological issues in children, which could be attributed to the weathering of Mn-rich rocks in the vicinity. Fig. 4 Full size image Spatial distribution map of Manganese (mg/L) in ( a ) Pre-monsoon and ( b ) Post-monsoon of 2023. This figure was prepared using ArcGIS Desktop 10.1 ( https://www.esri.com/en -us/arcgis/products/arcgis-desktop/overview). The shapefile used in the figure were obtained from the Survey of India ( https://surveyofindia.gov.in/ ). Similarly, iron (Fe) concentrations increased from an average of 0.324 mg/L pre-monsoon to 0.365 mg/L post-monsoon, with several samples above the WHO 47 standard of 0.3 mg/L, especially during the post-monsoon season as seen in Fig. 5 . Similar to manganese, iron concentrations exceeded the WHO 47 standard permitted limit of 0.3 mg/L in almost 20% of the samples, particularly around location 31 and location 32 during both seasons. Although iron poisoning mostly causes cosmetic difficulties such as stains and altered taste, its high levels underscore the importance of effective water treatment, as illustrated in Table 1 . Iron contamination in the region could be attributed to the presence of laterite soils and agricultural methods that increase iron concentrations in water. Fig. 5 Full size image Spatial distribution map of Iron (mg/L) in ( a ) Pre-monsoon and ( b ) Post-monsoon of 2023. This figure was prepared using ArcGIS Desktop 10.1 ( https://www.esri.com/en -us/arcgis/products/arcgis-desktop/overview). The shapefile used in the figure were obtained from Survey of India ( https://surveyofindia.gov.in/ ). Overall, post-monsoon concentrations of most metals (Cu, Zn, Cd, Mn, Fe) rose somewhat, most likely due to leaching and runoff during monsoon rains, as well as changes in groundwater chemistry. In contrast, Pb and Ni concentrations remained steady, unaffected by seasonal fluctuations. However, the fact that Mn and Fe levels exceeded WHO 47 standards in some samples during the post-monsoon season highlights the importance of focused water quality management and mitigation strategies. Heavy metal pollution index and metal index This chapter provides a detailed and technical analysis of the Heavy Metal Pollution Index (HPI) and Metal Index (MI) from 44 sampling locations throughout the pre- and post-monsoon seasons. Figure 6 a,b shows the spatial distribution map of HPI in groundwater of the study area. The results show considerable location-dependent as well as seasonal changes in pollution indices, which are influenced by natural and anthropogenic factors. The HPI readings in the pre-monsoon season were reasonably stable, ranging from 25.306 at Location 16 to 30.771 at Location 33, which had the highest pollution level, or 16.8% higher than the seasonal average. The comparable MI values during this time ranged from 0.499 at Location 16 to 16.420 at Location 33, indicating regional pollution hotspots. The minimal mean deviations for HPI during the pre-monsoon period, with values between -0.507 and 4.957 which is shown in Table 2 , suggest stable heavy metal levels at most. Fig. 6 Full size image Spatial distribution map of HPI (mg/L) for ( a ) Pre-monsoon and ( b ) post-monsoon of 2023. This figure was prepared using ArcGIS Desktop 10.1 ( https://www.esri.com/en -us/arcgis/products/arcgis-desktop/overview). The shapefile used in the figure were obtained from the Survey of India ( https://surveyofindia.gov.in/ ). Table 2 Heavy metal pollution index in the Kadaladi region during pre-monsoon and post-monsoon seasons. Full size table Post-monsoon observations reveal an expanded range of HPI values, including significant increases at select locations, such as Location 6 with an HPI of 93.649 and Location 33 at 99.100. These peaks coincide with elevated pollution levels, which could be related to monsoonal runoff and other pollutant influxes. The post-monsoon MI values followed similar patterns, ranging from 0.510 at Location 16 to a peak of 17.896 at Location 33. Mean deviation values for HPI during the post-monsoon period ranged from -11.696 to 62.098, demonstrating significant seasonal variability, notably at Locations 6, 24, and 33. Several significant trends are revealed by location-specific research. At Location 6, the HPI increased considerably from 25.415 pre-monsoon to 93.649 post-monsoon, whereas the MI increased from 0.741 to 1.786. Location 33 consistently exhibited the greatest levels of contamination, with HPI values increasing from 30.77 to 99.10 and MI values increasing from 16.420 to 17.896 over the seasons. Similar increases were found at Location 24, where the HPI increased from 25.364 to 93.655 and the MI from 1.631 to 2.840. At Location 29, the post-monsoon MI increased from 9.657 to 13.604, whereas the HPI increased from 29.620 to 43.479. The analysis of percentage deviations in HPI emphasises seasonal patterns. Most locations exhibited negative deviations during the pre-monsoon period, indicating steady pollution levels. In contrast, the post-monsoon period exhibited significant positive deviations at some locations, such as 3.479% at Location 6 and 3.814% at Location 33, which corresponded to higher pollution levels. The MI variations confirm these findings, strengthening the evidence of increased pollution throughout the post-monsoon period. Locations with already high pre-monsoon MI values, such as 29 and 33, saw proportionally larger post-monsoon rises. Furthermore, new hotspots formed following the monsoon season, particularly at Locations 6, 24, and 33, indicating increased pollutant influx. Table 3 represents the groundwater quality based on the MI before and after the monsoon period, in which 36.36% of sites were classified as Pure in the pre-monsoon period, which declined to 20.45% in the post-monsoon period. Meanwhile, slightly affected sites, increasing from 38.64% to 52.27%, indicated a rise in metal contamination. The ratio of moderately affected sites remained stable, while strongly affected sites completely reduced in post-monsoon. Table 3 Metal index in the Kadaladi region during pre-monsoon and post-monsoon seasons. Full size table The spatial and seasonal variations in heavy metal concentrations highlight a combination of geogenic mobilization and anthropogenic intensification in the groundwater system. The consistently high concentrations of manganese and iron, particularly in Locations 31, 32, and 33, can be attributed to the weathering of Mn- and Fe-rich lateritic and gneissic rocks. These rocks, under reducing aquifer conditions common in post-monsoon recharge periods, release these metals into the groundwater. The strong Mn—Fe correlation (r = 0.78) post-monsoon confirms a shared geogenic source, possibly enhanced by seasonal redox reactions. At the same time, cadmium shows a significant rise post-monsoon at Locations 24 and 31, suggesting surface contributions from fertilizers, pesticides, or runoff from nearby saltpan industries. The spatial overlap between these sites and agricultural or salt-producing zones supports an anthropogenic origin for Cd. Although mostly within permissible limits, zinc levels approach critical values at Locations 29 and 31, particularly post-monsoon, hinting at combined inputs from both soil leaching and agrochemical usage. The temporal increase in HPI and MI values across several locations underscores the impact of monsoonal runoff in mobilizing surface and subsurface contaminants. For instance, Location 6, which had low pre-monsoon HPI (25.4), showed a drastic increase to 93.6 post-monsoon, suggesting a sudden influx of pollutants. The MI values also intensified beyond acceptable limits at these hotspots, showing a significant deterioration in groundwater quality due to seasonal hydrological changes. The observed increase in post-monsoon Heavy Metal Pollution Index (HPI) and Metal Index (MI) values can be attributed to hydrogeological processes that enhance heavy metal mobilization. Heavy rainfall accelerates the leaching of Mn and Fe from lateritic and gneissic formations, while clay-rich layers, which temporarily trap metals, release them during intense recharge events. Additionally, rapid monsoon infiltration promotes groundwater mixing between shallow and deep aquifers, increasing metal dispersion while reducing residence time and allowing contaminants to persist. Anthropogenic inputs, such as agricultural fertilizers containing Mn-rich micronutrients and wastewater discharge from aquaculture and saltpan industries, further elevate metal concentrations in shallow aquifers. Moreover, post-monsoon redox reactions reduce aquifers’ conditions, dissolving Fe and Mn into groundwater. These interconnected processes collectively contribute to contamination spikes, emphasizing the need for post-monsoon water quality monitoring and targeted mitigation strategies. These results highlight the major impact of seasonal fluctuations, notably monsoons, on heavy metal contamination. Post-monsoon increases at crucial locations highlight the importance of targeted monitoring and mitigation actions to address pollution sources. Sustained and comprehensive monitoring is required to ensure water quality and limit the health concerns associated with heavy metal exposure in the impacted areas. This analysis emphasizes the significance of implementing adequate pollution management strategies to reduce seasonal contamination surges. Health risk assessment The examination of non-carcinogenic risk for adults and children before and during the monsoon season demonstrates significant regional and temporal variability. The statistics highlight the two age group groups’ unequal sensitivity to heavy metal contamination, with children consistently showing greater risk values than adults across all sampling locations. This increased risk for children is mostly due to physiological factors such as lower body weight and higher consumption rates relative to their size, which make them more susceptible to environmental toxins. During the pre-monsoon season, the non-carcinogenic risk for adults ranges from 0.005 at Location 20 to 0.853 at Location 33, whereas for children, it ranges from 0.012 at Location 20 to 1.991 at Location 33, represented in Table 4 . In the post-monsoon season, these values rise somewhat, with adult risks ranging from 0.008 at Location 20 to 0.872 at Location 33, and children’s risks from 0.018 at Location 20 to 2.035 at Location 33. Figure 7 a,b shows the graphical representation of both pre-monsoon and post-monsoon HRA. The observed increases in the post-monsoon season are consistent with increased heavy metal mobilisation and deposition in the environment as a result of monsoonal runoff, which has a considerable impact on pollution levels. This seasonal shift is particularly noticeable in specific regions, with localised increases in heavy metal concentrations following the monsoon. Table 4 Non-carcinogenic health risk assessment of heavy metals in Kadaladi region. Full size table Fig. 7 Full size image shows the graphical representation of THQI for both ( a ) pre-monsoon and ( b ) post-monsoon. The research shows that while most of the sampling locations have risk values below the essential threshold of 1.0 for adults, some locations, such as Locations 29 and 33, have elevated risk values, especially during the post-monsoon season. These are crucial zones in which localised sources of heavy metal pollution contribute to elevated exposure levels. For youngsters, the situation is more worrying, as risk values at some places, notably Locations 29 and 33, exceed the limit during both the pre-and post-monsoon periods. Location 33 has the highest non-carcinogenic risk for children at 2.035 post-monsoon, making it the most contaminated location in terms of health hazards related to heavy metal exposure. These risk values correspond strongly with HPI and MI hotspots, indicating that areas with elevated pollution indices are also zones of significant health concern. The presence of metals like manganese (Mn) and iron (Fe) at levels exceeding permissible limits is especially concerning for children, who are physiologically more vulnerable. The elevated post-monsoon HQ values reflect the seasonal mobilisation of metals due to leaching, runoff, and aquifer mixing processes, which enhance the bioavailability of these elements. In particular, manganese concentrations at some sites exceed the level associated with neurological effects in children, which aligns with USEPA 48 guideline health benchmarks. Further examination at different locations, such as Locations 5, 19, 23, and 26, finds higher risk levels, however, these are generally lower than the crucial threshold for adults. However, these locations approach or slightly exceed the acceptable level for children during both seasons, indicating potential health issues that must be monitored and addressed. The continuous increase in risk ratings for both adults and children during the post-monsoon season emphasises the importance of seasonal hydrological variations on pollutant distribution. This conclusion emphasises the importance of implementing strong pollution management techniques, especially in places that are hydrologically susceptible to monsoon changes. The results confirm that Locations 29 and 33 are persistent pollution hotspots. Children are more susceptible to Mn and Fe exposure due to a combination of physiological, metabolic, and environmental factors. Children have a higher water intake per kilogram of body weight than adults, which increases their exposure to heavy metals. However, their developing liver and kidneys are less efficient in detoxifying heavy metals, leading to greater bioaccumulation. Mn is a known neurotoxin, and childhood exposure can result in cognitive impairment, learning disabilities, and motor dysfunction, while excessive Fe can induce oxidative stress, negatively impacting brain development. Moreover, children’s intestines absorb metals more efficiently than adults, exacerbating systemic toxicity. This study’s risk assessment incorporated age-specific exposure factors, including body weight, ingestion rates, and exposure duration, as per USEPA 48 guidelines. The results indicate that certain hotspots exceed permitted limits, showing minimal seasonal recovery, suggesting persistent or increasing contamination levels. This shows the need for immediate mitigation measures and ongoing monitoring to safeguard children’s health. These vulnerabilities targeted health recommendations should prioritize children by ensuring access to safe drinking water in schools and households, particularly during and after the monsoon season, when contamination levels may spike. The findings highlight the importance of accounting for geographical and seasonal variations in risk assessments and emphasize the necessity for preventative interventions to reduce long-term health consequences for exposed populations. Pearson correlation The correlation matrix for heavy metal concentrations, including copper (Cu), lead (Pb), zinc (Zn), nickel (Ni), cadmium (Cd), manganese (Mn), and iron (Fe), during the pre-and post-monsoon seasons demonstrates strong interrelationships among these elements. These connections provide information about these metals’ probable sources, behaviours, and environmental transport pathways over different seasons. During the pre-monsoon season, the correlation matrix shows a moderate positive association between Copper and Zinc (coefficient = 0.276). This shows that these metals may have a common source or behave similarly in the environment before the monsoon. Copper also has a higher association with manganese and iron, with values of 0.447 and 0.575, respectively. The increased correlation with iron suggests a geological source or combined precipitation processes in sediment–water interactions. Table 5 shows that Zinc has a lesser association with manganese and iron, as indicated by values of 0.261 and 0.276, implying some overlap in their origins or transport paths. Table 5 Pearson correlation of heavy metals in the groundwater during pre-monsoon and post-monsoon. Full size table Manganese and iron have a strong correlation coefficient of 0.725, indicating a geochemical connection, maybe due to redox-sensitive processes or sediment release under low-oxygen circumstances. The connections alter following the monsoon season, reflecting seasonal differences in hydrological conditions, pollution input, and geochemical processes. Copper’s association with zinc remains similar (0.268), indicating constant source or transit connections across seasons. A new link between Copper and Cadmium appears, with a coefficient of 0.273, indicating potential contributions from anthropogenic activities such as agricultural runoff or industrial discharge during the post-monsoon period. Copper continues to exhibit moderate correlations with manganese and iron, with values of 0.433 and 0.593, respectively, indicating the continued effect of geogenic or sedimentary sources. Zinc has a weaker connection with Cadmium in the post-monsoon period (coefficient = 0.043), indicating that these metals mobilise or partition differently under different hydrological conditions. Zinc’s association with manganese and iron is rather stable, with values of 0.267 and 0.265, indicating a likely geogenic origin. Cadmium has a substantial positive connection with manganese (0.576) and iron (0.356) in the post-monsoon season, indicating increased mobilisation from sediments or anthropogenic input at this time. Pearson correlation analysis was important in determining the interrelationships between heavy metals in the study area, providing insights into their sources and mobilization mechanisms. A strong correlation between Mn and Fe (r = 0.78 post-monsoon) indicates a common geogenic origin, likely driven by lateritic soil weathering and redox reactions in aquifers. The moderate correlation of Cu with Mn and Fe suggests partial anthropogenic influence in contrast, the weak correlation of Zn and Cd with other metals signifies external contributions such as agricultural runoff or industrial discharge rather than geogenic factors. These findings underscore the dominant role of natural geological formations in groundwater contamination, particularly for Mn and Fe, while also highlighting seasonal variations that increase metal dissolution post-monsoon. As a result, targeted water treatment measures, such as filtration techniques for Mn and Fe removal, are necessary in affected areas to ensure safe drinking water quality. The strong relationship between manganese and iron continues, with a coefficient of 0.78, emphasising their interdependent geochemical behaviour. The significant association between these metals highlights the importance of seasonal fluctuations in redox conditions and hydrological inputs on their concentrations. These findings provide information on the seasonal influences on heavy metal distribution, as well as the underlying geochemical and anthropogenic causes that cause these fluctuations. This understanding is critical for developing effective management methods to reduce heavy metal contamination in aquatic systems while protecting environmental and human health. The comparison of metal concentrations between two monsoon seasons gives remarkable results. The mean concentration difference for copper (Cu) is 0.016 mg/L, with a standard deviation of 0.017 mg/L, showing a minor change. A high correlation coefficient (r = 0.983) indicates a significant relationship between the paired samples. The t-test results (t = -3.235, p = 0.002) show a significant change in Cu contents between seasons, as shown in Table 6 . The mean difference in the lead (Pb) contents is 0.001 mg/L, with no variation detected. A perfect correlation (r = 1.000) indicates total consistency among the linked samples. However, the t-test result, despite having a p-value of 0.000, does not indicate a significant difference due to the little variation. The mean concentration difference for zinc (Zn) is 0.184 mg/L, with a low standard deviation of 0.024 mg/L, indicating a similar outcome. A perfect correlation (r = 1.000) confirms this consistency. However, the t-test result (p-value = 0.000) does not indicate a statistically important variance in Zn concentrations. The remaining metals, nickel (Ni), cadmium (Cd), manganese (Mn), and iron (Fe), have minor differences in mean concentrations, ranging from 0.001 to 0.005 mg/L. High correlation coefficients (r = 0.990 or higher) indicate remarkable consistency among paired observations. Furthermore, t-test results with p-values of 0.000 indicate no statistically significant variations in these metal concentrations between monsoon seasons. Table 6 Paired sample t -test of the heavy metals in pre-monsoon and post-monsoon seasons. Full size table The correlation analysis of both pre-monsoon and post-monsoon concentrations of heavy metals shows a strong positive relationship for all four elements. Figure 8 a shows that the strong positive correlation of Copper (r 2 = 0.966) between both pre-monsoon and post-monsoon concentrations indicated consistent levels across seasons. In Fig. 8 b, Manganese shows a high seasonal correlation (r 2 = 0.999). Meanwhile, concentrations frequently exceed the WHO 47 standard limit of 0.1 mg/L, particularly at Locations 31, 32, and 33. This suggests both persistent geogenic influence—such as lateritic weathering—and mobilization under post-monsoon reducing conditions. Figure 8 c shows that Zinc (r 2 = 0.9997) exhibits a near-perfect correlation while most concentrations are within WHO 47 standard limits. Sites like 29 and 31 approach the threshold post-monsoon, possibly due to fertilizer runoff or natural dissolution, showing moderate monsoonal influence without posing significant contamination risks. Irons (r 2 = 0.98) show a strong positive relationship with near-perfect linearity, as shown in Fig. 8 d. Iron shows strong seasonal consistency, though 20% of samples exceed limits, particularly in the same critical locations influenced by redox-sensitive processes. This strong positive correlation indicates that the seasonal variation has a minimal impact on the overall distribution of these metals in water. The high r 2 value close to 1 indicates that the metal concentrations remain relatively stable and follow a predictable linear trend across seasons. This implies that external factors such as monsoon rainfall did not significantly alter metal levels. Fig. 8 Full size image shows the Seasonal correlation of metal concentration in groundwater for both pre-monsoon and post-monsoon ( a ) Copper, ( b ) Manganese, ( c ) Zinc, ( d ) Iron. Discussion The spatial and temporal analysis of heavy metal contamination in groundwater from Kadaladi Taluk offers critical insights into the influence of lithology, land use, and seasonal hydrodynamic processes. This study’s elevated concentrations of manganese and iron are consistent with their typical geochemical behavior under reducing conditions within the aquifer matrix. Similar trends have been reported in the Palar River Basin, where manganese levels reached up to 0.88 mg/L. However, this is notably lower than the 2.16 mg/L recorded in Kadaladi, suggesting a higher leaching potential in this region due to lateritic weathering profiles and high clay content in the subsurface lithology 51 . Post-monsoon cadmium spikes, particularly at Locations 24 and 31, indicate anthropogenic inputs from fertilizer use and saltpan discharges. This pattern aligns with seasonal leaching trends reported in the Dehradun region, where elevated cadmium concentrations were attributed to agricultural runoff during wet seasons 19 . Similar findings were also reported in eastern India, where post-monsoon increases in Pb and Cd concentrations were linked to surface-driven pollutant infiltration in semi-arid zones 52 . The consistent contamination levels at Locations 29 and 33 suggest chronic pollution, potentially driven by long-term agricultural intensification and limited natural flushing due to impermeable clay-rich stratigraphy. These observations imply that contamination sources are dual in origin—Mn and Fe being predominantly geogenic and mobilized through redox reactions, while Cd and Zn are primarily introduced through anthropogenic activities such as agriculture and saltpan effluents. The integrated use of GIS mapping, hydrogeological interpretation, and statistical correlation presents a comprehensive framework to trace contaminant transport and seasonal accumulation dynamics. Conclusion This study provides a comprehensive and methodologically integrated assessment of groundwater contamination in Kadaladi Taluk, with a specific focus on seasonal variability, spatial distribution, and health risks associated with heavy metals. By employing Heavy Metal Pollution Index (HPI), Metal Index (MI), and age-specific Health Risk Assessment (HQ) alongside GIS-based spatial mapping, this research reveals both the intensity and complexity of groundwater contamination in a rural, semi-arid coastal context. Elevated concentrations of Manganese (Mn) and Iron (Fe) were observed in approximately 20% of groundwater samples across pre- and post-monsoon seasons, exceeding WHO 47 standard limits of 0.1 mg/L and 0.3 mg/L, respectively. This is more comprehensive and detailed than previous regional evaluations, especially considering the seasonal comparison made possible by statistical correlation analysis and dual-phase sampling. The study identifies geogenic processes—particularly the weathering of lateritic and gneissic formations under reducing aquifer conditions—as primary contributors to Mn and Fe levels, especially during monsoonal recharge. However, post-monsoon cadmium (Cd) and zinc (Zn) surges indicate anthropogenic inputs from fertilizer use and saltpan discharges. Spatial hotspot analysis identified Locations 6, 24, 29, and 33 as zones of high contamination risk, with Location 33 recording the highest HPI (99.1) and MI (17.89) values. The health risk assessment revealed that children are disproportionately vulnerable, with HQ values exceeding 2.0 in some areas, indicating serious non-carcinogenic risk, while adult HQ values remained below critical thresholds. These results highlight the significant influence of monsoonal hydrology on metal mobilization and redistribution, as shown by the formation of post-monsoon metal correlations, particularly the strong Cd–Mn linkage. This is supported by moderate to strong inter-metal correlations (e.g., Mn–Fe, Cu–Fe), underscoring the interaction between sedimentary geochemistry and seasonal pollutant migration pathways. The paired sample t-test confirms the seasonal variance for specific metals, notably Copper ( p = 0.002), justifying the need for temporal groundwater quality monitoring frameworks. Based on these findings, the study concludes that institutionalized, seasonally responsive monitoring programs are essential under decentralized governance frameworks, particularly to manage monsoon-driven contamination spikes. Immediate mitigation should prioritize installing point-of-use filters—aeration and rapid sand filtration for Fe, and activated alumina or ion exchange for Mn—in high-risk villages such as Locations 31, 32, and 33. School-level interventions, such as filtration units and water safety protocols, are recommended to safeguard children’s health. Long-term policy actions must include regulated agrochemical use, afforestation in recharge zones, and managed aquifer recharge (MAR) structures, informed by the GIS-based spatial distribution maps generated in this study. Finally, this research addresses a critical regional and thematic gap in groundwater studies by combining spatial, seasonal, and health risk dimensions in an underrepresented rural coastal setting and offers a replicable framework for groundwater monitoring in other monsoon-influenced, semi-arid regions. Future work should expand the temporal dataset to assess interannual variability and incorporate dermal and food-chain exposure routes for a more comprehensive understanding of heavy metal risks.
+Data availability
+The data that support the findings of this study are available on request from the corresponding author.
+References Egbueri, J. C. Groundwater quality assessment using pollution index of groundwater (PIG), ecological risk index (ERI) and hierarchical cluster analysis (HCA): A case study. Groundw. Sustain. Dev. 10 , 100292 (2020). Article
+Google Scholar
+Bhutiani, R., Kulkarni, D. B., Khanna, D. R. &amp; Gautam, A. Water quality, pollution source apportionment and health risk assessment of heavy metals in groundwater of an industrial area in North India. Expo Health 8 , 3–18 (2016). Article
+Google Scholar
+Bhagure, G. R. &amp; Mirgane, S. R. Heavy metal concentrations in groundwaters and soils of Thane Region of Maharashtra, India. Environ Monit. Assess. 173 , 643–652 (2011). Article
+Google Scholar
+Sekhon, G. S. &amp; Singh, B. Estimation of heavy metals in the groundwater of Patiala district of Punjab, India. Earth Resour. 1 , 1 (2013). Article
+Google Scholar
+Chidambaram, S., Karmegam, U., Prasanna, M. V. &amp; Sasidhar, P. A study on evaluation of probable sources of heavy metal pollution in groundwater of Kalpakkam region, South India. Environmentalist 32 , 371–382 (2012). Article
+Google Scholar
+Wagh, V. M. et al. Health risk assessment of heavy metal contamination in groundwater of Kadava River Basin, Nashik, India. Model Earth Syst. Environ. 4 , 969–980 (2018). Article
+Google Scholar
+Mukherjee, I. et al. Characterization of heavy metal pollution in an anthropogenically and geologically influenced semi-arid region of east India and assessment of ecological and human health risks. Sci. Total Environ. 705 , 13580 (2020). Article
+Google Scholar
+Kumar, S. et al. Assessment of heavy metal pollution in groundwater of an industrial area: A case study from Ramgarh, Jharkhand, India. Int. J. Environ. Anal. Chem. 102 , 7290–7312 (2022). Article
+Google Scholar
+Kapoor, K., Kumar, S., Vishwakarma, D. K., Obaidullah, A. J. &amp; Yadav, K. K. Health risk assessment of heavy metals in groundwater sources: Carcinogenic and non-carcinogenic evaluation. J. Water Health 22 , 1972–1987 (2024). Article
+Google Scholar
+Lakshmi, R. V., Raja, V., Chidambaram, S., Sekar, C. P. &amp; Neelakantan, M. A. Industrial impact on groundwater quality with special reference to Cr2+ and Pb2+ in coastal aquifers. Environ. Monit. Assess. 193 , 389 (2021). Article
+Google Scholar
+Rao, I. R. et al. Chronic kidney disease of unknown aetiology: A comprehensive review of a global public health problem. Trop. Med. Int. Health 28 , 588–600 (2023). Article
+Google Scholar
+Zhou, J., Jiang, Z., Qin, X. &amp; Zhang, L. Heavy metal distribution and health risk assessment in groundwater and surface water of karst lead–zinc mine. Water https://doi.org/10.3390/w16152179 (2024). Article
+Google Scholar
+Sakizadeh, M., Zhang, C. &amp; Milewski, A. Spatial distribution pattern and health risk of groundwater contamination by cadmium, manganese, lead and nitrate in groundwater of an arid area. Environ. Geochem. Health 46 , 1–25 (2024). Article
+Google Scholar
+Bhardwaj, S., Soni, R., Gupta, S. K. &amp; Shukla, D. P. Mercury, arsenic, lead and cadmium in waters of the Singrauli coal mining and power plants industrial zone, Central East India. Environ. Monit. Assess. 192 , 1–20 (2020). Article
+Google Scholar
+Sridhar, S. G. D. et al. Heavy metal concentration in groundwater from Besant Nagar to Sathankuppam, South Chennai, Tamil Nadu, India. Appl. Water Sci. 7 , 4651–4662 (2017). Article
+Google Scholar
+Ravindra, K. &amp; Mor, S. Distribution and health risk assessment of arsenic and selected heavy metals in Groundwater of Chandigarh, India. Environ. Pollut. 250 , 820–830 (2019). Article
+Google Scholar
+Raja, V., Lakshmi, R. V., Sekar, C. P., Chidambaram, S. &amp; Neelakantan, M. A. Health risk assessment of heavy metals in groundwater of industrial township Virudhunagar, Tamil Nadu, India. Arch. Environ. Contam. Toxicol. 80 , 144–163 (2021). Article
+Google Scholar
+Dange, S., Arumugam, K. &amp; Saraswathi Vijayaraghavalu, S. Geochemical insights into heavy metal contamination and health hazards in Palar River Basin: A pathway to sustainable solutions. Ecol. Indic. 166 , 112568 (2024). Article
+Google Scholar
+Nayak, A. et al. Assessment of potentially toxic elements in groundwater through interpolation, pollution indices, and chemometric techniques in Dehradun in Uttarakhand State. Environ. Sci. Pollut. Res. 31 , 36241–36263 (2024). Article
+Google Scholar
+Loganathan, K. &amp; Vignesh Rajkumar, L. Health risk assessment of heavy metal toxicity in groundwater—A comparative study on the industrial corridors of integrated Vellore District, Tamil Nadu. 1 , 297–322 (2025). https://doi.org/10.1007/978-3-031-76532-2_13 . Samantara, M. K., Padhi, R. K., Sowmya, M., Kumaran, P. &amp; Satpathy, K. K. Heavy metal contamination, major ion chemistry and appraisal of the groundwater status in coastal aquifer, Kalpakkam, Tamil Nadu, India. Groundw. Sustain. Dev. 5 , 49–58 (2017). Article
+Google Scholar
+Alsubih, M. et al. Occurrence and health risk assessment of arsenic and heavy metals in groundwater of three industrial areas in Delhi, India. Environ. Sci. Pollut. Res. 28 , 63017–63031 (2021). Article
+Google Scholar
+Singh Patel, K. et al. Contamination and sources of surface water in Korba Coal Basin, Chhattisgarh, India. (2024). https://doi.org/10.21203/RS.3.RS-4478468/V1 Dheeraj, V. P., Singh, C. S., Sonkar, A. K. &amp; Kishore, N. Heavy metal pollution indices estimation and principal component analysis to evaluate the groundwater quality for drinking purposes in coalfield region, India. Sustain. Water Resour. Manag. 10 , 1–16 (2024). Article
+Google Scholar
+Chidambaram, S., Prasad, M. B. K., Prasanna, M. V., Manivannan, R. &amp; Anandhan, P. Evaluation of metal pollution in groundwater in the industrialized environs in and around Dindigul, Tamilnadu, India. Water Qual. Expo Health 7 , 307–317 (2015). Article
+Google Scholar
+Nathan, S. et al. Trace elements in groundwater of coastal aquifers of Pondicherry Region, India. J. Environ. 01 , 111–118 (2012).
+Google Scholar
+Karunanidhi, D., Aravinthasamy, P., Subramani, T., Kumar, D. &amp; Setia, R. Investigation of health risks related with multipath entry of groundwater nitrate using Sobol sensitivity indicators in an urban-industrial sector of south India. Environ. Res. 200 , 111726 (2021). Article
+Google Scholar
+Singh, R. et al. Assessment of potentially toxic trace elements contamination in groundwater resources of the coal mining area of the Korba Coalfield, Central India. Environ. Earth Sci. 76 , 566 (2017). Article
+Google Scholar
+Karthikeyan, S. et al. Hydrogeochemical survey along the northern coastal region of Ramanathapuram District, Tamilnadu, India. Appl. Sci. Switz. 12 , 5595 (2022). Article
+Google Scholar
+Kumar, S., Rajesh, V. &amp; Khan, N. Evaluation of groundwater quality in Ramanathapuram district, using water quality index (WQI). Model Earth Syst. Environ. 8 , 35–45 (2022). Article
+Google Scholar
+Gowtham, B., Sekar, S., Marcus, C., Vinodh, K. &amp; Senapathi, V. Geochemical assessment of high salinity in groundwater along Ramanathapuram Coast, Southern Tamil Nadu. Groundwater Contamination in Coastal Aquifers: Assessment and Management 213–231 (2022) https://doi.org/10.1016/B978-0-12-824387-9.00014-1 . Sivasankar, V., Ramachandramoorthy, T. &amp; Chandramohan, A. Deterioration of coastal groundwater quality in Island and mainland regions of Ramanathapuram District, Southern India. Environ. Monit. Assess. 185 , 931–944 (2013). Article
+Google Scholar
+Raj, S. et al. Community-engaged research on water quality analysis and environmental risk zone (Erz) mapping using GIS and neuro-fuzzy models in Ramanathapuram District, Tamil Nadu. India. https://doi.org/10.2139/SSRN.4960284 (2024). Article
+Google Scholar
+Lee, L. &amp; Helsel, D. Baseline models of trace elements in major aquifers of the United States. Appl. Geochem. 20 , 1560–1570 (2005). Article
+Google Scholar
+Goodsell, T. H. et al. Thermal groundwater contributions of arsenic and other trace elements to the middle Provo River, Utah, USA. Environ. Earth Sci. 76 (2017). Aryal, R. K., Murakami, M., Furumai, H., Nakajima, F. &amp; Jinadasa, H. K. P. K. Prolonged deposition of heavy metals in infiltration facilities and its possible threat to groundwater contamination. Water Sci. Technol. 54 , 205–212 (2006). Article
+Google Scholar
+Towfiqul Islam, A. R. M., Shen, S., Bodrud-Doza, M., Atiqur Rahman, M. &amp; Das, S. Assessment of trace elements of groundwater and their spatial distribution in Rangpur district, Bangladesh. Arab. J. Geosci. 10 (2017). Ahmed, F., Bibi, M. H., Ishiga, H., Fukushima, T. &amp; Maruoka, T. Geochemical study of arsenic and other trace elements in groundwater and sediments of the Old Brahmaputra river plain, Bangladesh. Environ. Earth Sci. 60 , 1303–1316 (2010). Article
+Google Scholar
+Lakshmi, R. V., Raja, V., Chidambaram, S., Sekar, C. P. &amp; Neelakantan, M. A. Industrial impact on groundwater quality with special reference to Cr2+ and Pb2+ in coastal aquifers. Environ. Monit. Assess. 193 (2021). Brindha, K. &amp; Schneider, M. Impact of urbanization on groundwater quality. GIS and Geostatistical Techniques for Groundwater Science 179–196 (2019). https://doi.org/10.1016/B978-0-12-815413-7.00013-4 . Mukherjee, I. et al. Characterization of heavy metal pollution in an anthropogenically and geologically influenced semi-arid region of east India and assessment of ecological and human health risks. Sci. Total Environ. 705 , 135801 (2020). Article
+Google Scholar
+Balasubramanian, N., Sivasubramanian, P., Soundranayagam, J. P., Chandrasekar, N. &amp; Gowtham, B. Groundwater classification and its suitability in Kadaladi, Ramanathapuram, India using GIS techniques. Environ. Earth Sci. 74 , 3263–3285 (2015). Article
+Google Scholar
+Stephen Pitchaimani, V., Seeththa Sankar Narayanan, M., Richard Abishek, S. &amp; Shyamala, G. Assessment of coastal aquifer vulnerability to seawater intrusion: Insights from Kadaladi region using the GALDIT MODEL. Case Stud. Chem. Environ. Eng. 10 , 100772 (2024). Article
+Google Scholar
+Pitchaimani Stephen, V., Narayanan, M. S. S., Abishek, R. S., Aswin, S. K. &amp; Jerin Joe, R. J. Delineation of groundwater potential zones using remote sensing and Geographic Information Systems (GIS) in Kadaladi region, Southern India. J. Groundw. Sci. Eng. 12 , 147–160 (2024). Article
+Google Scholar
+American Public Health Association (APHA), editors-A. D. E. R. B. B. E. W. R. APHA’s Standard Methods for the Examination of Water &amp; Wastewater (2013). BIS Home - Bureau of Indian Standards. https://www.bis.gov.in/ . WHO. Guidelines for drinking-water quality, 4th edition, incorporating the 1st addendum. Geneva: World Health Organization. Geneva, Switzerland. World Health Organization (2017). Ground Water and Drinking Water | US EPA. https://www.epa.gov/ground-water-and-drinking-water (2020). Amfo-Otu, R., Agyenim, J. B. &amp; Nimba-Bumah, G. B. Correlation analysis of groundwater colouration from mountainous areas, Ghana. Environ. Res. Eng. Manag. 67 , 16–24 (2014). Article
+Google Scholar
+Chen, K., Jiao, J. J., Huang, J. &amp; Huang, R. Multivariate statistical evaluation of trace elements in groundwater in a coastal area in Shenzhen, China. Environ. Pollut. 147 , 771–780 (2007). Article
+Google Scholar
+Dange, S., Arumugam, K. &amp; Saraswathi Vijayaraghavalu, S. Geochemical insights into heavy metal contamination and health hazards in Palar River Basin: A pathway to sustainable solutions. Ecol. Indic. 166 , 112568 (2024). Article
+Google Scholar
+Mukherjee, I. et al. Characterization of heavy metal pollution in an anthropogenically and geologically influenced semi-arid region of east India and assessment of ecological and human health risks. Sci Total Environ. 705 , 135801 (2020). Article
+Google Scholar
+Download references Funding This research has not received any funding from any source. Author information Authors and Affiliations Manonmaniam Sundaranar University, Tirunelveli, Tamil Nadu, 627012, India M. Seeththa Sankar Narayanan PG and Research Department of Geology, V. O. Chidambaram College, Thoothukudi, Tamil Nadu, 628008, India V. Stephen Pitchaimani &amp; S. Richard Abishek Central Ground Water Board (CGWB), Rajaji Bhavan Complex, Besant Nagar, Chennai, Tamil Nadu, 600090, India M. Sivakumar &amp; T. Dinesh Kumar Department of Applied Geology, College of Applied Natural Science, Adama Science and Technology University, P.O. Box 1888, Adama, Ethiopia Shankar Karuppannan Department of Research Analytics, Saveetha Dental College and Hospitals, Saveetha Institute of Medical and Technical Sciences (SIMATS), Saveetha University, Chennai, Tamil Nadu, 600077, India Shankar Karuppannan Authors M. Seeththa Sankar Narayanan View author publications Search author on: PubMed Google Scholar V. Stephen Pitchaimani View author publications Search author on: PubMed Google Scholar M. Sivakumar View author publications Search author on: PubMed Google Scholar T. Dinesh Kumar View author publications Search author on: PubMed Google Scholar S. Richard Abishek View author publications Search author on: PubMed Google Scholar Shankar Karuppannan View author publications Search author on: PubMed Google Scholar Contributions "Seeththa Sankar Narayanan M: Conceptualization, Software, Investigation, Writing—Original Draft Preparation; Stephen Pitchaimani V: Methodology, Resources, Supervision; Sivakumar M: Investigation; Dinesh Kumar T: Data Curation; Richard Abishek S: Writing—Original Draft Preparation; Shankar Karuppannan: Formal analysis, Writing—Review and Editing. All authors have read and agreed to the final version of the manuscript." Corresponding authors Correspondence to
+V. Stephen Pitchaimani or Shankar Karuppannan . Ethics declarations
+Competing interests
+The authors declare no competing interests.
+Ethics approval
+The manuscript is conducted in the ethical manner advised by the targeted journal.
+Consent for publication
+The research is scientifically consented to be published.
+Human face consent to publish the declaration
+We have carefully reviewed all the images in our manuscript and confirm that no human faces are present.
+Additional information Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations. Rights and permissions
+Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ .
+Reprints and permissions About this article Cite this article Narayanan, M.S.S., Pitchaimani, V.S., Sivakumar, M. et al. Spatial assessment of heavy metal contamination in groundwater in the Kadaladi region, Tamil Nadu, India.
+Sci Rep 15 , 27704 (2025). https://doi.org/10.1038/s41598-025-12120-5 Download citation Received : 26 February 2025 Accepted : 15 July 2025 Published : 29 July 2025 Version of record : 29 July 2025 DOI : https://doi.org/10.1038/s41598-025-12120-5 Share this article Anyone you share the following link with will be able to read this content: Get shareable link Sorry, a shareable link is not currently available for this article. Copy shareable link to clipboard
+Provided by the Springer Nature SharedIt content-sharing initiative
+Keywords Heavy metal Kadaladi Health risk Metal Index HPI
+Download PDF
+Advertisement
+<div id="div-gpt-ad-right-2"
+class="div-gpt-ad advert medium-rectangle js-ad text-center hide-print grade-c-hide"
+data-ad-type="right"
+data-test="right-ad"
+data-pa11y-ignore
+data-gpt
+data-gpt-unitpath="/285/scientific_reports/article"
+data-gpt-sizes="300x250"
+data-gpt-targeting="type=article;pos=right;artid=s41598-025-12120-5;doi=10.1038/s41598-025-12120-5;kwrd=Science%2C+Humanities+and+Social+Sciences%2C+multidisciplinary,Science%2C+multidisciplinary">
+<img data-test="gpt-advert-fallback-img"
+src="//pubads.g.doubleclick.net/gampad/ad?iu=/285/scientific_reports/article&amp;sz=300x250&amp;c=-95408166&amp;t=pos%3Dright%26type%3Darticle%26artid%3Ds41598-025-12120-5%26doi%3D10.1038/s41598-025-12120-5%26kwrd%3DScience%2C+Humanities+and+Social+Sciences%2C+multidisciplinary,Science%2C+multidisciplinary"
+alt="Advertisement"
+width="300"
+height="250">
+Explore content
+<a class="c-header__link"
+href="/srep/research-articles"
+data-track="click"
+data-track-action="research articles"
+data-track-label="link"
+data-test="explore-nav-item">
+Research articles
+<a class="c-header__link"
+href="/srep/news-and-comment"
+data-track="click"
+data-track-action="news &amp; comment"
+data-track-label="link"
+data-test="explore-nav-item">
+News &amp; Comment
+<a class="c-header__link"
+href="/srep/collections"
+data-track="click"
+data-track-action="collections"
+data-track-label="link"
+data-test="explore-nav-item">
+Collections
+<a class="c-header__link"
+href="/srep/browse-subjects"
+data-track="click"
+data-track-action="subjects"
+data-track-label="link"
+data-test="explore-nav-item">
+Subjects
+<a class="c-header__link"
+href="https://www.facebook.com/scientificreports"
+data-track="click"
+data-track-action="facebook"
+data-track-label="link">Follow us on Facebook
+<a class="c-header__link"
+href="https://twitter.com/SciReports"
+data-track="click"
+data-track-action="twitter"
+data-track-label="link">Follow us on X
+<a class="c-header__link"
+href="https://journal-alerts.springernature.com/subscribe?journal_id&#x3D;41598"
+rel="nofollow"
+data-track="nav_sign_up_for_alerts"
+data-track-action="Sign up for alerts"
+data-track-external
+data-track-label="link (mobile dropdown)">Sign up for alerts
+<a class="c-header__link"
+href="https://www.nature.com/srep.rss"
+data-track="click"
+data-track-action="rss feed"
+data-track-label="link">
+RSS feed
+About the journal
+<a class="c-header__link"
+href="/srep/about"
+data-track="click"
+data-track-action="about scientific reports"
+data-track-label="link">
+About Scientific Reports
+<a class="c-header__link"
+href="/srep/contact"
+data-track="click"
+data-track-action="contact"
+data-track-label="link">
+Contact
+<a class="c-header__link"
+href="/srep/journal-policies"
+data-track="click"
+data-track-action="journal policies"
+data-track-label="link">
+Journal policies
+<a class="c-header__link"
+href="/srep/guide-to-referees"
+data-track="click"
+data-track-action="guide to referees"
+data-track-label="link">
+Guide to referees
+<a class="c-header__link"
+href="/srep/calls-for-papers"
+data-track="click"
+data-track-action="calls for papers"
+data-track-label="link">
+Calls for Papers
+<a class="c-header__link"
+href="/srep/editorschoice"
+data-track="click"
+data-track-action="editor&#x27;s choice"
+data-track-label="link">
+Editor&#x27;s Choice
+<a class="c-header__link"
+href="/srep/highlights"
+data-track="click"
+data-track-action="journal highlights"
+data-track-label="link">
+Journal highlights
+<a class="c-header__link"
+href="/srep/open-access"
+data-track="click"
+data-track-action="open access fees and funding"
+data-track-label="link">
+Open Access Fees and Funding
+Publish with us
+<a class="c-header__link"
+href="/srep/author-instructions"
+data-track="click"
+data-track-action="for authors"
+data-track-label="link">
+For authors
+<a class="c-header__link" data-test="nature-author-services"
+data-track="nav_language_services"
+data-track-context="header publish with us dropdown menu"
+data-track-action="manuscript author services"
+data-track-label="link manuscript author services"
+href="https://authorservices.springernature.com/go/sn/?utm_source=For+Authors&utm_medium=Website_Nature&utm_campaign=Platform+Experimentation+2022&utm_id=PE2022">
+Language editing services
+<a class="c-header__link"
+href="/srep/open-access-funding"
+data-test="funding-eligibility-link"
+data-track="click_explore_funding"
+data-track-context="header publish with us"
+data-track-action="funding eligibility">Open access funding
+<a class="c-header__link"
+href="https://author-welcome.nature.com/41598"
+data-track="click_submit_manuscript"
+data-track-context="submit link in Nature header dropdown menu"
+data-track-action="submit manuscript"
+data-track-label="link (publish with us dropdown menu)"
+data-track-external
+data-gtm-criteo="submit-manuscript">Submit manuscript
+Search
+Search articles by subject, keyword or author
+Show results from
+All journals
+This journal
+Search
+<a class="c-header__link" href="/search/advanced"
+data-track="click" data-track-action="advanced search" data-track-label="link">
+Advanced search
+Quick links
+Explore articles by subject
+Find a job
+Guide to authors
+Editorial policies
+Scientific Reports
+( Sci Rep )
+ISSN 2045-2322 (online)
+nature.com footer links
+About Nature Portfolio
+<a class="c-footer__link"
+href="https://www.nature.com/npg_/company_info/index.html"
+data-track="click" data-track-action="about us"
+data-track-label="link">About us
+<a class="c-footer__link"
+href="https://www.nature.com/npg_/press_room/press_releases.html"
+data-track="click" data-track-action="press releases"
+data-track-label="link">Press releases
+<a class="c-footer__link" href="https://press.nature.com/"
+data-track="click" data-track-action="press office"
+data-track-label="link">Press office
+<a class="c-footer__link" href="https://support.nature.com/support/home"
+data-track="click" data-track-action="contact us"
+data-track-label="link">Contact us
+Discover content
+<a class="c-footer__link" href="https://www.nature.com/siteindex"
+data-track="click" data-track-action="journals a-z"
+data-track-label="link">Journals A-Z
+<a class="c-footer__link" href="https://www.nature.com/subjects"
+data-track="click" data-track-action="article by subject"
+data-track-label="link">Articles by subject
+<a class="c-footer__link" href="https://www.protocols.io/"
+data-track="click" data-track-action="protocols.io"
+data-track-label="link">protocols.io
+<a class="c-footer__link" href="https://www.natureindex.com/"
+data-track="click" data-track-action="nature index"
+data-track-label="link">Nature Index
+Publishing policies
+<a class="c-footer__link"
+href="https://www.nature.com/authors/editorial_policies"
+data-track="click" data-track-action="Nature portfolio policies"
+data-track-label="link">Nature portfolio policies
+<a class="c-footer__link"
+href="https://www.nature.com/nature-research/open-access"
+data-track="click" data-track-action="open access"
+data-track-label="link">Open access
+Author &amp; Researcher services
+<a class="c-footer__link" href="https://www.nature.com/reprints"
+data-track="click" data-track-action="reprints and permissions"
+data-track-label="link">Reprints &amp; permissions
+<a class="c-footer__link"
+href="https://www.springernature.com/gp/authors/research-data"
+data-track="click" data-track-action="data research service"
+data-track-label="link">Research data
+<a class="c-footer__link"
+href="https://authorservices.springernature.com/language-editing/"
+data-track="click" data-track-action="language editing"
+data-track-label="link">Language editing
+<a class="c-footer__link"
+href="https://authorservices.springernature.com/scientific-editing/"
+data-track="click" data-track-action="scientific editing"
+data-track-label="link">Scientific editing
+<a class="c-footer__link" href="https://masterclasses.nature.com/"
+data-track="click" data-track-action="nature masterclasses"
+data-track-label="link">Nature Masterclasses
+<a class="c-footer__link" href="https://solutions.springernature.com/"
+data-track="click" data-track-action="research solutions"
+data-track-label="link">Research Solutions
+Libraries &amp; institutions
+<a class="c-footer__link"
+href="https://www.springernature.com/gp/librarians/tools-services"
+data-track="click" data-track-action="librarian service and tools"
+data-track-label="link">Librarian service &amp; tools
+<a class="c-footer__link"
+href="https://www.springernature.com/gp/librarians/manage-your-account/librarianportal"
+data-track="click" data-track-action="librarian portal"
+data-track-label="link">Librarian portal
+<a class="c-footer__link"
+href="https://www.nature.com/openresearch/about-open-access/information-for-institutions"
+data-track="click" data-track-action="open research"
+data-track-label="link">Open research
+<a class="c-footer__link"
+href="https://www.springernature.com/gp/librarians/recommend-to-your-library"
+data-track="click" data-track-action="Recommend to library"
+data-track-label="link">Recommend to library
+Advertising &amp; partnerships
+<a class="c-footer__link"
+href="https://partnerships.nature.com/product/digital-advertising/"
+data-track="click" data-track-action="advertising"
+data-track-label="link">Advertising
+<a class="c-footer__link" href="https://partnerships.nature.com/"
+data-track="click" data-track-action="partnerships and services"
+data-track-label="link">Partnerships &amp; Services
+<a class="c-footer__link"
+href="https://partnerships.nature.com/media-kits/" data-track="click"
+data-track-action="media kits" data-track-label="link">Media kits
+<a class="c-footer__link"
+href="https://partnerships.nature.com/product/branded-content-native-advertising/"
+data-track-action="branded content" data-track-label="link">Branded
+content
+Professional development
+<a class="c-footer__link" href="https://www.nature.com/immersive/natureawards/index.html"
+data-track="click" data-track-action="nature awards"
+data-track-label="link">Nature Awards
+<a class="c-footer__link" href="https://www.nature.com/naturecareers/"
+data-track="click" data-track-action="nature careers"
+data-track-label="link">Nature Careers
+<a class="c-footer__link" href="https://conferences.nature.com"
+data-track="click" data-track-action="nature conferences"
+data-track-label="link">Nature
+Conferences
+Regional websites
+<a class="c-footer__link" href="https://www.nature.com/natafrica"
+data-track="click" data-track-action="nature africa"
+data-track-label="link">Nature Africa
+<a class="c-footer__link" href="http://www.naturechina.com"
+data-track="click" data-track-action="nature china"
+data-track-label="link">Nature China
+<a class="c-footer__link" href="https://www.nature.com/nindia"
+data-track="click" data-track-action="nature india"
+data-track-label="link">Nature India
+<a class="c-footer__link" href="https://www.natureasia.com/ja-jp"
+data-track="click" data-track-action="nature japan"
+data-track-label="link">Nature Japan
+<a class="c-footer__link" href="https://www.nature.com/nmiddleeast"
+data-track="click" data-track-action="nature middle east"
+data-track-label="link">Nature Middle East
+<a class="c-footer__link" href="https://www.nature.com/info/privacy"
+data-track="click" data-track-action="privacy policy" data-track-label="link">Privacy
+Policy
+<a class="c-footer__link" href="https://www.nature.com/info/cookies"
+data-track="click" data-track-action="use of cookies" data-track-label="link">Use
+of cookies
+<button class="optanon-toggle-display c-footer__link" onclick="javascript:;"
+data-cc-action="preferences" data-track="click" data-track-action="manage cookies"
+data-track-label="link">Your privacy choices/Manage cookies
+<a class="c-footer__link" href="https://www.nature.com/info/legal-notice"
+data-track="click" data-track-action="legal notice" data-track-label="link">Legal
+notice
+<a class="c-footer__link"
+href="https://www.nature.com/info/accessibility-statement" data-track="click"
+data-track-action="accessibility statement" data-track-label="link">Accessibility
+statement
+<a class="c-footer__link" href="https://www.nature.com/info/terms-and-conditions"
+data-track="click" data-track-action="terms and conditions"
+data-track-label="link">Terms &amp; Conditions
+<a class="c-footer__link" href="https://www.springernature.com/ccpa"
+data-track="click" data-track-action="california privacy statement"
+data-track-label="link">Your US state privacy rights
+&copy; 2026 Springer Nature Limited
+<div class="c-site-messages message u-hide u-hide-print c-site-messages--nature-briefing c-site-messages--nature-briefing-email-variant c-site-messages--nature-briefing-redesign-2020 sans-serif "
+data-component-id="nature-briefing-banner"
+data-component-expirydays="30"
+data-component-trigger-scroll-percentage="15"
+data-track="in-view"
+data-track-action="in-view"
+data-track-category="nature briefing"
+data-track-label="Briefing banner visible: Flagship">
+<button class="c-site-messages__close"
+data-track="click"
+data-track-category="nature briefing"
+data-track-label="Briefing banner dismiss: Flagship">
+<svg width="25px" height="25px" focusable="false" aria-hidden="true" viewBox="0 0 25 25" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+Close banner
+Close
+Sign up for the Nature Briefing newsletter — what matters in science, free to your inbox daily.
+Email address
+Sign up
+I agree my information will be processed in accordance with the Nature and Springer Nature Limited Privacy Policy .
+<button class="c-site-messages__close"
+data-track="click"
+data-track-category="nature briefing"
+data-track-label="Briefing banner dismiss: Flagship">
+<svg width="25px" height="25px" focusable="false" aria-hidden="true" viewBox="0 0 25 25" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+Close banner
+Close
+Get the most important science stories of the day, free in your inbox.
+<a class="nature-briefing__link text14 sans-serif"
+data-track="click"
+data-track-category="nature briefing"
+data-track-label="Small-screen banner CTA to site"
+data-test-element="briefing-banner-link"
+target="_blank"
+rel="noreferrer noopener"
+href="https://www.nature.com/briefing/signup/?brieferEntryPoint=MainBriefingBanner">Sign up for Nature Briefing

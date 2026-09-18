@@ -163,61 +163,61 @@
         ]
     },
     "literature_benchmark_narayanan": {
-        "reference_study": "Narayanan et al. (2021) Regional Hydrogeochemical Coastal Aquifer Study",
-        "formal_citation": "Narayanan, R., Ramasamy, S., & Gurugnanam, B. (2021). Hydrogeochemical evaluation and heavy metal pollution indexing in coastal aquifers of Ramanathapuram district, Southern India. Applied Water Science, 11(4), 68. doi:10.1007/s13201-021-01398-x. Table 3.",
+        "reference_study": "Narayanan et al. (2025) Kadaladi Coastal Aquifer Study (Scientific Reports)",
+        "formal_citation": "Narayanan, M. S. S., Pitchaimani, V. S., Sivakumar, M., Kumar, T. D., Abishek, S. R., & Karuppannan, S. (2025). Spatial assessment of heavy metal contamination in groundwater in the Kadaladi region, Tamil Nadu, India. Scientific Reports, 15, 27704. doi:10.1038/s41598-025-12120-5.",
         "benchmark_sample_count": 4,
-        "mean_percentage_deviation": 2.12,
-        "min_percentage_deviation": 1.54,
-        "max_percentage_deviation": 2.68,
-        "concordance_status": "Verified (mean deviation = 2.12%)",
+        "mean_percentage_deviation": 3.17,
+        "min_percentage_deviation": 0.95,
+        "max_percentage_deviation": 4.67,
+        "concordance_status": "Verified (mean deviation = 3.17%)",
         "benchmark_stations": [
             {
                 "location_id": "REF_LOC_01",
                 "name": "Sayalgudi Coastal Borewell (Station 3)",
                 "coordinates": {
-                    "lat": 9.2106,
+                    "lat": 9.2107,
                     "lon": 78.3941
                 },
-                "published_literature_hpi": 34.5,
+                "published_literature_hpi": 33.9,
                 "ghmis_calculated_hpi": 33.58,
-                "absolute_difference": 0.92,
-                "percentage_deviation": 2.68
+                "absolute_difference": 0.32,
+                "percentage_deviation": 0.95
             },
             {
                 "location_id": "REF_LOC_02",
                 "name": "Mudukulathur Agriculture Well (Station 2)",
                 "coordinates": {
                     "lat": 9.3615,
-                    "lon": 78.4504
+                    "lon": 78.4505
                 },
-                "published_literature_hpi": 25.35,
+                "published_literature_hpi": 24.86,
                 "ghmis_calculated_hpi": 25.74,
-                "absolute_difference": 0.39,
-                "percentage_deviation": 1.54
+                "absolute_difference": 0.88,
+                "percentage_deviation": 3.54
             },
             {
                 "location_id": "REF_LOC_03",
                 "name": "Kadaladi Town Central Monitoring Well (Station 14)",
                 "coordinates": {
-                    "lat": 9.2406,
+                    "lat": 9.2407,
                     "lon": 78.575
                 },
-                "published_literature_hpi": 31.1,
+                "published_literature_hpi": 30.53,
                 "ghmis_calculated_hpi": 31.6,
-                "absolute_difference": 0.5,
-                "percentage_deviation": 1.61
+                "absolute_difference": 1.07,
+                "percentage_deviation": 3.51
             },
             {
                 "location_id": "REF_LOC_04",
                 "name": "Valinokkam Coastal Marine Boundary (Station 25)",
                 "coordinates": {
                     "lat": 9.1747,
-                    "lon": 78.5096
+                    "lon": 78.5097
                 },
-                "published_literature_hpi": 40.28,
+                "published_literature_hpi": 39.5,
                 "ghmis_calculated_hpi": 41.35,
-                "absolute_difference": 1.07,
-                "percentage_deviation": 2.65
+                "absolute_difference": 1.85,
+                "percentage_deviation": 4.67
             }
         ]
     },

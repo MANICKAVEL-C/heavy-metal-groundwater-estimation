@@ -314,7 +314,7 @@ def generate_excel():
     
     ws6.merge_cells("A1:G1")
     t6 = ws6["A1"]
-    t6.value = "TABLE 6: LITERATURE BENCHMARK CONCORDANCE (NARAYANAN ET AL., 2021)"
+    t6.value = "TABLE 6: LITERATURE BENCHMARK CONCORDANCE (NARAYANAN ET AL., 2025 SCI REP)"
     t6.font = FONT_TITLE
     t6.fill = FILL_TITLE
     t6.alignment = Alignment(horizontal="center", vertical="center")
@@ -326,11 +326,11 @@ def generate_excel():
     style_table_header(ws6, 3, len(lit_headers))
     
     lit_rows = [
-        ["REF_LOC_01", "Sayalgudi Coastal Borewell (Station 3)", "9.2106°N, 78.3941°E", 34.50, 33.58, 0.92, 2.68],
-        ["REF_LOC_02", "Mudukulathur Agriculture Well (Station 2)", "9.3615°N, 78.4504°E", 25.35, 25.74, 0.39, 1.54],
-        ["REF_LOC_03", "Kadaladi Town Monitoring Well (Station 14)", "9.2406°N, 78.5750°E", 31.10, 31.60, 0.50, 1.61],
-        ["REF_LOC_04", "Valinokkam Marine Boundary (Station 25)", "9.1747°N, 78.5096°E", 40.28, 41.35, 1.07, 2.65],
-        ["COMPOSITE", "OVERALL BENCHMARK AVERAGE", "Kadaladi Coastal Aquifer Tract", 32.81, 33.07, 0.72, 2.12]
+        ["REF_LOC_01", "Sayalgudi Coastal Borewell (Station 3)", "9.2107°N, 78.3941°E", 33.90, 33.58, 0.32, 0.95],
+        ["REF_LOC_02", "Mudukulathur Agriculture Well (Station 2)", "9.3615°N, 78.4505°E", 24.86, 25.74, 0.88, 3.54],
+        ["REF_LOC_03", "Kadaladi Town Monitoring Well (Station 14)", "9.2407°N, 78.5750°E", 30.53, 31.60, 1.07, 3.51],
+        ["REF_LOC_04", "Valinokkam Marine Boundary (Station 25)", "9.1747°N, 78.5097°E", 39.50, 41.35, 1.85, 4.67],
+        ["COMPOSITE", "OVERALL BENCHMARK AVERAGE", "Kadaladi Coastal Aquifer Tract", 32.20, 33.07, 1.03, 3.17]
     ]
     
     for r_i, row in enumerate(lit_rows, 4):

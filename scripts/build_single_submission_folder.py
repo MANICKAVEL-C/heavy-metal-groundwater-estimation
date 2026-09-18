@@ -204,18 +204,18 @@ def build_master_excel():
             c.alignment = Alignment(horizontal="center" if c_i > 1 else "left")
 
     # Table 4: Literature Validation
-    ws_tables.cell(row=33, column=1, value="TABLE 4: LITERATURE BENCHMARK CONCORDANCE (NARAYANAN ET AL., 2021)").font = FONT_SECTION
+    ws_tables.cell(row=33, column=1, value="TABLE 4: LITERATURE BENCHMARK CONCORDANCE (NARAYANAN ET AL., 2025 SCI REP)").font = FONT_SECTION
     t4_headers = ["Station ID", "Reference Location Name", "Geographic Coordinates", "Published HPI", "GHMIS HPI", "Absolute Diff", "Percentage Deviation (%)"]
     for c, h in enumerate(t4_headers, 1):
         ws_tables.cell(row=34, column=c, value=h)
     style_table_header(ws_tables, 34, len(t4_headers))
     
     t4_data = [
-        ["REF_LOC_01", "Sayalgudi Coastal Borewell (Station 3)", "9.2106°N, 78.3941°E", 34.50, 33.58, 0.92, 2.68],
-        ["REF_LOC_02", "Mudukulathur Agriculture Well (Station 2)", "9.3615°N, 78.4504°E", 25.35, 25.74, 0.39, 1.54],
-        ["REF_LOC_03", "Kadaladi Town Monitoring Well (Station 14)", "9.2406°N, 78.5750°E", 31.10, 31.60, 0.50, 1.61],
-        ["REF_LOC_04", "Valinokkam Marine Boundary (Station 25)", "9.1747°N, 78.5096°E", 40.28, 41.35, 1.07, 2.65],
-        ["COMPOSITE", "OVERALL BENCHMARK AVERAGE", "Kadaladi Coastal Aquifer Tract", 32.81, 33.07, 0.72, 2.12]
+        ["REF_LOC_01", "Sayalgudi Coastal Borewell (Station 3)", "9.2107°N, 78.3941°E", 33.90, 33.58, 0.32, 0.95],
+        ["REF_LOC_02", "Mudukulathur Agriculture Well (Station 2)", "9.3615°N, 78.4505°E", 24.86, 25.74, 0.88, 3.54],
+        ["REF_LOC_03", "Kadaladi Town Monitoring Well (Station 14)", "9.2407°N, 78.5750°E", 30.53, 31.60, 1.07, 3.51],
+        ["REF_LOC_04", "Valinokkam Marine Boundary (Station 25)", "9.1747°N, 78.5097°E", 39.50, 41.35, 1.85, 4.67],
+        ["COMPOSITE", "OVERALL BENCHMARK AVERAGE", "Kadaladi Coastal Aquifer Tract", 32.20, 33.07, 1.03, 3.17]
     ]
     for r_i, row in enumerate(t4_data, 35):
         for c_i, val in enumerate(row, 1):
@@ -371,11 +371,11 @@ def populate_submission_folder():
 
     # Table 4: Literature Validation
     t4_df = pd.DataFrame([
-        {"Station ID": "REF_LOC_01", "Reference Location Name": "Sayalgudi Coastal Borewell (Station 3)", "Coordinates": "9.2106°N, 78.3941°E", "Published Literature HPI": 34.50, "GHMIS Calculated HPI": 33.58, "Deviation (%)": 2.68},
-        {"Station ID": "REF_LOC_02", "Reference Location Name": "Mudukulathur Agriculture Well (Station 2)", "Coordinates": "9.3615°N, 78.4504°E", "Published Literature HPI": 25.35, "GHMIS Calculated HPI": 25.74, "Deviation (%)": 1.54},
-        {"Station ID": "REF_LOC_03", "Reference Location Name": "Kadaladi Town Monitoring Well (Station 14)", "Coordinates": "9.2406°N, 78.5750°E", "Published Literature HPI": 31.10, "GHMIS Calculated HPI": 31.60, "Deviation (%)": 1.61},
-        {"Station ID": "REF_LOC_04", "Reference Location Name": "Valinokkam Marine Boundary (Station 25)", "Coordinates": "9.1747°N, 78.5096°E", "Published Literature HPI": 40.28, "GHMIS Calculated HPI": 41.35, "Deviation (%)": 2.65},
-        {"Station ID": "COMPOSITE", "Reference Location Name": "OVERALL BENCHMARK AVERAGE", "Coordinates": "Kadaladi Coastal Aquifer Tract", "Published Literature HPI": 32.81, "GHMIS Calculated HPI": 33.07, "Deviation (%)": 2.12}
+        {"Station ID": "REF_LOC_01", "Reference Location Name": "Sayalgudi Coastal Borewell (Station 3)", "Coordinates": "9.2107°N, 78.3941°E", "Published Literature HPI": 33.90, "GHMIS Calculated HPI": 33.58, "Deviation (%)": 0.95},
+        {"Station ID": "REF_LOC_02", "Reference Location Name": "Mudukulathur Agriculture Well (Station 2)", "Coordinates": "9.3615°N, 78.4505°E", "Published Literature HPI": 24.86, "GHMIS Calculated HPI": 25.74, "Deviation (%)": 3.54},
+        {"Station ID": "REF_LOC_03", "Reference Location Name": "Kadaladi Town Monitoring Well (Station 14)", "Coordinates": "9.2407°N, 78.5750°E", "Published Literature HPI": 30.53, "GHMIS Calculated HPI": 31.60, "Deviation (%)": 3.51},
+        {"Station ID": "REF_LOC_04", "Reference Location Name": "Valinokkam Marine Boundary (Station 25)", "Coordinates": "9.1747°N, 78.5097°E", "Published Literature HPI": 39.50, "GHMIS Calculated HPI": 41.35, "Deviation (%)": 4.67},
+        {"Station ID": "COMPOSITE", "Reference Location Name": "OVERALL BENCHMARK AVERAGE", "Coordinates": "Kadaladi Coastal Aquifer Tract", "Published Literature HPI": 32.20, "GHMIS Calculated HPI": 33.07, "Deviation (%)": 3.17}
     ])
     t4_df.to_csv(os.path.join(SUBMISSION_DIR, "3_Table4_Literature_Validation_Narayanan.csv"), index=False)
 
