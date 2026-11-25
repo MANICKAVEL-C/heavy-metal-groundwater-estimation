@@ -1,7 +1,7 @@
 # ==============================================================================
 # Groundwater Heavy Metal Intelligence System (GHMIS)
-# Smart India Hackathon SIH25067 | Ministry of Jal Shakti | Govt. of India
-# Team: Manickavel C (ECE), D Dhinesh Karthick | Chennai Institute of Technology
+# Hack Kumbh | Ministry of Jal Shakti | Govt. of India
+# Team HydroGuard: Manickavel C (Saveetha Engineering College) | Afnan Ahamed K M, Prithish S, Simon Jaques Mascrenhas (CIT)
 # ==============================================================================
 
 import streamlit as st
@@ -111,7 +111,7 @@ if os.path.exists(benchmarks_path):
 # ------------------------------------------------------------------------------
 st.markdown(f"""
 <div class="hero">
-    <div class="hero-eyebrow">SIH25067 &middot; MINISTRY OF JAL SHAKTI &middot; TAMIL NADU WATER SUPPLY (TWAD)</div>
+    <div class="hero-eyebrow">Hack Kumbh &middot; MINISTRY OF JAL SHAKTI &middot; TAMIL NADU WATER SUPPLY (TWAD)</div>
     <div class="hero-title">{T['title']}</div>
     <div class="hero-subtitle">{T['subtitle']}</div>
 </div>

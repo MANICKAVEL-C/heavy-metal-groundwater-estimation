@@ -1,6 +1,6 @@
 /* ==============================================================================
  * ESP32 Groundwater Monitoring Node Firmware
- * Project: AI-Driven Assessment of Heavy Metal Pollution Indices
+ * Project: GHMIS - Groundwater Health Monitoring & Intelligence System
  * Target MCU: ESP-WROOM-32 / NodeMCU ESP32
  * 
  * Hardware Sensors:

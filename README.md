@@ -1,7 +1,7 @@
-# 🌊 Groundwater Heavy Metal Intelligence System (GHMIS)
-### Decision Support & Surrogate Sensing for Potable Aquifer Governance
-**Smart India Hackathon (SIH25067) &middot; Ministry of Jal Shakti &middot; Govt. of India**  
-**Team:** Manickavel C (ECE, 2nd Year), D Dhinesh Karthick | *Chennai Institute of Technology*
+# 🌊 Groundwater Health Monitoring & Intelligence System (GHMIS)
+### Community-Driven Water Quality Dashboard with IoT Sensing & Geostatistical Mapping
+**Hack Kumbh &middot; Theme 03: Addressing Social Issues &middot; PS #04: Water Scarcity & Groundwater Monitoring**  
+**Team HydroGuard:** Manickavel C (Team Leader, Saveetha Engineering College) | Afnan Ahamed K M, Prithish S, Simon Jaques Mascrenhas (Chennai Institute of Technology)
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B.svg)](https://streamlit.io/)
